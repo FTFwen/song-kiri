@@ -83,8 +83,11 @@ python -m http.server 49152 --bind localhost
 | | |
 | --- | --- |
 | 线上地址 | <https://song-kiri.pages.dev> |
-| 自定义域名 | `dwkr.live`、`www.dwkr.live`（已挂到项目上，待 DNS 生效） |
+| 自定义域名 | `dwkr.live`、`www.dwkr.live`（已挂到项目上，NS 已切到 Cloudflare，等待生效） |
 | Pages 项目名 | `song-kiri` |
+| DNS | 域名在**阿里云**注册；NS 已于 2026-10-12 改为 Cloudflare 的 `garret.ns.cloudflare.com` / `suzanne.ns.cloudflare.com` |
+
+> ⚠️ `dwkr.live` 是**根域名**，Cloudflare Pages 要求根域名必须把 NS 指到 Cloudflare（外部 DNS 只能托管子域名），所以不能只加一条 CNAME。NS 切换要在域名注册商（阿里云）后台做，并需要**手机短信验证**。
 
 ```powershell
 # 1. 生成发布目录（白名单挑文件；缺素材会直接失败）

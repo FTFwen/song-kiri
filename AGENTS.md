@@ -376,9 +376,9 @@ Start-Process -FilePath $edge -ArgumentList $args -Wait -NoNewWindow `
 | --- | --- |
 | 托管 | **Cloudflare Pages**（项目名 `song-kiri`，直接上传，**未接 Git 自动构建**） |
 | 线上地址 | <https://song-kiri.pages.dev> |
-| 自定义域名 | `dwkr.live` + `www.dwkr.live`（已挂到项目上，**等待 DNS 生效**） |
+| 自定义域名 | `dwkr.live` + `www.dwkr.live`（已挂到项目上，**等待 NS 生效**，见 12.6） |
 | Cloudflare 账号 | `Ftfwen@gmail.com's Account`，Account ID `93dba8a5c9a9ef865311c1c8c8abee99` |
-| 域名注册商 | **阿里云 / 万网**（HiChina），NS 默认是 `dns1.hichina.com` / `dns2.hichina.com` |
+| 域名注册商 | **阿里云 / 万网**（HiChina）。NS 已于 2026-10-12 从 `dns1/dns2.hichina.com` 改为 Cloudflare 的 `garret/suzanne.ns.cloudflare.com` |
 | 仓库 | <https://github.com/FTFwen/song-kiri>（与 Pages **没有**关联，部署靠手动命令） |
 
 ### 12.2 部署命令（每次改完页面都走这三步）
@@ -428,14 +428,48 @@ X [ERROR] Invalid account ID "你的 Cloudflare Account ID" set in the `CLOUDFLA
 - `.m4a` 的 `Content-Type` 由 Cloudflare 自动识别为 `audio/mp4`，**不需要**手工指定。
 - `404.html` 放在根目录，Cloudflare Pages 会用它作为找不到页面时的响应，并返回**真正的 404 状态码**。没有它时 Pages 会把 `index.html` 以 **200** 返回（软 404）。
 
-### 12.6 自定义域名的解析（截至 2026-10-12）
+### 12.6 自定义域名的解析（截至 2026-10-12，NS 已切换、等待生效）
 
-`dwkr.live` 在**阿里云**注册（2026-10-12 刚注册），NS 还是阿里云默认的 `dns1/dns2.hichina.com`。
+`dwkr.live` 在**阿里云 / 万网**注册（2026-10-12 注册），默认 NS 是 `dns1/dns2.hichina.com`。
 
-要让**根域名** `dwkr.live` 指向 Pages，必须把 NS 改成 Cloudflare 分配的那两个（阿里云解析不给根域名加 CNAME）：
+**为什么必须换 NS**：Cloudflare Pages 官方文档明确要求，用**根域名（apex）**做自定义域名时必须把 NS 指到 Cloudflare——外部 DNS 只能托管**子域名**（加 CNAME）。所以不能只靠阿里云解析加一条 `@` 的 CNAME。
 
-1. 在 Cloudflare 后台 **Add a site** 添加 `dwkr.live`（Free 计划），拿到两个 NS；
-2. 去阿里云「域名 → DNS 修改」把 NS 换成这两个；
-3. 等 NS 生效后，Cloudflare 会自动为 `dwkr.live` / `www.dwkr.live` 建好 CNAME 并签发证书。
+**已完成的步骤（2026-10-12 当天做完）**：
 
-两个自定义域名已通过 API 挂在 Pages 项目上（`POST /accounts/<acc>/pages/projects/song-kiri/domains`），当前 `status=pending`，等 DNS 生效后会自动变绿。
+1. Cloudflare 后台 **Add a site** 添加 `dwkr.live`（Free 计划）→ zone `id = ecc2d9ba7853e4696873cc737f70ec74`，分配到的 NS 是
+   **`garret.ns.cloudflare.com`** / **`suzanne.ns.cloudflare.com`**（和本账号里 `viridis.love` 用的是同一对）。
+2. 在该 zone 的 DNS 表里手工加了**两条 Proxied CNAME**，Content 都是 `song-kiri.pages.dev`：一条 Name `dwkr.live`（apex，走 Cloudflare 的 CNAME flattening），一条 Name `www`。
+3. 阿里云控制台「域名 → DNS 管理 → DNS修改 → 修改DNS服务器」把 NS 换成上面两个。
+   ⚠️ 提交时会弹**「请确认该操作」的手机短信验证**（`156*****324`），需要账号持有人提供验证码，**agent 自己过不去这一步**。
+4. 阿里云面板的「当前DNS服务器」已显示成 `garret.ns.cloudflare.com` / `suzanne.ns.cloudflare.com`。
+
+**当时的状态**：Cloudflare 侧 zone `status = pending`；Pages 的两个自定义域名 `dwkr.live` / `www.dwkr.live` 仍是 `status=pending`、`error_message = "CNAME record not set"`。公共 DNS（223.5.5.5 / 8.8.8.8）**仍返回旧的 `dns1/dns2.hichina.com`**——注册局的 NS 变更要几分钟到几小时才传播，阿里云面板自己写的是「24-48 小时」。
+
+**接下来会自动发生**：NS 生效 → Cloudflare 检测到 → zone 转 `active` → `dwkr.live` / `www.dwkr.live` 转 `active`，由 Google CA 自动签发证书。
+
+**怎么查进度**（OAuth token 从 `%APPDATA%\xdg.config\.wrangler\config\default.toml` 的 `oauth_token` 取，注意该 token 只有 `zone (read)`）：
+
+```powershell
+# NS 有没有传播
+Resolve-DnsName dwkr.live -Type NS -Server 223.5.5.5
+Resolve-DnsName dwkr.live -Type NS -Server 8.8.8.8
+
+# Cloudflare 侧 zone / 自定义域名状态
+$h = @{ Authorization = "Bearer $tok" }
+Invoke-RestMethod "https://api.cloudflare.com/client/v4/zones?name=dwkr.live" -Headers $h | % result | ft id,name,status
+Invoke-RestMethod "https://api.cloudflare.com/client/v4/accounts/93dba8a5c9a9ef865311c1c8c8abee99/pages/projects/song-kiri/domains" -Headers $h | % result | ft name,status
+```
+
+另外提醒：`virdis.live`（少一个 `w`）也是本账号名下的域名，**不是**这个站要用的，别搞混。
+
+### 12.7 用浏览器技能（bsk）操作后台的备忘
+
+本机装了 `bsk`（browser-skill，可执行文件 `c:\users\taihexiongdi251215\.local\bin\bsk.exe`），可以直接驱动已登录的 Edge 操作 Cloudflare / 阿里云后台。踩过的坑：
+
+- `bsk status` 有可能**永久挂住**（daemon IPC 不可达）；`bsk doctor` 报 `FAIL daemon running`、`bsk daemon restart` 报 `restart failed during stop phase`。这些**都不影响使用**——直接 `bsk browsers --json` 拿到已连接的 Edge instance id，再 `bsk session start --browser <id> --json`。
+- 所有会话级子命令都要 `--session <id>`（`snapshot` / `click` / `fill` / `evaluate` …），`navigate` 不用。`wait-ms` **不接受** `--session`。
+- `fill` 必须写 `--value <v>`，位置参数会被拒。
+- `@eN` ref **每次 snapshot/observe 后都会重排**，用完要重新取。
+- 会话可能中途失效（报 `requested resource does not exist`），重开一个 session 再 `navigate` 回原地址即可。
+- PowerShell **执行策略禁止直接跑 `.ps1`**（未数字签名）；本仓库用 `D:\tool\webdeploy\.dsh-tmp\bsk.ps1` 作环境变量驱动的包装脚本，靠 `Invoke-Expression (Get-Content ... -Raw)` 调。
+- 阿里云控制台的中文在 PowerShell 控制台里是 GBK 乱码，但域名、NS、URL、`@eN` ref 都是 ASCII，判断靠这些就够。
