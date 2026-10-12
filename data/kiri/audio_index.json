@@ -1,10 +1,10 @@
 {
   "roomKey": "kiri",
   "roomId": "",
-  "generatedAt": "2026-10-12T09:57:57.516Z",
+  "generatedAt": "2026-10-12T10:12:12.958Z",
   "source": "song-cut-audio-download",
   "description": "每首歌对应的翻唱切片音频（从 B 站歌切视频下载），供网页在线播放。",
-  "count": 34,
+  "count": 35,
   "audios": {
     "好想你": "media/BV1k3pY6WEvQ.m4a",
     "普通朋友": "media/BV1rGpY6XEDd.m4a",
@@ -39,7 +39,8 @@
     "讲真的": "media/BV1mWax6eEnZ.m4a",
     "チルノのパーフェクトさんすう教室": "media/BV1TyeN67ECU.m4a",
     "勾指起誓": "media/BV1VaeN6xE1u.m4a",
-    "虫儿飞": "media/BV1TZeF6PEcY.m4a"
+    "虫儿飞": "media/BV1TZeF6PEcY.m4a",
+    "mosi mosi?": "media/BV1bTYx6gEqU.m4a"
   },
   "verificationTargets": []
 }

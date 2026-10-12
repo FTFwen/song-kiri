@@ -2,16 +2,22 @@
 
 记录 `data/songs.json` 中每一首歌切的来源与判定依据，方便任何设备上的 AI 复核或继续补充。
 
-- **UP 主**：退烧药777
-- **mid**：`141266664`
-- **筛选条件**：`owner.mid = 141266664`；曲名能从 B 站 BGM 标签 `发现《曲名》` 判定出来的唱歌投稿
+- **UP 主**：冬雾kiri
+- **投稿人白名单**（与 `tools/fetch-media.mjs` 的 `ALLOWED_UPLOADERS` 保持一致，`owner.mid` 不在表里的一律不收）：
+
+  | 投稿人 | mid | 收什么 | 条数 |
+  | --- | --- | --- | --- |
+  | 退烧药777 | `141266664` | 冬雾kiri 的**歌切**（直播切片），本站主要来源 | 34 |
+  | 冬雾_kiri | `3707024510552805` | 主播**本人**发布的翻唱投稿 | 1 |
+
+- **筛选条件**：`owner.mid` 命中上面的白名单；曲名能从 B 站 BGM 标签 `发现《曲名》` 判定出来的唱歌投稿
 - **去重规则**：按曲名去重，同名只保留 `pubdate` 最新的一条
 - **素材存放**：音频与封面**不入库**（`.gitignore` 已忽略 `media/`），各设备跑 `node tools/fetch-media.mjs` 自行拉取
-- **最近更新**：2026-10-12（从 7 首扩到 34 首）
+- **最近更新**：2026-10-12（从 7 首扩到 34 首，再补上主播本人的 1 首 → **35 首**）
 
 ---
 
-## 已收录（34 首）
+## 已收录（35 首）
 
 按发布时间倒序，与 `data/songs.json` 的数组顺序一致。
 
@@ -51,6 +57,7 @@
 | 32 | チルノのパーフェクトさんすう教室 | `BV1TyeN67ECU` | 2026-09-17 02:29:47 | 300s | 日语 | 标签 `发现《チルノのパーフェクトさんすう教室》`；标题「唱数学教室」 |
 | 33 | 勾指起誓 | `BV1VaeN6xE1u` | 2026-09-17 01:50:54 | 175s | 国语 | 标签 `发现《勾指起誓》`；标题同词 |
 | 34 | 虫儿飞 | `BV1TZeF6PEcY` | 2026-09-16 10:59:25 | 132s | 国语 | 标签 `发现《虫儿飞》`；标题同词 |
+| 35 | mosi mosi? | `BV1bTYx6gEqU` | 2026-09-09 18:15:37 | 24s | 日语 | 标签 `发现《mosi mosi?》`；**投稿人是主播本人**（`冬雾_kiri`），不是歌切 |
 
 > 曲名判定一律以 B 站 BGM 标签里的 `发现《曲名》` 为准；标题里的 `《曲名》` 或歌词原句作为交叉验证。
 > 若两者都无法确定曲名，**不要猜测**，先向用户确认。
@@ -60,6 +67,13 @@
 
 > ⚠️ 表里的「时长」是 `songs.json` 的 `duration`，取自 B 站 `view` 接口的秒数。
 > 它与音频文件的实际长度可能有 1 秒以内的舍入差，页面只读到秒。
+
+### 关于第 35 首《mosi mosi?》
+
+- **投稿人是主播本人**（`冬雾_kiri`，mid `3707024510552805`），不是切片man 的歌切，所以标签写的是 `本人投稿` 而不是 `歌切`。
+- 这条视频是 **24 秒**的【新v翻唱】演示片段，不是完整整首歌。
+- 语言判为**日语**的依据：作者自己给这条视频打的 channel 标签里有「**日语翻唱**」和「**楽音**」；曲名 `mosi mosi?` 是日语「もしもし」（喂）的罗马字；这首歌是日本歌手 **楽音** 2026-04-22 发行的同名单曲（[歌ネット 歌词页](https://www.uta-net.com/song/392960/)、[Apple Music](https://music.apple.com/jp/album/mosi-mosi-single/1891658886)）。
+- 收录缘由：用户 2026-10-12 直接给了这条链接要求搬上来，并同意把收录范围放宽为「退烧药777 的歌切 + 冬雾_kiri 本人发布的翻唱」。
 
 ---
 
@@ -104,7 +118,8 @@ GET https://api.bilibili.com/x/polymer/web-dynamic/v1/feed/space?host_mid=141266
 - 响应 `data.items[]`，视频投稿在 `item.modules.module_dynamic.major.archive`（`bvid` / `title` / `duration_text`）。
 - `item.modules.module_author.pub_ts` 是 **UTC 秒**，写进 `songs.json` 的 `publishedAt` 要 **+8 小时**。
 - 用 `data.has_more` 与 `data.offset` 翻页，每页之间间隔 1 秒以上。
-- 2002 年以前的？没有——本站 UP 主共 **93 条投稿**，覆盖 2026-08-21 → 2026-10-11。
+- 本站 UP 主 `退烧药777` 共 **93 条投稿**，覆盖 2026-08-21 → 2026-10-11。
+- ⚠️ 另一个投稿人 `冬雾_kiri`（mid `3707024510552805`，主播本人）**暂时没法用这个接口翻**：把 `host_mid` 换成她这个 mid 会返回 **HTTP 412**（2026-10-12 实测）。只能人工看 `https://space.bilibili.com/3707024510552805/video`，再逐条 `view/detail` 核实归属与曲名。
 
 辅助接口（都能用）：`x/space/upstat`（只有播放数）、`x/polymer/web-space/seasons_series_list`（本站返回空，没有合集）。
 
@@ -129,7 +144,7 @@ node tools/fetch-media.mjs --check  # 只体检
 node tools/fetch-media.mjs --force  # 全部重下
 ```
 
-内部流程：`x/web-interface/view` 核 `owner.mid` → `x/player/playurl?fnval=16&qn=64` 取 `dash.audio` 里
+内部流程：`x/web-interface/view` 核 `owner.mid`（**必须命中 `ALLOWED_UPLOADERS` 白名单**，否则报「归属不符」并拒绝下载）→ `x/player/playurl?fnval=16&qn=64` 取 `dash.audio` 里
 `bandwidth` 最大的一条 → 音频存 `media/<BV>.m4a`，封面（`data.pic`）存 `media/covers/<BV>.jpg`。
 
 ### 4. 重建页面数据
@@ -151,6 +166,7 @@ node tools/build-data.mjs
 
 ## 待补充
 
-- 本次已把该 UP 主**全部 93 条投稿**过了一遍，能判出曲名的 34 首都在上表，其余是录播 / 切片 / 杂谈 / ASMR，不是歌。
+- `退烧药777` 名下**全部 93 条投稿**已过了一遍，能判出曲名的 34 首都在上表，其余是录播 / 切片 / 杂谈 / ASMR，不是歌。
+- `冬雾_kiri`（主播本人）目前只收了 `BV1bTYx6gEqU` 一首；她的历史投稿**还没有系统翻过**（那个 mid 走动态流接口返回 412，见「采集方式」第 1 步）。
 - `BV16zax6WEid` 的曲名待确认（用户已知，暂缓收录）。
-- 后续该 UP 主再发歌切时：重跑第 1 步拿新 BV → 第 2 步判曲名 → 追加到上表与 `data/songs.json`。
+- 后续再来新投稿时：重跑第 1 步拿新 BV → 第 2 步判曲名 → 追加到上表与 `data/songs.json` → 跑 `fetch-media.mjs` 与 `build-data.mjs` → 跑一遍 `AGENTS.md` 第 7 节的验证清单。

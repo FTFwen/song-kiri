@@ -1,7 +1,7 @@
 {
   "roomKey": "kiri",
   "roomId": "",
-  "generatedAt": "2026-10-12T09:57:57.516Z",
+  "generatedAt": "2026-10-12T10:12:12.958Z",
   "source": "song-kiri-bilibili-cuts",
   "songs": [
     {
@@ -717,6 +717,27 @@
       "status_labels": "歌切",
       "last_sing_at": "2026-09-16",
       "row_key": "虫儿飞"
+    },
+    {
+      "song_id": 35,
+      "song_name": "mosi mosi?",
+      "show_as_song_name": "",
+      "display_song_name": "mosi mosi?",
+      "artist": "冬雾kiri",
+      "artist_search": "冬雾kiri",
+      "feat_artist": "",
+      "remark": "冬雾_kiri 投稿的冬雾kiri翻唱，原视频 https://www.bilibili.com/video/BV1bTYx6gEqU/",
+      "tone": "",
+      "language": "日语",
+      "type": "翻唱、本人投稿",
+      "identification": "",
+      "display_version": "",
+      "search_name": "mosi mosi?",
+      "cut_link": "https://www.bilibili.com/video/BV1bTYx6gEqU/",
+      "sing_count": 1,
+      "status_labels": "本人投稿",
+      "last_sing_at": "2026-09-09",
+      "row_key": "mosi mosi?"
     }
   ]
 }

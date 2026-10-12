@@ -2,6 +2,10 @@
   "source": {
     "uploader": "退烧药777",
     "mid": "141266664",
+    "uploaders": [
+      { "name": "退烧药777", "mid": "141266664", "role": "歌切切片man（主要来源）" },
+      { "name": "冬雾_kiri", "mid": "3707024510552805", "role": "主播本人（自己发布的翻唱投稿）" }
+    ],
     "deduplicatedBy": "歌曲名；同名仅保留最新发布版本",
     "updatedAt": "2026-10-12"
   },
@@ -618,6 +622,24 @@
       "sourceUploader": "退烧药777",
       "sourcePubdate": 1789527565,
       "sourceDuration": 132
+    },
+    {
+      "id": "BV1bTYx6gEqU",
+      "title": "mosi mosi?",
+      "artist": "冬雾kiri",
+      "language": "日语",
+      "category": "翻唱",
+      "tags": [
+        "本人投稿"
+      ],
+      "publishedAt": "2026-09-09 18:15:37",
+      "duration": 24,
+      "audio": "./media/BV1bTYx6gEqU.m4a",
+      "cover": "./media/covers/BV1bTYx6gEqU.jpg",
+      "sourceTitle": "📞ᗜ ˰ ᗜmosi mosi？有接受到kiri的电波吗？【新v翻唱】",
+      "sourceUploader": "冬雾_kiri",
+      "sourcePubdate": 1788948937,
+      "sourceDuration": 24
     }
   ]
 }

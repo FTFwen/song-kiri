@@ -30,6 +30,18 @@ const HEADERS = {
 const API_DELAY_MS = 1200;
 const MAX_RETRY = 3;
 
+/**
+ * 允许的投稿人白名单（B 站 mid → 名字）。
+ * 视频的 owner.mid 必须命中其中之一，否则视为「混进了别人的视频」并拒绝下载。
+ *   - 退烧药777：冬雾kiri 的歌切切片man（本站的主要来源）
+ *   - 冬雾_kiri：主播本人（她自己也发翻唱投稿）
+ * 新增投稿人时**必须**同时更新这里和 AGENTS.md 第 2 节第 7 条。
+ */
+const ALLOWED_UPLOADERS = new Map([
+  ['141266664', '退烧药777'],
+  ['3707024510552805', '冬雾_kiri']
+]);
+
 const args = new Set(process.argv.slice(2));
 const FORCE = args.has('--force');
 const CHECK_ONLY = args.has('--check');
@@ -87,9 +99,10 @@ function formatSize(bytes) {
 
 async function collectStreams(bvid) {
   const view = await apiJson(`https://api.bilibili.com/x/web-interface/view?bvid=${bvid}`);
-  const owner = view.owner?.mid;
-  if (String(owner) !== '141266664') {
-    throw new Error(`归属不符：owner.mid=${owner}，期望 141266664`);
+  const owner = String(view.owner?.mid ?? '');
+  if (!ALLOWED_UPLOADERS.has(owner)) {
+    const allowed = [...ALLOWED_UPLOADERS].map(([mid, name]) => `${name}(${mid})`).join('、');
+    throw new Error(`归属不符：owner=${view.owner?.name ?? '未知'}(mid=${owner})，只接受 ${allowed}`);
   }
   await sleep(API_DELAY_MS);
 

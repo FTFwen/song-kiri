@@ -1,10 +1,10 @@
 {
   "roomKey": "kiri",
   "roomId": "",
-  "generatedAt": "2026-10-12T09:57:57.516Z",
+  "generatedAt": "2026-10-12T10:12:12.958Z",
   "source": "song-cut-title-index",
   "description": "每首歌对应的歌切切片标题（单曲歌切视频标题），供前端歌切链接显示。",
-  "count": 34,
+  "count": 35,
   "cuts": {
     "好想你": {
       "title": "【冬雾kiri歌切】这首歌会不会太甜了 也许是我牙口不好吧",
@@ -175,6 +175,11 @@
       "title": "【冬雾kiri】兄弟你听我说她真的不一样，她给我唱虫儿飞了....",
       "kind": "single",
       "url": "https://www.bilibili.com/video/BV1TZeF6PEcY/"
+    },
+    "mosi mosi?": {
+      "title": "📞ᗜ ˰ ᗜmosi mosi？有接受到kiri的电波吗？【新v翻唱】",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1bTYx6gEqU/"
     }
   }
 }

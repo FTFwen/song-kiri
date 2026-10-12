@@ -1,7 +1,7 @@
 {
   "roomKey": "kiri",
   "roomId": "",
-  "generatedAt": "2026-10-12T09:57:57.516Z",
+  "generatedAt": "2026-10-12T10:12:12.958Z",
   "source": "song-kiri-bilibili-cuts",
   "bySongKey": {
     "好想你": {
@@ -817,6 +817,30 @@
           "lyric_excerpt": "",
           "song_resolution_method": "song-cut-title",
           "cut_link": "https://www.bilibili.com/video/BV1TZeF6PEcY/"
+        }
+      ]
+    },
+    "mosi mosi?": {
+      "row_key": "mosi mosi?",
+      "song_name": "mosi mosi?",
+      "display_song_name": "mosi mosi?",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1bTYx6gEqU/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-09-09",
+          "time": "",
+          "end_time": "",
+          "status": "本人投稿",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1bTYx6gEqU",
+          "replay_title": "📞ᗜ ˰ ᗜmosi mosi？有接受到kiri的电波吗？【新v翻唱】",
+          "replay_url": "https://www.bilibili.com/video/BV1bTYx6gEqU/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1bTYx6gEqU/"
         }
       ]
     }

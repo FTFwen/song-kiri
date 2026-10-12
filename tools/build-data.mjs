@@ -103,6 +103,10 @@ function main() {
     const url = cutUrl(song.id);
     const tags = Array.isArray(song.tags) ? song.tags.filter(Boolean) : [];
     const labels = [song.category, ...tags].filter(Boolean);
+    // 投稿人按歌曲各自记录（歌切来自切片man，本人投稿来自主播自己）
+    const songUploader = song.sourceUploader || uploader || '投稿者';
+    // 措辞跟着标签走：带「歌切」标签的是直播切片，其余按翻唱投稿描述
+    const songKind = tags.includes('歌切') ? '歌切' : '翻唱';
 
     catalogSongs.push({
       song_id: index + 1,
@@ -112,7 +116,7 @@ function main() {
       artist: song.artist || '',
       artist_search: String(song.artist || '').replace(/[^\p{L}\p{N}]+/gu, ' ').trim(),
       feat_artist: '',
-      remark: `${uploader} 投稿的冬雾kiri歌切，原视频 ${url}`,
+      remark: `${songUploader} 投稿的冬雾kiri${songKind}，原视频 ${url}`,
       tone: '',
       language: song.language || '',
       type: labels.join('、'),
