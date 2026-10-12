@@ -443,9 +443,17 @@ X [ERROR] Invalid account ID "你的 Cloudflare Account ID" set in the `CLOUDFLA
    ⚠️ 提交时会弹**「请确认该操作」的手机短信验证**（`156*****324`），需要账号持有人提供验证码，**agent 自己过不去这一步**。
 4. 阿里云面板的「当前DNS服务器」已显示成 `garret.ns.cloudflare.com` / `suzanne.ns.cloudflare.com`。
 
-**当时的状态**：Cloudflare 侧 zone `status = pending`；Pages 的两个自定义域名 `dwkr.live` / `www.dwkr.live` 仍是 `status=pending`、`error_message = "CNAME record not set"`。公共 DNS（223.5.5.5 / 8.8.8.8）**仍返回旧的 `dns1/dns2.hichina.com`**——注册局的 NS 变更要几分钟到几小时才传播，阿里云面板自己写的是「24-48 小时」。
+**当时的状态**：Cloudflare 侧 zone `status = pending`；Pages 的两个自定义域名 `dwkr.live` / `www.dwkr.live` 仍是 `status=pending`、`error_message = "CNAME record not set"`。
 
-**接下来会自动发生**：NS 生效 → Cloudflare 检测到 → zone 转 `active` → `dwkr.live` / `www.dwkr.live` 转 `active`，由 Google CA 自动签发证书。
+**怎么判断卡在哪一步（2026-10-12 实测的重要区分）**：
+
+- **注册局数据库**已经记下了新 NS：`Invoke-RestMethod 'https://rdap.org/domain/dwkr.live'` 的 `nameservers` 返回 `garret.ns.cloudflare.com` / `suzanne.ns.cloudflare.com`。
+- 但 **注册局的权威 DNS 区文件还没重新发布**：直接向 `.live` 的六个权威服务器（`v0n0~v0n3.nic.live` = `65.22.20.1`/`.21.1`/`.22.1`/`161.232.10.1`，`v2n0/v2n1.nic.live` = `65.22.23.1`/`161.232.11.1`）发**原始 UDP 查询**，六个全部仍返回 `dns1.hichina.com` / `dns2.hichina.com`，**TTL 3600**。
+- 也就是说：**卡在注册局发布区文件这一步，跟 Cloudflare、阿里云面板、我们的代码都无关**。委派 TTL 只有 1 小时，所以注册局一发布，各递归解析器最多再 1 小时就全线跟上。
+
+诊断脚本：`node .dsh-tmp/dns-raw.mjs <TLD权威IP> [...]`（一次性工具，不入库；本机 DNS 被代理劫持成 `198.18.x.x` fake-IP，`nslookup <域名> <服务器>` 拿不到真实结果，必须用原始 UDP 绕过）。
+
+**接下来会自动发生**：注册局发布新委派 → 递归解析器缓存过期 → Cloudflare 检测到 → zone 转 `active` → `dwkr.live` / `www.dwkr.live` 转 `active`，由 Google CA 自动签发证书。阿里云面板自己写的是「24-48 小时」，实际通常快得多。
 
 **怎么查进度**（OAuth token 从 `%APPDATA%\xdg.config\.wrangler\config\default.toml` 的 `oauth_token` 取，注意该 token 只有 `zone (read)`）：
 
