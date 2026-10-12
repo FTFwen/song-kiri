@@ -162,8 +162,32 @@ node -e "const fs=require('fs');const j=JSON.parse(fs.readFileSync('data/songs.j
 
 ## 9. 跨设备同步约定
 
+- **远程仓库**：<https://github.com/FTFwen/song-kiri>（公开）
+- **默认分支**：`main`
+- **与 `viridis.love` 的关系**：无。本仓库是独立仓库，不是 `xiaosonglu-songlist-web` 的子目录或子模块，也**不要**把它合并回去。
+
+流程：
+
 1. 开工前先 `git pull`，确保拿到最新的 `songs.json` 与 `media/`。
-2. 媒体文件较大（当前约 34 MB），**不要**用 LFS；直接普通提交即可。
-3. 收工前运行第 7 节的验证清单，然后 `git add -A && git commit && git push`。
+2. 收工前运行第 7 节的验证清单，然后 `git add -A && git commit && git push`。
+3. 媒体文件较大（当前约 34 MB），**不要**用 LFS；直接普通提交即可。
 4. 如果某台设备上 `git pull` 后媒体文件缺失，说明该文件尚未提交——用第 6 节的流程重新下载，或先 `git push` 源设备。
 5. 新增或修改规则后，更新本文件与 `README.md`，让下一台设备上的 AI 直接照着做。
+
+### 推送失败的排查
+
+大批媒体文件首次推送时，如果遇到下面这类错误：
+
+```text
+error: unable to rewind rpc post data - try increasing http.postBuffer
+error: RPC failed; curl 65 Recv failure: Connection was reset
+```
+
+按顺序试这两条（本仓库 `.git/config` 里已经设好）：
+
+```powershell
+git config http.version HTTP/1.1
+git config http.postBuffer 524288000
+```
+
+如果 `git ls-remote` 直接报 `Recv failure: Connection was reset`，通常也是 HTTP/2 的问题，改用 `HTTP/1.1` 即可。
