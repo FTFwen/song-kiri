@@ -24,3 +24,9 @@ node_modules/
 
 # 歌曲素材：音频与封面不入库，各设备用 tools/fetch-media.mjs 自行拉取
 media/
+
+# Cloudflare 发布用：deploy-stage/ 由 tools/stage-deploy.mjs 现生成（含硬链接的 media，绝不入库）
+deploy-stage/
+
+# wrangler 自己的缓存
+.wrangler/

@@ -22,7 +22,9 @@ import { join, relative, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
-const SKIP_DIRS = new Set(['.git', '.dsh-tmp', 'media', 'node_modules']);
+// ⚠️ deploy-stage/ 是 tools/stage-deploy.mjs 生成的发布副本，里面的文件与源文件逐字相同，
+//    不跳过的话每一处残留都会被**重复报一遍**（实测 4 处变 8 处），让人误以为多了新问题。
+const SKIP_DIRS = new Set(['.git', '.dsh-tmp', 'media', 'node_modules', 'deploy-stage']);
 const EXTS = new Set(['.js', '.mjs', '.css', '.html']);
 
 const TARGET_H = 214;

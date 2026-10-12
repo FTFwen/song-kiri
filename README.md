@@ -76,13 +76,44 @@ python -m http.server 49152 --bind localhost
 > 直接双击 `index.html`（`file://`）也能看到歌单——`js/data.js` 里内嵌了同一份数据作为回退——
 > 但 `file://` 下浏览器会拦截 `fetch`，属于降级模式，日常请用静态服务器。
 
+## 部署
+
+托管在 **Cloudflare Pages**，直接上传、不接 Git 自动构建：
+
+| | |
+| --- | --- |
+| 线上地址 | <https://song-kiri.pages.dev> |
+| 自定义域名 | `dwkr.live`、`www.dwkr.live`（已挂到项目上，待 DNS 生效） |
+| Pages 项目名 | `song-kiri` |
+
+```powershell
+# 1. 生成发布目录（白名单挑文件；缺素材会直接失败）
+node tools/stage-deploy.mjs
+
+# 2. 修掉本机一个环境变量坑（详见 AGENTS.md 第 12 节）
+$env:CLOUDFLARE_ACCOUNT_ID = '93dba8a5c9a9ef865311c1c8c8abee99'
+Remove-Item Env:CLOUDFLARE_API_TOKEN -ErrorAction SilentlyContinue
+
+# 3. 上传
+npx wrangler pages deploy --project-name song-kiri --branch main --commit-dirty=true
+```
+
+**注意**：`wrangler pages deploy` 是整目录上传、**不读 `.gitignore`**，所以不能直接传仓库根目录。
+`tools/stage-deploy.mjs` 用白名单生成 `deploy-stage/`，只放页面真正需要的 28 个文件（含约 34 MB 音频与封面，用硬链接，不额外占空间）。
+`AGENTS.md` / `README.md` / `tools/` / `.dsh-tmp/` / `.git/` 都不会被发布出去。
+
+部署细节、环境变量坑、`_headers` 与自定义域名的解析步骤，都写在 [`AGENTS.md` 第 12 节](./AGENTS.md)。
+
 ## 目录结构
 
 ```text
 song-kiri/
 ├── AGENTS.md              # AI 维护契约（活文档）
 ├── index.html             # 页面结构
+├── 404.html               # 找不到页面时的响应（让 Pages 返回真实 404）
 ├── styles.css             # 样式（中性配色）
+├── _headers               # Cloudflare Pages 响应头规则
+├── wrangler.toml          # Cloudflare Pages 项目配置
 ├── css/motion.css         # 动效样式
 ├── js/
 │   ├── shared.js          # 单房间配置 + 数据归一化
@@ -97,7 +128,8 @@ song-kiri/
 ├── tools/
 │   ├── build-data.mjs     # songs.json -> data/kiri/* + js/data.js
 │   ├── fetch-media.mjs    # 拉取缺失的音频与封面
-│   └── scan-green.mjs     # 体检：还有没有漏网的橄榄 / 黄绿色系色值
+│   ├── scan-green.mjs     # 体检：还有没有漏网的橄榄 / 黄绿色系色值
+│   └── stage-deploy.mjs   # 生成 deploy-stage/（发布白名单 + 素材体检）
 └── media/                 # 【不入库】音频与封面，文件名即 BV 号
 ```
 

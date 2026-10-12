@@ -1,0 +1,3 @@
+name = "song-kiri"
+pages_build_output_dir = "deploy-stage"
+compatibility_date = "2026-08-20"

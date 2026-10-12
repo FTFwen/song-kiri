@@ -1,0 +1,18 @@
+# Cloudflare Pages 响应头规则（见 AGENTS.md 第 12 节）
+# 这是**唯一**一份，仓库根目录的这份会被 tools/stage-deploy.mjs 拷进发布目录。
+# 注意：多条规则同时命中时响应头会**合并**，所以这里的分组刻意互不重叠。
+
+/assets/*
+  Cache-Control: public, max-age=86400
+
+/css/*
+  Cache-Control: public, max-age=3600
+
+/js/*
+  Cache-Control: public, max-age=3600
+
+/data/*
+  Cache-Control: public, max-age=3600
+
+/media/*
+  Cache-Control: public, max-age=604800

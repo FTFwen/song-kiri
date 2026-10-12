@@ -46,7 +46,10 @@ song-kiri/
 ├── AGENTS.md              # 本文件：AI 维护契约（活文档）
 ├── README.md              # 人类可读的项目说明
 ├── index.html             # 页面结构（主站移植版）
+├── 404.html               # 找不到页面时返回（Cloudflare Pages 认这个文件名，给真实 404 状态码）
 ├── styles.css             # 主站内联 <style> 抽出 + 中性配色变换
+├── _headers               # Cloudflare Pages 响应头规则（唯一一份，见第 12 节）
+├── wrangler.toml          # Cloudflare Pages 项目配置（name / pages_build_output_dir）
 ├── css/
 │   └── motion.css         # 主站动效样式（已删桌宠 / 歌签两节）
 ├── js/
@@ -68,12 +71,15 @@ song-kiri/
 ├── tools/
 │   ├── build-data.mjs     # songs.json -> data/kiri/*.json + js/data.js
 │   ├── fetch-media.mjs    # 按 songs.json 拉取缺失的音频与封面
-│   └── scan-green.mjs     # 体检：还有没有漏网的橄榄 / 黄绿色系色值
+│   ├── scan-green.mjs     # 体检：还有没有漏网的橄榄 / 黄绿色系色值
+│   └── stage-deploy.mjs   # 挑出该发布的文件放进 deploy-stage/，供 Cloudflare Pages 上传
 └── media/                 # 【本地生成，不入库】已被 .gitignore 忽略
     ├── <BV号>.m4a         # 音频，文件名即 BV 号
     └── covers/
         └── <BV号>.jpg     # 封面，文件名即 BV 号
 ```
+
+> `deploy-stage/` 由 `tools/stage-deploy.mjs` 现生成（内含硬链接的媒体），**不入库**，已被 `.gitignore` 忽略。
 
 命名约定：**媒体文件名一律使用 BV 号**，与 `songs.json` 的 `id` 字段保持一致。这样任何设备上的 AI 都能反查来源。
 
@@ -359,3 +365,77 @@ Start-Process -FilePath $edge -ArgumentList $args -Wait -NoNewWindow `
 
    用户 2026-10-12 明确表示**先不删这些死规则**，所以保留原样。若以后要清，记得同步更新 `tools/scan-green.mjs` 顶部的白名单注释。
    ⚠️ `.badge.tone` 是其中唯一**结构上还可能活过来**的一条：哪天给某首歌补了 `tone` 字段，蓝色的页面上就会冒出一个绿徽章。
+
+---
+
+## 12. 部署（Cloudflare Pages）
+
+### 12.1 现状
+
+| 项 | 值 |
+| --- | --- |
+| 托管 | **Cloudflare Pages**（项目名 `song-kiri`，直接上传，**未接 Git 自动构建**） |
+| 线上地址 | <https://song-kiri.pages.dev> |
+| 自定义域名 | `dwkr.live` + `www.dwkr.live`（已挂到项目上，**等待 DNS 生效**） |
+| Cloudflare 账号 | `Ftfwen@gmail.com's Account`，Account ID `93dba8a5c9a9ef865311c1c8c8abee99` |
+| 域名注册商 | **阿里云 / 万网**（HiChina），NS 默认是 `dns1.hichina.com` / `dns2.hichina.com` |
+| 仓库 | <https://github.com/FTFwen/song-kiri>（与 Pages **没有**关联，部署靠手动命令） |
+
+### 12.2 部署命令（每次改完页面都走这三步）
+
+```powershell
+cd D:\tool\webdeploy\song-kiri
+
+# 1. 生成发布目录（白名单挑文件 + 素材体检，缺素材会退出码 1）
+node tools/stage-deploy.mjs
+node tools/stage-deploy.mjs --check     # 只想体检、不写文件
+
+# 2. ⚠️ 必须先修掉一个环境变量坑（见 12.4）
+$env:CLOUDFLARE_ACCOUNT_ID = '93dba8a5c9a9ef865311c1c8c8abee99'
+Remove-Item Env:CLOUDFLARE_API_TOKEN -ErrorAction SilentlyContinue
+
+# 3. 上传（目录来自 wrangler.toml 的 pages_build_output_dir，不要重复传参）
+npx wrangler pages deploy --project-name song-kiri --branch main --commit-dirty=true
+```
+
+### 12.3 发布什么、不发布什么
+
+`wrangler pages deploy` 是**按目录整个上传**的，**不读 `.gitignore`**，所以绝不能直接上传仓库根目录（否则 `.git/`、`AGENTS.md`、`.dsh-tmp/` 全会被公开）。`tools/stage-deploy.mjs` 用白名单生成 `deploy-stage/`：
+
+- **发布**：`index.html`、`404.html`、`styles.css`、`_headers`、`css/`、`js/`（4 个）、`assets/`（标题字体）、`data/kiri/`（5 个 JSON）、`media/`（音频 + 封面，**共约 34 MB**）。
+- **不发布**：`AGENTS.md`、`README.md`、`data/songs.json`、`data/SOURCES.md`、`tools/`、`.git/`、`.dsh-tmp/`、`.wrangler/`。
+- 媒体是**硬链接**（同分区零拷贝）而不是复制；跨分区时自动退回 `copyFileSync`。
+
+已实测：`https://song-kiri.pages.dev/AGENTS.md`、`/README.md`、`/data/songs.json`、`/.git/config` 全部返回 **404**（加了 `404.html` 之后不再是软 404）。
+
+### 12.4 环境变量坑（本机必踩）
+
+本机进程环境里有一个**占位符** `CLOUDFLARE_ACCOUNT_ID=你的 Cloudflare Account ID`，会让每条 wrangler 命令直接失败：
+
+```text
+X [ERROR] Invalid account ID "你的 Cloudflare Account ID" set in the `CLOUDFLARE_ACCOUNT_ID` environment variable.
+```
+
+它只存在于**进程**作用域（不是 User / Machine 级），所以部署前覆盖掉即可（见 12.2 第 2 步）。
+另外 User 级有一个 **长度为 1 的 `CLOUDFLARE_API_TOKEN`**（等于空值），会让 wrangler 优先走 token 鉴权，也要先 `Remove-Item` 掉。
+
+**鉴权走的是 OAuth**（`npx wrangler login`），凭据在 `%APPDATA%\xdg.config\.wrangler\config\default.toml`。该 token 的权限**只有 `zone (read)`，没有 `zone:write`**——所以**加站点（Add a site / 创建 zone）必须去 Cloudflare 后台做**，命令行做不了。
+
+### 12.5 `_headers` 与 `404.html`
+
+- `_headers` 是**仓库根目录唯一一份**，`stage-deploy.mjs` 会把它拷进发布目录。分 5 组：`/assets/*` 86400、`/css/*` 3600、`/js/*` 3600、`/data/*` 3600、`/media/*` 604800。
+  ⚠️ Cloudflare 对同时命中的规则是**合并响应头**的，所以这 5 组**刻意互不重叠**——别再加一条 `/media/*` 去覆盖封面类型，否则会和音频规则打架。
+- `.m4a` 的 `Content-Type` 由 Cloudflare 自动识别为 `audio/mp4`，**不需要**手工指定。
+- `404.html` 放在根目录，Cloudflare Pages 会用它作为找不到页面时的响应，并返回**真正的 404 状态码**。没有它时 Pages 会把 `index.html` 以 **200** 返回（软 404）。
+
+### 12.6 自定义域名的解析（截至 2026-10-12）
+
+`dwkr.live` 在**阿里云**注册（2026-10-12 刚注册），NS 还是阿里云默认的 `dns1/dns2.hichina.com`。
+
+要让**根域名** `dwkr.live` 指向 Pages，必须把 NS 改成 Cloudflare 分配的那两个（阿里云解析不给根域名加 CNAME）：
+
+1. 在 Cloudflare 后台 **Add a site** 添加 `dwkr.live`（Free 计划），拿到两个 NS；
+2. 去阿里云「域名 → DNS 修改」把 NS 换成这两个；
+3. 等 NS 生效后，Cloudflare 会自动为 `dwkr.live` / `www.dwkr.live` 建好 CNAME 并签发证书。
+
+两个自定义域名已通过 API 挂在 Pages 项目上（`POST /accounts/<acc>/pages/projects/song-kiri/domains`），当前 `status=pending`，等 DNS 生效后会自动变绿。
