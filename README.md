@@ -2,7 +2,7 @@
 
 一个**完全独立**的纯静态歌单页面，收录 B 站 UP 主 **退烧药777** 发布的 **冬雾kiri 歌切**。
 
-不依赖任何后端、构建工具或外部资源；音频与封面都放在仓库内，**离线也能播放**。
+不依赖任何后端、构建工具或外部资源。
 
 > 🤖 **用 AI 维护本工程，请先读 [`AGENTS.md`](./AGENTS.md)。**
 > 它记录了硬性约束、数据结构、采集流程和提交前验证清单，是跨设备协作的入口。
@@ -26,6 +26,24 @@
 
 采集来源与去重记录见 [`data/SOURCES.md`](./data/SOURCES.md)。
 
+## 关于素材
+
+**本仓库不包含任何歌曲素材。** 音频与封面在 `.gitignore` 里被忽略，需要在本机自行拉取：
+
+```powershell
+node tools/fetch-media.mjs           # 只补缺失的（新设备 clone 后跑这个）
+node tools/fetch-media.mjs --force   # 全部重新下载
+node tools/fetch-media.mjs --check   # 只检查缺什么
+```
+
+脚本只需要 **Node 18+**（用内置 `fetch`，零第三方依赖）。它会读 `data/songs.json`，校验视频归属，
+然后把音频存到 `media/<BV号>.m4a`、封面存到 `media/covers/<BV号>.jpg`。
+
+这样做的原因：`media/` 是完全由 `songs.json` 推导出来的**派生目录**，随时可重建；
+仓库只保存「收录了哪些歌」这个事实，既轻量，也不代为分发他人投稿。
+
+素材没补齐时页面仍能打开，会显示占位封面，并在播放器位置提示运行上面的命令。
+
 ## 本地运行
 
 页面通过 `fetch` 读取 JSON，所以**不要直接双击 `index.html`**，请启动任意静态服务器：
@@ -46,14 +64,16 @@ npx serve .
 
 ```text
 song-kiri/
-├── AGENTS.md         # AI 维护契约（活文档）
-├── index.html        # 页面结构
-├── styles.css        # 样式
-├── app.js            # 读取数据、筛选、排序、渲染、播放
+├── AGENTS.md            # AI 维护契约（活文档）
+├── index.html           # 页面结构
+├── styles.css           # 样式
+├── app.js               # 读取数据、筛选、排序、渲染、播放
 ├── data/
-│   ├── songs.json    # 唯一数据源
-│   └── SOURCES.md    # 采集与去重台账
-└── media/            # 音频与封面，文件名即 BV 号
+│   ├── songs.json       # 唯一数据源
+│   └── SOURCES.md       # 采集与去重台账
+├── tools/
+│   └── fetch-media.mjs  # 拉取缺失的音频与封面
+└── media/               # 【不入库】音频与封面，文件名即 BV 号
 ```
 
 ## 数据结构
@@ -88,3 +108,5 @@ song-kiri/
 ## 独立性
 
 本工程不引用父目录资源，也不依赖 `viridis.love` / `xiaosonglu-songlist-web` 的脚本、样式、数据、接口或构建流程。复制 `song-kiri` 整个目录即可单独保存、运行和推送。
+
+远程仓库：<https://github.com/FTFwen/song-kiri>

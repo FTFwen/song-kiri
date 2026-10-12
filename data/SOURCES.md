@@ -6,6 +6,7 @@
 - **mid**：`141266664`
 - **筛选条件**：`owner.mid = 141266664` 且标题含「歌切」
 - **去重规则**：按规范化曲名去重，同名只保留 `pubdate` 最新的一条
+- **素材存放**：音频与封面**不入库**（`.gitignore` 已忽略 `media/`），各设备跑 `node tools/fetch-media.mjs` 自行拉取
 - **最近更新**：2026-10-07
 
 ---
@@ -52,11 +53,15 @@
 4. `https://api.bilibili.com/x/player/playurl?bvid=<BV>&cid=<cid>&fnval=16&qn=64` 取 `dash.audio` 中 `bandwidth` 最大的一条
 5. 音频存 `media/<BV>.m4a`，封面（view 接口的 `data.pic`）存 `media/covers/<BV>.jpg`
 
+> 第 4、5 步已封装在 `tools/fetch-media.mjs` 里（含归属校验、重试与限速）。
+> 更新完 `songs.json` 后直接 `node tools/fetch-media.mjs` 即可，不必手写下载逻辑。
+
 注意事项：
 
 - 请求之间至少间隔 **1 秒**，否则会碰到 `HTTP Error 412`。
 - 必须带 `User-Agent` 和 `Referer: https://www.bilibili.com/`。
 - **B 站音频直链带签名、会过期，绝不能写进 `songs.json` 或提交进仓库。**
+- **下载好的素材也不提交**：`media/` 已加入 `.gitignore`，历史里同样不含素材。只提交 `songs.json` 与本文档。
 
 ---
 

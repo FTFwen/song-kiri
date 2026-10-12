@@ -15,3 +15,6 @@ tmp/
 
 # 依赖（本工程不依赖构建工具，仅作兜底）
 node_modules/
+
+# 歌曲素材：音频与封面不入库，各设备用 tools/fetch-media.mjs 自行拉取
+media/

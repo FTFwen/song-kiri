@@ -11,7 +11,7 @@
 
 - 纯前端：`index.html` + `styles.css` + `app.js`，没有构建步骤、没有依赖、没有后端。
 - 数据：`data/songs.json`。
-- 媒体：音频与封面全部下载到仓库内 `media/`，**离线可播放**。
+- 媒体：音频与封面**不入库**，各设备用 `tools/fetch-media.mjs` 拉到本地 `media/`，之后即可离线播放。
 - 本地预览时才会用到静态服务器；页面本身不需要服务器逻辑。
 
 ---
@@ -22,7 +22,7 @@
 2. **纯静态**：不引入 Node 服务、数据库、登录、评分、弹幕、直播或任何后端 API。
 3. **不引入构建工具**：不添加 bundler、框架、`package.json` 依赖树。原生 HTML/CSS/JS 直接用浏览器打开（经由静态服务器）就能跑。
 4. **同名歌曲只保留最新发布版本**：去重键是**规范化曲名**。发现同名多条时，按 `publishedAt`（即 B 站 `pubdate`）取最大者，并**删除**其余版本的音频与封面。
-5. **媒体必须本地化**：`songs.json` 里的 `audio` / `cover` 只能指向本仓库内的相对路径（`./media/...`），不得写 B 站的直链。B 站音频直链带签名、会过期，**绝不能提交进仓库**。
+5. **媒体不入库**：音频与封面**不提交到 Git**，`media/` 已被 `.gitignore` 忽略（历史里也没有）。`songs.json` 里的 `audio` / `cover` 只能指向仓库内的相对路径（`./media/...`），不得写 B 站的直链——B 站直链带签名、会过期。素材缺失时用 `tools/fetch-media.mjs` 在本机补齐。
 6. **不臆造曲名**：曲名以视频标题与 B 站标签为准（标签里 `发现《曲名》` 是可靠信号）。**无法确定曲名时不要猜**，先向用户确认。
 7. **不混入非目标内容**：只收 UP 主 `退烧药777` 的、标题含「歌切」的冬雾kiri 相关视频。
 
@@ -40,13 +40,18 @@ song-kiri/
 ├── data/
 │   ├── songs.json       # 唯一数据源
 │   └── SOURCES.md       # 已收录歌切的采集台账（BV 号 / 时间 / 去重记录）
-└── media/
+├── tools/
+│   └── fetch-media.mjs  # 按 songs.json 拉取缺失的音频与封面
+└── media/               # 【本地生成，不入库】已被 .gitignore 忽略
     ├── <BV号>.m4a       # 音频，文件名即 BV 号
     └── covers/
         └── <BV号>.jpg   # 封面，文件名即 BV 号
 ```
 
 命名约定：**媒体文件名一律使用 BV 号**，与 `songs.json` 的 `id` 字段保持一致。这样任何设备上的 AI 都能反查来源。
+
+> `media/` 是**派生目录**：内容完全由 `data/songs.json` 决定，任何设备都能用 `tools/fetch-media.mjs` 重建。
+> 仓库里只保存「收录了哪些歌」这个事实，素材本身各设备自己拉——这样仓库轻量，也不代为分发他人投稿。
 
 ---
 
@@ -99,9 +104,14 @@ song-kiri/
 ## 5. 常用命令
 
 ```powershell
-# 本地预览（任选其一），注意不要直接双击 index.html：fetch 会被 file:// 拦住
+# 本地预览（任选其一）。不要直接双击 index.html：file:// 下 fetch 会被浏览器拦住
 python -m http.server 49152 --bind localhost
 python -m http.server 8080
+
+# 补齐本地素材（新设备 clone 后先跑这个）
+node tools/fetch-media.mjs           # 只补缺失的
+node tools/fetch-media.mjs --force   # 全部重新下载
+node tools/fetch-media.mjs --check   # 只检查，不下载（缺失时退出码 1）
 
 # 语法与数据校验
 node --check app.js
@@ -121,11 +131,14 @@ B 站的搜索接口和 yt-dlp 的搜索很容易返回 **412**，元数据则�
    - 请求之间**至少间隔 1 秒**，否则容易触发 412。
    - 需要带 `User-Agent` 与 `Referer: https://www.bilibili.com/`。
 5. **下载**：音频存 `media/<BV>.m4a`，封面存 `media/covers/<BV>.jpg`（封面地址来自 view 接口的 `data.pic`）。
+   - 这一步可以直接交给 `node tools/fetch-media.mjs`：它读 `songs.json`，只补缺失的文件，并校验 `owner.mid`。
+   - 所以**推荐顺序**是：先更新 `songs.json`，再跑这个脚本，而不是手动 `curl`。
 6. **去重**：按规范化曲名比对，同名只留 `pubdate` 最新的，**删掉旧版本的两个媒体文件**。
 7. **写回**：更新 `data/songs.json`，并运行第 7 节的验证清单。
 8. **记账**：把这次采集的 BV 号、发布时间、去重结论写进 `data/SOURCES.md`。
 
-> 依赖：需要 `python`（含 `yt_dlp`）与 `node`。本工程本身**不使用**它们，它们只用于采集。
+> 依赖：脚本只需要 **Node 18+**（用内置 `fetch`，无第三方依赖）。第 3 步的曲名识别需要 `python` + `yt_dlp`。
+> 这两者都只用于**采集**，页面运行时完全不需要。
 
 ---
 
@@ -135,16 +148,23 @@ B 站的搜索接口和 yt-dlp 的搜索很容易返回 **412**，元数据则�
 # 1. JS 语法
 node --check app.js
 
-# 2. 曲名唯一 + 媒体文件齐全
-node -e "const fs=require('fs');const j=JSON.parse(fs.readFileSync('data/songs.json','utf8'));const t=j.songs.map(s=>s.title);if(new Set(t).size!==t.length)throw Error('存在同名歌曲');for(const s of j.songs)for(const k of ['audio','cover']){if(!fs.existsSync(s[k].replace(/^\.\//,'')))throw Error('缺文件 '+s[k]);}console.log('ok',j.songs.length);"
+# 2. 曲名唯一
+node -e "const j=JSON.parse(require('fs').readFileSync('data/songs.json','utf8'));const t=j.songs.map(s=>s.title);if(new Set(t).size!==t.length)throw Error('存在同名歌曲');console.log('uniqueness ok',j.songs.length);"
+
+# 3. 本地素材是否齐全（缺失时退出码 1）
+node tools/fetch-media.mjs --check
+
+# 4. 确认没有任何媒体被 Git 跟踪（应输出 0）
+git ls-files media | Measure-Object | Select-Object -ExpandProperty Count
 ```
 
 逐项确认：
 
 - [ ] `node --check app.js` 无输出（通过）
 - [ ] 曲名无重复（去重规则已生效）
-- [ ] 每首歌的 `audio` 与 `cover` 文件都真实存在
+- [ ] 本机 `media/` 里每首歌的 `audio` 与 `cover` 都存在
 - [ ] `media/` 里**没有**未被 `songs.json` 引用的孤儿文件
+- [ ] **`git ls-files media` 为空**——媒体绝不进版本控制
 - [ ] 页面在浏览器中能列出全部歌曲、能播放、能筛选与排序
 - [ ] 没有引入任何外部 HTTP 引用（可用 `grep` 搜 `http://` / `https://`）
 
@@ -166,17 +186,27 @@ node -e "const fs=require('fs');const j=JSON.parse(fs.readFileSync('data/songs.j
 - **默认分支**：`main`
 - **与 `viridis.love` 的关系**：无。本仓库是独立仓库，不是 `xiaosonglu-songlist-web` 的子目录或子模块，也**不要**把它合并回去。
 
-流程：
+新设备上手：
 
-1. 开工前先 `git pull`，确保拿到最新的 `songs.json` 与 `media/`。
+```powershell
+git clone https://github.com/FTFwen/song-kiri
+cd song-kiri
+node tools/fetch-media.mjs --check    # 看看缺什么（全新 clone 必然全缺）
+node tools/fetch-media.mjs            # 把音频与封面拉到本地
+python -m http.server 49152 --bind localhost
+```
+
+日常流程：
+
+1. 开工前先 `git pull`。**媒体不在仓库里**，所以 pull 之后跑一次 `node tools/fetch-media.mjs` 补齐新增歌曲的素材。
 2. 收工前运行第 7 节的验证清单，然后 `git add -A && git commit && git push`。
-3. 媒体文件较大（当前约 34 MB），**不要**用 LFS；直接普通提交即可。
-4. 如果某台设备上 `git pull` 后媒体文件缺失，说明该文件尚未提交——用第 6 节的流程重新下载，或先 `git push` 源设备。
+3. 新增歌曲时，**`data/songs.json` 与 `data/SOURCES.md` 一起提交**，素材留在本地。
+4. 如果确认素材缺失，不要 `git add -f media`——先确认 `songs.json` 里的路径与 BV 号写对了，再重跑脚本。
 5. 新增或修改规则后，更新本文件与 `README.md`，让下一台设备上的 AI 直接照着做。
 
 ### 推送失败的排查
 
-大批媒体文件首次推送时，如果遇到下面这类错误：
+如果推送或 `git ls-remote` 报下面这类错误：
 
 ```text
 error: unable to rewind rpc post data - try increasing http.postBuffer
