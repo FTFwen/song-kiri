@@ -402,8 +402,9 @@ Start-Process -FilePath $edge -ArgumentList $args -Wait -NoNewWindow `
 | 项 | 值 |
 | --- | --- |
 | 托管 | **Cloudflare Pages**（项目名 `song-kiri`，直接上传，**未接 Git 自动构建**） |
-| 线上地址 | <https://song-kiri.pages.dev> |
-| 自定义域名 | `dwkr.live` + `www.dwkr.live`（已挂到项目上，**等待 NS 生效**，见 12.6） |
+| 线上地址 | <https://dwkr.live>（自定义域名，2026-10-12 生效） |
+| 备用地址 | <https://www.dwkr.live> / <https://song-kiri.pages.dev>（Pages 默认域名，一直可用） |
+| 自定义域名 | `dwkr.live` + `www.dwkr.live` 均已 `active`，证书由 **Google Trust Services** 签发 |
 | Cloudflare 账号 | `Ftfwen@gmail.com's Account`，Account ID `93dba8a5c9a9ef865311c1c8c8abee99` |
 | 域名注册商 | **阿里云 / 万网**（HiChina）。NS 已于 2026-10-12 从 `dns1/dns2.hichina.com` 改为 Cloudflare 的 `garret/suzanne.ns.cloudflare.com` |
 | 仓库 | <https://github.com/FTFwen/song-kiri>（与 Pages **没有**关联，部署靠手动命令） |
@@ -422,8 +423,19 @@ $env:CLOUDFLARE_ACCOUNT_ID = '93dba8a5c9a9ef865311c1c8c8abee99'
 Remove-Item Env:CLOUDFLARE_API_TOKEN -ErrorAction SilentlyContinue
 
 # 3. 上传（目录来自 wrangler.toml 的 pages_build_output_dir，不要重复传参）
-npx wrangler pages deploy --project-name song-kiri --branch main --commit-dirty=true
+npx wrangler@latest pages deploy --project-name song-kiri --branch main --commit-dirty=true
 ```
+
+> ⚠️ **如果 `Deploying...` 阶段报下面这个错，别改内容，直接重试**：
+>
+> ```text
+> X [ERROR] Deployment failed!
+> Failed to publish your Function. Got error: Unknown internal error occurred.
+> ```
+>
+> 这是 Cloudflare 侧的**瞬时错误**（2026-10-12 遇到过一次：82 个文件已全部 upload 成功，只在最后发布阶段失败，wrangler 日志里的调用栈全在它自己的 `cli.js` 里，与我们的文件无关）。
+> 处理办法：`Remove-Item -Recurse -Force .wrangler` 清掉本地缓存，然后**原命令重跑一次**即可成功（第二次会显示 `Uploaded 0 files (82 already uploaded)`，因为内容已经传上去了）。
+> `--commit-dirty=true` 是必需的——工作区通常不干净。
 
 ### 12.3 发布什么、不发布什么
 
@@ -455,7 +467,7 @@ X [ERROR] Invalid account ID "你的 Cloudflare Account ID" set in the `CLOUDFLA
 - `.m4a` 的 `Content-Type` 由 Cloudflare 自动识别为 `audio/mp4`，**不需要**手工指定。
 - `404.html` 放在根目录，Cloudflare Pages 会用它作为找不到页面时的响应，并返回**真正的 404 状态码**。没有它时 Pages 会把 `index.html` 以 **200** 返回（软 404）。
 
-### 12.6 自定义域名的解析（截至 2026-10-12，NS 已切换、等待生效）
+### 12.6 自定义域名的解析（2026-10-12 当天完成并生效）
 
 `dwkr.live` 在**阿里云 / 万网**注册（2026-10-12 注册），默认 NS 是 `dns1/dns2.hichina.com`。
 
@@ -470,19 +482,33 @@ X [ERROR] Invalid account ID "你的 Cloudflare Account ID" set in the `CLOUDFLA
    ⚠️ 提交时会弹**「请确认该操作」的手机短信验证**（`156*****324`），需要账号持有人提供验证码，**agent 自己过不去这一步**。
 4. 阿里云面板的「当前DNS服务器」已显示成 `garret.ns.cloudflare.com` / `suzanne.ns.cloudflare.com`。
 
-**当时的状态**：Cloudflare 侧 zone `status = pending`；Pages 的两个自定义域名 `dwkr.live` / `www.dwkr.live` 仍是 `status=pending`、`error_message = "CNAME record not set"`。
+**实际结果：当天就生效了。** 阿里云面板自己写的是「24-48 小时」，实际远快于这个：
 
-**怎么判断卡在哪一步（2026-10-12 实测的重要区分）**：
+| 检查项 | 结果 |
+| --- | --- |
+| Cloudflare zone `dwkr.live` | **`active`** |
+| Pages 自定义域名 `dwkr.live` / `www.dwkr.live` | 均 **`active`**（`validation_data = { status = active; method = http }`） |
+| `https://dwkr.live/` | **200**（42600 B，标题「冬雾kiri 歌切」） |
+| `https://www.dwkr.live/` | **200** |
+| `https://dwkr.live/data/kiri/song_catalog.json` | **200**（24812 B） |
+| `https://dwkr.live/media/BV1k3pY6WEvQ.m4a` | **200**（3185436 B） |
+| 证书 | `Subject: CN=dwkr.live`，`Issuer: CN=WE1, O=Google Trust Services, C=US`，失效 2027-01-10 17:32:49 |
+| 线上 DOM（无头 Edge `--dump-dom`） | 34 张卡片、`motion-visible`、🌻 0、退烧药777 0，与 `song-kiri.pages.dev` 完全一致 |
 
-- **注册局数据库**已经记下了新 NS：`Invoke-RestMethod 'https://rdap.org/domain/dwkr.live'` 的 `nameservers` 返回 `garret.ns.cloudflare.com` / `suzanne.ns.cloudflare.com`。
-- 但 **注册局的权威 DNS 区文件还没重新发布**：直接向 `.live` 的六个权威服务器（`v0n0~v0n3.nic.live` = `65.22.20.1`/`.21.1`/`.22.1`/`161.232.10.1`，`v2n0/v2n1.nic.live` = `65.22.23.1`/`161.232.11.1`）发**原始 UDP 查询**，六个全部仍返回 `dns1.hichina.com` / `dns2.hichina.com`，**TTL 3600**。
-- 也就是说：**卡在注册局发布区文件这一步，跟 Cloudflare、阿里云面板、我们的代码都无关**。委派 TTL 只有 1 小时，所以注册局一发布，各递归解析器最多再 1 小时就全线跟上。
+（`dwkr.live` 比 `song-kiri.pages.dev` 多出的 ~367 B 是 Cloudflare 边缘注入，不是我们的内容差异。）
 
-诊断脚本：`node .dsh-tmp/dns-raw.mjs <TLD权威IP> [...]`（一次性工具，不入库；本机 DNS 被代理劫持成 `198.18.x.x` fake-IP，`nslookup <域名> <服务器>` 拿不到真实结果，必须用原始 UDP 绕过）。
+**中间卡了一小时的环节（下次遇到别慌、也别乱改配置）**：
 
-**接下来会自动发生**：注册局发布新委派 → 递归解析器缓存过期 → Cloudflare 检测到 → zone 转 `active` → `dwkr.live` / `www.dwkr.live` 转 `active`，由 Google CA 自动签发证书。阿里云面板自己写的是「24-48 小时」，实际通常快得多。
+- **注册局数据库**先记下了新 NS：`Invoke-RestMethod 'https://rdap.org/domain/dwkr.live'` 的 `nameservers` 已经返回 `garret.ns.cloudflare.com` / `suzanne.ns.cloudflare.com`。
+- 但 **注册局的权威 DNS 区文件还没重新发布**：直接向 `.live` 的六个权威服务器（`v0n0~v0n3.nic.live` = `65.22.20.1`/`.21.1`/`.22.1`/`161.232.10.1`，`v2n0/v2n1.nic.live` = `65.22.23.1`/`161.232.11.1`）发**原始 UDP 查询**，六个当时全部仍返回 `dns1.hichina.com` / `dns2.hichina.com`（**TTL 3600**）。
+- 也就是说：**卡在注册局（Identity Digital，`.live` 的注册局）发布区文件这一步，跟 Cloudflare、阿里云面板、我们的代码都无关**，唯一能做的就是等。委派 TTL 只有 1 小时，所以注册局一发布，各递归解析器最多再 1 小时就全线跟上。
+- **下次要判断卡在哪一步，就用同一招**：
 
-**怎么查进度**（OAuth token 从 `%APPDATA%\xdg.config\.wrangler\config\default.toml` 的 `oauth_token` 取，注意该 token 只有 `zone (read)`）：
+  诊断脚本：`node .dsh-tmp/dns-raw.mjs <TLD权威IP> [...]`（一次性工具，不入库；本机 DNS 被代理劫持成 `198.18.x.x` fake-IP，`nslookup <域名> <服务器>` 拿不到真实结果，必须用原始 UDP 绕过）。
+  - 六个权威服务器**仍返回 hichina** → 卡在注册局，继续等。
+  - 六个权威服务器**已返回 cloudflare** 但网站还打不开 → 卡在递归解析器缓存或 Cloudflare 侧，去查 zone / 自定义域名状态。
+
+**怎么查状态**（OAuth token 从 `%APPDATA%\xdg.config\.wrangler\config\default.toml` 的 `oauth_token` 取，注意该 token 只有 `zone (read)`）：
 
 ```powershell
 # NS 有没有传播
