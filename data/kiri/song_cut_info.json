@@ -1,11 +1,96 @@
 {
   "roomKey": "kiri",
   "roomId": "",
-  "generatedAt": "2026-10-12T07:20:16.793Z",
+  "generatedAt": "2026-10-12T09:57:57.516Z",
   "source": "song-cut-title-index",
   "description": "每首歌对应的歌切切片标题（单曲歌切视频标题），供前端歌切链接显示。",
-  "count": 7,
+  "count": 34,
   "cuts": {
+    "好想你": {
+      "title": "【冬雾kiri歌切】这首歌会不会太甜了 也许是我牙口不好吧",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1k3pY6WEvQ/"
+    },
+    "普通朋友": {
+      "title": "【冬雾kiri歌切】你这kiri，真是让我欢喜😊 跟原曲不一样的转音才是真正的rnb之魂",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1rGpY6XEDd/"
+    },
+    "我只在乎你": {
+      "title": "【冬雾kiri歌切】众人皆赏心中月 唯吾独思月中人",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1WupY6REnL/"
+    },
+    "月亮代表我的心": {
+      "title": "【冬雾kiri歌切】我就说当时邓丽君偷偷把功力传了一缕下来了吧",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1Cxp86jEHh/"
+    },
+    "风月": {
+      "title": "【冬雾kiri歌切】素净一张脸 收敛了眉眼。",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1ypp86EEWK/"
+    },
+    "欧若拉": {
+      "title": "【冬雾kiri歌切】张韶涵好像翻唱过这首歌。",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV16ap86GEsy/"
+    },
+    "晚安喵": {
+      "title": "【冬雾kiri歌切】如果再也见不到你，祝你早安，午安，晚安",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1FYp86kEcE/"
+    },
+    "だんご大家族 (团子大家族)": {
+      "title": "【冬雾kiri歌切】无论发生什么 都不要后悔与我的相遇",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV168p86CE8E/"
+    },
+    "要抱抱": {
+      "title": "【冬雾kiri歌切】桑吉尔夫，win！无内鬼来点抱抱卡七秒的来",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1t5p86REzP/"
+    },
+    "心跳叮叮咚": {
+      "title": "【冬雾kiri歌切】其实所有的肾虚萌音都是假的，屏幕后面其实是一个活力四射的萌妹",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1S3p86dEpM/"
+    },
+    "寄り酔い": {
+      "title": "【冬雾kiri歌切】“想你送我回家 让我陪你到天亮”（这首歌里唯一隐晦点的歌词被我找到了你气不气）",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV127p86QEzA/"
+    },
+    "拼图爱": {
+      "title": "【冬雾kiri歌切】冬雾kiri别养了你值得被爱，依旧不唱男声保持全女人设，把麦克风递给wff的时候你有没有想过真的会养出nyf。",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1DQp86bEqL/"
+    },
+    "爱的魔法": {
+      "title": "【冬雾kiri歌切】“爱情不是投入越快就可以收获越多”",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1aUp86hEsC/"
+    },
+    "写给我第一个喜欢的女孩的歌": {
+      "title": "【冬雾kiri歌切】“请允许我把你写进我的歌”",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1bXp86ZEXs/"
+    },
+    "只对你有感觉": {
+      "title": "【冬雾kiri歌切】“我会又乖又黏温柔体贴绝不敷衍”",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1iBp86MEXf/"
+    },
+    "美人鱼": {
+      "title": "【冬雾kiri歌切】怎么忍心断绝",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1izp86qEHN/"
+    },
+    "遇见": {
+      "title": "【冬雾kiri歌切】我等的人她在多远的未来",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1Bip86zEcE/"
+    },
     "有点甜": {
       "title": "【冬雾kiri歌切】依旧一半麦克风交给wff的有点甜",
       "kind": "single",
@@ -40,6 +125,56 @@
       "title": "【冬雾kiri歌切】温柔舒服到跺脚的秋天，你带着夏末的风笑着拍我的肩",
       "kind": "single",
       "url": "https://www.bilibili.com/video/BV1hcpA6UEcC/"
+    },
+    "月が綺麗ねと言われたい！": {
+      "title": "【冬雾kiri歌切】十五的月亮十六圆所以在中秋的后一天对你说月色真美",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV137ax6zETw/"
+    },
+    "太聪明": {
+      "title": "【冬雾kiri歌切】平日里不太聪明的冬雾kiri居然唱太聪明的时候挺聪明，这对我的世界观冲击太大了",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1cdas69Ej8/"
+    },
+    "给我一个吻": {
+      "title": "【冬雾kiri】唱给我一个吻唱开心了乱亲的冬雾kiri我很怕",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1nZas6pE86/"
+    },
+    "吵架歌": {
+      "title": "【冬雾kiri】对抗的时候嘴再硬的冬雾kiri在唱吵架歌时还是软软的",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1dTax6LEy6/"
+    },
+    "陶然四季": {
+      "title": "【冬雾kiri】陶然四季，但是嗓子滑动变阻器加唱一半聊天",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1Zwax6UEY9/"
+    },
+    "素颜": {
+      "title": "【冬雾kiri歌切】素颜，该wff当许嵩了吗",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1Zwax6UEL7/"
+    },
+    "讲真的": {
+      "title": "【冬雾kiri歌切】讲真的",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1mWax6eEnZ/"
+    },
+    "チルノのパーフェクトさんすう教室": {
+      "title": "【冬雾kiri】邻桌不时唱数学教室骂你傻蝠的冬雾Kiri同学堂堂连载",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1TyeN67ECU/"
+    },
+    "勾指起誓": {
+      "title": "【冬雾kiri】自述歌力差的蝠又唱起了勾指起誓",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1VaeN6xE1u/"
+    },
+    "虫儿飞": {
+      "title": "【冬雾kiri】兄弟你听我说她真的不一样，她给我唱虫儿飞了....",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1TZeF6PEcY/"
     }
   }
 }

@@ -7,6 +7,312 @@
   },
   "songs": [
     {
+      "id": "BV1k3pY6WEvQ",
+      "title": "好想你",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-10 03:44:17",
+      "duration": 155,
+      "audio": "./media/BV1k3pY6WEvQ.m4a",
+      "cover": "./media/covers/BV1k3pY6WEvQ.jpg",
+      "sourceTitle": "【冬雾kiri歌切】这首歌会不会太甜了 也许是我牙口不好吧",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1791575057,
+      "sourceDuration": 155
+    },
+    {
+      "id": "BV1rGpY6XEDd",
+      "title": "普通朋友",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-10 03:43:46",
+      "duration": 248,
+      "audio": "./media/BV1rGpY6XEDd.m4a",
+      "cover": "./media/covers/BV1rGpY6XEDd.jpg",
+      "sourceTitle": "【冬雾kiri歌切】你这kiri，真是让我欢喜😊 跟原曲不一样的转音才是真正的rnb之魂",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1791575026,
+      "sourceDuration": 248
+    },
+    {
+      "id": "BV1WupY6REnL",
+      "title": "我只在乎你",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-10 03:31:53",
+      "duration": 253,
+      "audio": "./media/BV1WupY6REnL.m4a",
+      "cover": "./media/covers/BV1WupY6REnL.jpg",
+      "sourceTitle": "【冬雾kiri歌切】众人皆赏心中月 唯吾独思月中人",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1791574313,
+      "sourceDuration": 253
+    },
+    {
+      "id": "BV1Cxp86jEHh",
+      "title": "月亮代表我的心",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-10 03:31:04",
+      "duration": 216,
+      "audio": "./media/BV1Cxp86jEHh.m4a",
+      "cover": "./media/covers/BV1Cxp86jEHh.jpg",
+      "sourceTitle": "【冬雾kiri歌切】我就说当时邓丽君偷偷把功力传了一缕下来了吧",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1791574264,
+      "sourceDuration": 216
+    },
+    {
+      "id": "BV1ypp86EEWK",
+      "title": "风月",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-10 03:22:20",
+      "duration": 228,
+      "audio": "./media/BV1ypp86EEWK.m4a",
+      "cover": "./media/covers/BV1ypp86EEWK.jpg",
+      "sourceTitle": "【冬雾kiri歌切】素净一张脸 收敛了眉眼。",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1791573740,
+      "sourceDuration": 228
+    },
+    {
+      "id": "BV16ap86GEsy",
+      "title": "欧若拉",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-10 03:15:30",
+      "duration": 224,
+      "audio": "./media/BV16ap86GEsy.m4a",
+      "cover": "./media/covers/BV16ap86GEsy.jpg",
+      "sourceTitle": "【冬雾kiri歌切】张韶涵好像翻唱过这首歌。",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1791573330,
+      "sourceDuration": 224
+    },
+    {
+      "id": "BV1FYp86kEcE",
+      "title": "晚安喵",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-10 03:05:51",
+      "duration": 108,
+      "audio": "./media/BV1FYp86kEcE.m4a",
+      "cover": "./media/covers/BV1FYp86kEcE.jpg",
+      "sourceTitle": "【冬雾kiri歌切】如果再也见不到你，祝你早安，午安，晚安",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1791572751,
+      "sourceDuration": 108
+    },
+    {
+      "id": "BV168p86CE8E",
+      "title": "だんご大家族 (团子大家族)",
+      "artist": "冬雾kiri",
+      "language": "日语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-10 03:03:33",
+      "duration": 270,
+      "audio": "./media/BV168p86CE8E.m4a",
+      "cover": "./media/covers/BV168p86CE8E.jpg",
+      "sourceTitle": "【冬雾kiri歌切】无论发生什么 都不要后悔与我的相遇",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1791572613,
+      "sourceDuration": 270
+    },
+    {
+      "id": "BV1t5p86REzP",
+      "title": "要抱抱",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-10 02:51:36",
+      "duration": 240,
+      "audio": "./media/BV1t5p86REzP.m4a",
+      "cover": "./media/covers/BV1t5p86REzP.jpg",
+      "sourceTitle": "【冬雾kiri歌切】桑吉尔夫，win！无内鬼来点抱抱卡七秒的来",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1791571896,
+      "sourceDuration": 240
+    },
+    {
+      "id": "BV1S3p86dEpM",
+      "title": "心跳叮叮咚",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-10 02:44:21",
+      "duration": 208,
+      "audio": "./media/BV1S3p86dEpM.m4a",
+      "cover": "./media/covers/BV1S3p86dEpM.jpg",
+      "sourceTitle": "【冬雾kiri歌切】其实所有的肾虚萌音都是假的，屏幕后面其实是一个活力四射的萌妹",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1791571461,
+      "sourceDuration": 208
+    },
+    {
+      "id": "BV127p86QEzA",
+      "title": "寄り酔い",
+      "artist": "冬雾kiri",
+      "language": "日语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-10 02:29:40",
+      "duration": 229,
+      "audio": "./media/BV127p86QEzA.m4a",
+      "cover": "./media/covers/BV127p86QEzA.jpg",
+      "sourceTitle": "【冬雾kiri歌切】“想你送我回家 让我陪你到天亮”（这首歌里唯一隐晦点的歌词被我找到了你气不气）",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1791570580,
+      "sourceDuration": 229
+    },
+    {
+      "id": "BV1DQp86bEqL",
+      "title": "拼图爱",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-10 02:18:20",
+      "duration": 156,
+      "audio": "./media/BV1DQp86bEqL.m4a",
+      "cover": "./media/covers/BV1DQp86bEqL.jpg",
+      "sourceTitle": "【冬雾kiri歌切】冬雾kiri别养了你值得被爱，依旧不唱男声保持全女人设，把麦克风递给wff的时候你有没有想过真的会养出nyf。",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1791569900,
+      "sourceDuration": 156
+    },
+    {
+      "id": "BV1aUp86hEsC",
+      "title": "爱的魔法",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-10 02:07:42",
+      "duration": 185,
+      "audio": "./media/BV1aUp86hEsC.m4a",
+      "cover": "./media/covers/BV1aUp86hEsC.jpg",
+      "sourceTitle": "【冬雾kiri歌切】“爱情不是投入越快就可以收获越多”",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1791569262,
+      "sourceDuration": 185
+    },
+    {
+      "id": "BV1bXp86ZEXs",
+      "title": "写给我第一个喜欢的女孩的歌",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-10 01:57:05",
+      "duration": 177,
+      "audio": "./media/BV1bXp86ZEXs.m4a",
+      "cover": "./media/covers/BV1bXp86ZEXs.jpg",
+      "sourceTitle": "【冬雾kiri歌切】“请允许我把你写进我的歌”",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1791568625,
+      "sourceDuration": 177
+    },
+    {
+      "id": "BV1iBp86MEXf",
+      "title": "只对你有感觉",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-10 01:53:00",
+      "duration": 232,
+      "audio": "./media/BV1iBp86MEXf.m4a",
+      "cover": "./media/covers/BV1iBp86MEXf.jpg",
+      "sourceTitle": "【冬雾kiri歌切】“我会又乖又黏温柔体贴绝不敷衍”",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1791568380,
+      "sourceDuration": 232
+    },
+    {
+      "id": "BV1izp86qEHN",
+      "title": "美人鱼",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-10 01:45:13",
+      "duration": 252,
+      "audio": "./media/BV1izp86qEHN.m4a",
+      "cover": "./media/covers/BV1izp86qEHN.jpg",
+      "sourceTitle": "【冬雾kiri歌切】怎么忍心断绝",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1791567913,
+      "sourceDuration": 252
+    },
+    {
+      "id": "BV1Bip86zEcE",
+      "title": "遇见",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-10 01:38:08",
+      "duration": 199,
+      "audio": "./media/BV1Bip86zEcE.m4a",
+      "cover": "./media/covers/BV1Bip86zEcE.jpg",
+      "sourceTitle": "【冬雾kiri歌切】我等的人她在多远的未来",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1791567488,
+      "sourceDuration": 199
+    },
+    {
       "id": "BV17apN6KEu1",
       "title": "有点甜",
       "artist": "冬雾kiri",
@@ -132,6 +438,186 @@
       "sourceUploader": "退烧药777",
       "sourcePubdate": 1791309149,
       "sourceDuration": 223
+    },
+    {
+      "id": "BV137ax6zETw",
+      "title": "月が綺麗ねと言われたい！",
+      "artist": "冬雾kiri",
+      "language": "日语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-09-27 03:27:32",
+      "duration": 170,
+      "audio": "./media/BV137ax6zETw.m4a",
+      "cover": "./media/covers/BV137ax6zETw.jpg",
+      "sourceTitle": "【冬雾kiri歌切】十五的月亮十六圆所以在中秋的后一天对你说月色真美",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1790450852,
+      "sourceDuration": 170
+    },
+    {
+      "id": "BV1cdas69Ej8",
+      "title": "太聪明",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-09-27 03:06:17",
+      "duration": 259,
+      "audio": "./media/BV1cdas69Ej8.m4a",
+      "cover": "./media/covers/BV1cdas69Ej8.jpg",
+      "sourceTitle": "【冬雾kiri歌切】平日里不太聪明的冬雾kiri居然唱太聪明的时候挺聪明，这对我的世界观冲击太大了",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1790449577,
+      "sourceDuration": 259
+    },
+    {
+      "id": "BV1nZas6pE86",
+      "title": "给我一个吻",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-09-27 02:56:29",
+      "duration": 171,
+      "audio": "./media/BV1nZas6pE86.m4a",
+      "cover": "./media/covers/BV1nZas6pE86.jpg",
+      "sourceTitle": "【冬雾kiri】唱给我一个吻唱开心了乱亲的冬雾kiri我很怕",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1790448989,
+      "sourceDuration": 171
+    },
+    {
+      "id": "BV1dTax6LEy6",
+      "title": "吵架歌",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-09-27 02:49:44",
+      "duration": 162,
+      "audio": "./media/BV1dTax6LEy6.m4a",
+      "cover": "./media/covers/BV1dTax6LEy6.jpg",
+      "sourceTitle": "【冬雾kiri】对抗的时候嘴再硬的冬雾kiri在唱吵架歌时还是软软的",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1790448584,
+      "sourceDuration": 162
+    },
+    {
+      "id": "BV1Zwax6UEY9",
+      "title": "陶然四季",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-09-27 02:44:19",
+      "duration": 219,
+      "audio": "./media/BV1Zwax6UEY9.m4a",
+      "cover": "./media/covers/BV1Zwax6UEY9.jpg",
+      "sourceTitle": "【冬雾kiri】陶然四季，但是嗓子滑动变阻器加唱一半聊天",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1790448259,
+      "sourceDuration": 219
+    },
+    {
+      "id": "BV1Zwax6UEL7",
+      "title": "素颜",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-09-27 02:43:27",
+      "duration": 238,
+      "audio": "./media/BV1Zwax6UEL7.m4a",
+      "cover": "./media/covers/BV1Zwax6UEL7.jpg",
+      "sourceTitle": "【冬雾kiri歌切】素颜，该wff当许嵩了吗",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1790448207,
+      "sourceDuration": 238
+    },
+    {
+      "id": "BV1mWax6eEnZ",
+      "title": "讲真的",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-09-27 02:02:25",
+      "duration": 227,
+      "audio": "./media/BV1mWax6eEnZ.m4a",
+      "cover": "./media/covers/BV1mWax6eEnZ.jpg",
+      "sourceTitle": "【冬雾kiri歌切】讲真的",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1790445745,
+      "sourceDuration": 227
+    },
+    {
+      "id": "BV1TyeN67ECU",
+      "title": "チルノのパーフェクトさんすう教室",
+      "artist": "冬雾kiri",
+      "language": "日语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-09-17 02:29:47",
+      "duration": 300,
+      "audio": "./media/BV1TyeN67ECU.m4a",
+      "cover": "./media/covers/BV1TyeN67ECU.jpg",
+      "sourceTitle": "【冬雾kiri】邻桌不时唱数学教室骂你傻蝠的冬雾Kiri同学堂堂连载",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1789583387,
+      "sourceDuration": 300
+    },
+    {
+      "id": "BV1VaeN6xE1u",
+      "title": "勾指起誓",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-09-17 01:50:54",
+      "duration": 175,
+      "audio": "./media/BV1VaeN6xE1u.m4a",
+      "cover": "./media/covers/BV1VaeN6xE1u.jpg",
+      "sourceTitle": "【冬雾kiri】自述歌力差的蝠又唱起了勾指起誓",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1789581054,
+      "sourceDuration": 175
+    },
+    {
+      "id": "BV1TZeF6PEcY",
+      "title": "虫儿飞",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-09-16 10:59:25",
+      "duration": 132,
+      "audio": "./media/BV1TZeF6PEcY.m4a",
+      "cover": "./media/covers/BV1TZeF6PEcY.jpg",
+      "sourceTitle": "【冬雾kiri】兄弟你听我说她真的不一样，她给我唱虫儿飞了....",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1789527565,
+      "sourceDuration": 132
     }
   ]
 }

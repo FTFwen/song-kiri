@@ -1,21 +1,318 @@
 {
   "roomKey": "kiri",
   "roomId": "",
-  "generatedAt": "2026-10-12T07:44:33.638Z",
+  "generatedAt": "2026-10-12T09:57:57.516Z",
   "source": "song-kiri-bilibili-cuts",
   "latest": {
     "year": "2026",
     "month": "10",
-    "day": "07"
+    "day": "10"
   },
   "dateTree": {
     "2026": {
       "10": {
+        "10": 17,
         "07": 7
+      },
+      "09": {
+        "16": 1,
+        "17": 2,
+        "27": 7
       }
     }
   },
   "byDate": {
+    "2026-10-10": [
+      {
+        "song_name": "好想你",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1k3pY6WEvQ",
+        "replay_title": "【冬雾kiri歌切】这首歌会不会太甜了 也许是我牙口不好吧",
+        "replay_url": "https://www.bilibili.com/video/BV1k3pY6WEvQ/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "好想你",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1k3pY6WEvQ/"
+      },
+      {
+        "song_name": "普通朋友",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1rGpY6XEDd",
+        "replay_title": "【冬雾kiri歌切】你这kiri，真是让我欢喜😊 跟原曲不一样的转音才是真正的rnb之魂",
+        "replay_url": "https://www.bilibili.com/video/BV1rGpY6XEDd/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "普通朋友",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1rGpY6XEDd/"
+      },
+      {
+        "song_name": "我只在乎你",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1WupY6REnL",
+        "replay_title": "【冬雾kiri歌切】众人皆赏心中月 唯吾独思月中人",
+        "replay_url": "https://www.bilibili.com/video/BV1WupY6REnL/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "我只在乎你",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1WupY6REnL/"
+      },
+      {
+        "song_name": "月亮代表我的心",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1Cxp86jEHh",
+        "replay_title": "【冬雾kiri歌切】我就说当时邓丽君偷偷把功力传了一缕下来了吧",
+        "replay_url": "https://www.bilibili.com/video/BV1Cxp86jEHh/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "月亮代表我的心",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1Cxp86jEHh/"
+      },
+      {
+        "song_name": "风月",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1ypp86EEWK",
+        "replay_title": "【冬雾kiri歌切】素净一张脸 收敛了眉眼。",
+        "replay_url": "https://www.bilibili.com/video/BV1ypp86EEWK/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "风月",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1ypp86EEWK/"
+      },
+      {
+        "song_name": "欧若拉",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV16ap86GEsy",
+        "replay_title": "【冬雾kiri歌切】张韶涵好像翻唱过这首歌。",
+        "replay_url": "https://www.bilibili.com/video/BV16ap86GEsy/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "欧若拉",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV16ap86GEsy/"
+      },
+      {
+        "song_name": "晚安喵",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1FYp86kEcE",
+        "replay_title": "【冬雾kiri歌切】如果再也见不到你，祝你早安，午安，晚安",
+        "replay_url": "https://www.bilibili.com/video/BV1FYp86kEcE/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "晚安喵",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1FYp86kEcE/"
+      },
+      {
+        "song_name": "だんご大家族 (团子大家族)",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV168p86CE8E",
+        "replay_title": "【冬雾kiri歌切】无论发生什么 都不要后悔与我的相遇",
+        "replay_url": "https://www.bilibili.com/video/BV168p86CE8E/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "だんご大家族 (团子大家族)",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV168p86CE8E/"
+      },
+      {
+        "song_name": "要抱抱",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1t5p86REzP",
+        "replay_title": "【冬雾kiri歌切】桑吉尔夫，win！无内鬼来点抱抱卡七秒的来",
+        "replay_url": "https://www.bilibili.com/video/BV1t5p86REzP/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "要抱抱",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1t5p86REzP/"
+      },
+      {
+        "song_name": "心跳叮叮咚",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1S3p86dEpM",
+        "replay_title": "【冬雾kiri歌切】其实所有的肾虚萌音都是假的，屏幕后面其实是一个活力四射的萌妹",
+        "replay_url": "https://www.bilibili.com/video/BV1S3p86dEpM/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "心跳叮叮咚",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1S3p86dEpM/"
+      },
+      {
+        "song_name": "寄り酔い",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV127p86QEzA",
+        "replay_title": "【冬雾kiri歌切】“想你送我回家 让我陪你到天亮”（这首歌里唯一隐晦点的歌词被我找到了你气不气）",
+        "replay_url": "https://www.bilibili.com/video/BV127p86QEzA/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "寄り酔い",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV127p86QEzA/"
+      },
+      {
+        "song_name": "拼图爱",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1DQp86bEqL",
+        "replay_title": "【冬雾kiri歌切】冬雾kiri别养了你值得被爱，依旧不唱男声保持全女人设，把麦克风递给wff的时候你有没有想过真的会养出nyf。",
+        "replay_url": "https://www.bilibili.com/video/BV1DQp86bEqL/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "拼图爱",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1DQp86bEqL/"
+      },
+      {
+        "song_name": "爱的魔法",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1aUp86hEsC",
+        "replay_title": "【冬雾kiri歌切】“爱情不是投入越快就可以收获越多”",
+        "replay_url": "https://www.bilibili.com/video/BV1aUp86hEsC/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "爱的魔法",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1aUp86hEsC/"
+      },
+      {
+        "song_name": "写给我第一个喜欢的女孩的歌",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1bXp86ZEXs",
+        "replay_title": "【冬雾kiri歌切】“请允许我把你写进我的歌”",
+        "replay_url": "https://www.bilibili.com/video/BV1bXp86ZEXs/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "写给我第一个喜欢的女孩的歌",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1bXp86ZEXs/"
+      },
+      {
+        "song_name": "只对你有感觉",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1iBp86MEXf",
+        "replay_title": "【冬雾kiri歌切】“我会又乖又黏温柔体贴绝不敷衍”",
+        "replay_url": "https://www.bilibili.com/video/BV1iBp86MEXf/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "只对你有感觉",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1iBp86MEXf/"
+      },
+      {
+        "song_name": "美人鱼",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1izp86qEHN",
+        "replay_title": "【冬雾kiri歌切】怎么忍心断绝",
+        "replay_url": "https://www.bilibili.com/video/BV1izp86qEHN/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "美人鱼",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1izp86qEHN/"
+      },
+      {
+        "song_name": "遇见",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1Bip86zEcE",
+        "replay_title": "【冬雾kiri歌切】我等的人她在多远的未来",
+        "replay_url": "https://www.bilibili.com/video/BV1Bip86zEcE/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "遇见",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1Bip86zEcE/"
+      }
+    ],
     "2026-10-07": [
       {
         "song_name": "有点甜",
@@ -136,6 +433,182 @@
         "lyric_excerpt": "",
         "song_resolution_method": "song-cut-title",
         "cut_link": "https://www.bilibili.com/video/BV1hcpA6UEcC/"
+      }
+    ],
+    "2026-09-27": [
+      {
+        "song_name": "月が綺麗ねと言われたい！",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV137ax6zETw",
+        "replay_title": "【冬雾kiri歌切】十五的月亮十六圆所以在中秋的后一天对你说月色真美",
+        "replay_url": "https://www.bilibili.com/video/BV137ax6zETw/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "月が綺麗ねと言われたい！",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV137ax6zETw/"
+      },
+      {
+        "song_name": "太聪明",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1cdas69Ej8",
+        "replay_title": "【冬雾kiri歌切】平日里不太聪明的冬雾kiri居然唱太聪明的时候挺聪明，这对我的世界观冲击太大了",
+        "replay_url": "https://www.bilibili.com/video/BV1cdas69Ej8/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "太聪明",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1cdas69Ej8/"
+      },
+      {
+        "song_name": "给我一个吻",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1nZas6pE86",
+        "replay_title": "【冬雾kiri】唱给我一个吻唱开心了乱亲的冬雾kiri我很怕",
+        "replay_url": "https://www.bilibili.com/video/BV1nZas6pE86/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "给我一个吻",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1nZas6pE86/"
+      },
+      {
+        "song_name": "吵架歌",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1dTax6LEy6",
+        "replay_title": "【冬雾kiri】对抗的时候嘴再硬的冬雾kiri在唱吵架歌时还是软软的",
+        "replay_url": "https://www.bilibili.com/video/BV1dTax6LEy6/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "吵架歌",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1dTax6LEy6/"
+      },
+      {
+        "song_name": "陶然四季",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1Zwax6UEY9",
+        "replay_title": "【冬雾kiri】陶然四季，但是嗓子滑动变阻器加唱一半聊天",
+        "replay_url": "https://www.bilibili.com/video/BV1Zwax6UEY9/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "陶然四季",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1Zwax6UEY9/"
+      },
+      {
+        "song_name": "素颜",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1Zwax6UEL7",
+        "replay_title": "【冬雾kiri歌切】素颜，该wff当许嵩了吗",
+        "replay_url": "https://www.bilibili.com/video/BV1Zwax6UEL7/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "素颜",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1Zwax6UEL7/"
+      },
+      {
+        "song_name": "讲真的",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1mWax6eEnZ",
+        "replay_title": "【冬雾kiri歌切】讲真的",
+        "replay_url": "https://www.bilibili.com/video/BV1mWax6eEnZ/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "讲真的",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1mWax6eEnZ/"
+      }
+    ],
+    "2026-09-17": [
+      {
+        "song_name": "チルノのパーフェクトさんすう教室",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1TyeN67ECU",
+        "replay_title": "【冬雾kiri】邻桌不时唱数学教室骂你傻蝠的冬雾Kiri同学堂堂连载",
+        "replay_url": "https://www.bilibili.com/video/BV1TyeN67ECU/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "チルノのパーフェクトさんすう教室",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1TyeN67ECU/"
+      },
+      {
+        "song_name": "勾指起誓",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1VaeN6xE1u",
+        "replay_title": "【冬雾kiri】自述歌力差的蝠又唱起了勾指起誓",
+        "replay_url": "https://www.bilibili.com/video/BV1VaeN6xE1u/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "勾指起誓",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1VaeN6xE1u/"
+      }
+    ],
+    "2026-09-16": [
+      {
+        "song_name": "虫儿飞",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1TZeF6PEcY",
+        "replay_title": "【冬雾kiri】兄弟你听我说她真的不一样，她给我唱虫儿飞了....",
+        "replay_url": "https://www.bilibili.com/video/BV1TZeF6PEcY/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "虫儿飞",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1TZeF6PEcY/"
       }
     ]
   }
