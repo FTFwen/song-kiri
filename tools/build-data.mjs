@@ -35,6 +35,34 @@ const CUT_SOURCE = 'song-cut-title-index';
 const readJson = (file) => JSON.parse(readFileSync(file, 'utf8'));
 const pad = (n) => String(n).padStart(2, '0');
 
+/**
+ * generatedAt 是构建时刻，每次跑都会变。比对新旧内容时先把它抹成同一个占位符，
+ * 这样「重跑一遍」就能当作一次真正的一致性自检：只要打印「无变化」，
+ * 就说明盘上的生成物确实已经反映了当前的 data/songs.json。
+ *
+ * 内容没变时**连 generatedAt 都不刷新、直接不落盘**：这样重跑之后 `git status`
+ * 是干净的，verification 清单第 3 条（重跑后应无 diff）才真的成立。
+ */
+const maskStamps = (text) => text.replace(/"generatedAt":\s*"[^"]*"/g, '"generatedAt":"<stamp>"');
+const writeStats = { changed: 0, same: 0 };
+
+function writeIfChanged(file, content, label) {
+  let prev = null;
+  try {
+    prev = readFileSync(file, 'utf8');
+  } catch {
+    prev = null; // 首次生成
+  }
+  if (prev !== null && maskStamps(prev) === maskStamps(content)) {
+    writeStats.same += 1;
+    console.log(`· ${label}  无变化`);
+    return;
+  }
+  writeFileSync(file, content, 'utf8');
+  writeStats.changed += 1;
+  console.log(`✔ ${label}  内容已更新`);
+}
+
 /** '2026-10-07 04:21:11' → { date:'2026-10-07', year:'2026', month:'10', day:'07' } */
 function splitPublishedAt(value) {
   const m = String(value || '').match(/^(\d{4})-(\d{2})-(\d{2})/);
@@ -198,8 +226,7 @@ function main() {
   ];
   for (const [name, payload] of outputs) {
     const file = join(OUT_DIR, name);
-    writeFileSync(file, JSON.stringify(payload, null, 2) + '\n', 'utf8');
-    console.log(`✔ data/kiri/${name}`);
+    writeIfChanged(file, JSON.stringify(payload, null, 2) + '\n', `data/kiri/${name}`);
   }
 
   // file:// 回退用的内嵌数据（紧凑输出，省体积）
@@ -211,15 +238,19 @@ function main() {
     song_cut_info: songCutInfo
   };
   mkdirSync(dirname(DATA_JS), { recursive: true });
-  writeFileSync(
+  writeIfChanged(
     DATA_JS,
     '// 由 tools/build-data.mjs 生成，请勿手改；改歌请编辑 data/songs.json 后重新生成。\n'
     + '// 用途：直接以 file:// 双击打开页面时，fetch 本地 JSON 会被浏览器拦截，回退读取这份内嵌数据。\n'
     + 'window.XSL_DATA = ' + JSON.stringify(embedded) + ';\n',
-    'utf8'
+    'js/data.js（内嵌回退数据）'
   );
-  console.log('✔ js/data.js（内嵌回退数据）');
   console.log(`\n共 ${catalogSongs.length} 首，日期 ${sortedDates.length} 天，最新 ${latestDate || '—'}`);
+  if (writeStats.changed === 0) {
+    console.log(`一致性自检：${writeStats.same} 个生成物全部无变化 ✔（没有任何文件被改写）`);
+  } else {
+    console.log(`一致性自检：${writeStats.changed} 个生成物内容已更新，${writeStats.same} 个无变化 —— 改动请连同 data/songs.json 一起提交。`);
+  }
 }
 
 main();
