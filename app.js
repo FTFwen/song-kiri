@@ -75,6 +75,13 @@ function formatDuration(seconds) {
   return `${minutes}:${String(seconds % 60).padStart(2, '0')}`;
 }
 
+function missingNote(song) {
+  const note = document.createElement('p');
+  note.className = 'song-missing';
+  note.textContent = `本地还没有 ${song.title} 的音频，运行 node tools/fetch-media.mjs 补齐素材`;
+  return note;
+}
+
 function makeSongCard(song, index) {
   const card = document.createElement('article');
   card.className = 'song-card';
@@ -84,6 +91,11 @@ function makeSongCard(song, index) {
   cover.src = song.cover;
   cover.alt = '';
   cover.loading = 'lazy';
+  // 仓库不含媒体素材，新设备补齐前会缺封面；此时退回占位样式而不是破图
+  cover.addEventListener('error', () => {
+    cover.removeAttribute('src');
+    cover.classList.add('is-missing');
+  });
 
   const main = document.createElement('div');
   main.className = 'song-main';
@@ -104,6 +116,12 @@ function makeSongCard(song, index) {
   audio.preload = 'metadata';
   audio.src = song.audio;
   audio.setAttribute('aria-label', `播放 ${song.title}`);
+  // 媒体未补齐时，禁用播放器并给出提示
+  audio.addEventListener('error', () => {
+    audio.controls = false;
+    card.classList.add('is-media-missing');
+    audio.replaceWith(missingNote(song));
+  });
   audio.addEventListener('play', () => {
     if (state.activeAudio && state.activeAudio !== audio) state.activeAudio.pause();
     state.activeAudio = audio;

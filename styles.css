@@ -135,6 +135,8 @@ h1 { margin: 0; font-size: clamp(36px, 7vw, 62px); line-height: 1; }
 .song-card:hover { transform: translateY(-1px); border-color: #bcc9d3; box-shadow: 0 8px 24px rgba(31,41,51,.07); }
 .song-card.is-playing { border-color: #7f9bb1; box-shadow: 0 8px 30px rgba(70,101,127,.15); }
 .song-cover { width: 154px; height: 88px; display: block; object-fit: cover; border-radius: 11px; background: var(--surface-soft); }
+.song-cover.is-missing { background: linear-gradient(135deg, var(--surface-soft), #e6edf2); }
+.song-missing { margin: 0; padding: 11px 12px; color: var(--muted); font-size: 12px; line-height: 1.5; border: 1px dashed var(--line); border-radius: 10px; background: var(--surface-soft); }
 .song-index { position: absolute; left: 22px; top: 21px; padding: 3px 7px; color: white; font-size: 11px; font-weight: 700; font-variant-numeric: tabular-nums; border-radius: 999px; background: rgba(24,36,46,.72); backdrop-filter: blur(4px); }
 .song-main { min-width: 0; }
 .song-name { margin: 0; overflow: hidden; font-size: 18px; text-overflow: ellipsis; white-space: nowrap; }
