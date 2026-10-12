@@ -7,13 +7,13 @@
 
 ## 1. 这个工程是什么
 
-`song-kiri` 是一个**完全独立的纯静态歌单页面**，收录 B 站 UP 主 **冬雾kiri** 的唱歌投稿。当前 **35 首**（2026-10-12 口径，明细见 `data/SOURCES.md`）。
+`song-kiri` 是一个**完全独立的纯静态歌单页面**，收录 B 站 UP 主 **冬雾kiri** 的唱歌投稿。当前 **36 首**（2026-10-12 口径，明细见 `data/SOURCES.md`）。
 
 来源是**两个账号**：
 
 | 投稿人 | mid | 内容 | 条数 |
 | --- | --- | --- | --- |
-| **退烧药777** | `141266664` | 冬雾kiri 的**歌切**（直播切片），本站主要来源 | 34 |
+| **退烧药777** | `141266664` | 冬雾kiri 的**歌切**（直播切片），本站主要来源 | 35 |
 | **冬雾_kiri** | `3707024510552805` | 主播**本人**发布的翻唱投稿 | 1 |
 
 只有这两个账号的投稿能进站。白名单在 `tools/fetch-media.mjs` 的 `ALLOWED_UPLOADERS` 里，视频 `owner.mid` 不命中就直接拒绝下载——见第 2 节第 7 条与第 11 节的「新增投稿人」。
@@ -194,6 +194,21 @@ B 站的搜索接口和 yt-dlp 的搜索很容易返回 **412**，元数据则�
 
 1. **拿该 UP 主名下的全部投稿**（⚠️ 不要再用空间投稿接口，见下面的警告）：
 
+   > 🔴 **2026-10-12 晚实测：下面这个动态流接口已经对「所有 mid」返回 HTTP 412 了**（连原先能用的 `141266664` 也一起 412），旧路和新路**同时失效**。
+   > 当晚改用的活路是**搜索接口**（当时完全可用）：
+   >
+   > ```
+   > GET https://api.bilibili.com/x/web-interface/search/type?search_type=video&keyword=<关键词>&order=<pubdate|click>&page=<页号>
+   > ```
+   >
+   > - 返回 `code=0`，每页 20 条；`data.result[]` 里有 `bvid` / `author` / `mid` / `title`（含 `<em>` 高亮标签要剥掉）/ `duration` / `pubdate` / `description`。
+   > - 带 `User-Agent` + `Referer: https://search.bilibili.com/` 即可，**不需要 cookie 或 wbi 签名**（带 wbi 的 `wbi/search/type` 结果完全一样）。
+   > - 关键词要多换几个（`冬雾kiri` / `冬雾kiri歌切` / `冬雾_kiri` / `雾歌` / 各切片man 的名字 …），每种关键词都要把 `pubdate` 与 `click` 两种排序各跑一遍——只靠一个关键词会漏。
+   > - ⚠️ 412 是**本机 IP 级、间歇性**的：一口气跑多个关键词会中途开始 412，必须退避重试（8s / 16s / 24s 递增）。**412 不代表参数写错了。**
+   > - ❌ `x/web-interface/search/all/v2` 虽然也返回 `code=0`，但 `data.result[]` 里的字段全是 `undefined`，不可用。
+   > - ❌ 直接抓 `search.bilibili.com` 的 HTML 也不可靠：数据被压缩成变量引用（`bvid:cG`）。
+   > - 2026-10-12 晚用这套办法收集了 **474 个 BV**（13 个关键词 × 2 种排序 × 多页），逐个 `view/detail` 回源后只多出一首新歌（《屑屑》）——**绝大多数命中都是重复版本**，见第 11 节「补录《屑屑》」。
+
    ```
    GET https://api.bilibili.com/x/polymer/web-dynamic/v1/feed/space?host_mid=141266664&offset=<上一页的 offset>
    ```
@@ -201,7 +216,7 @@ B 站的搜索接口和 yt-dlp 的搜索很容易返回 **412**，元数据则�
    - 视频投稿在 `data.items[].modules.module_dynamic.major.archive`（`bvid` / `title` / `duration_text`）。
    - `data.items[].modules.module_author.pub_ts` 是 **UTC 秒**，写进 `publishedAt` 要 **+8 小时**。这是最容易写错的一步。
    - 用 `data.has_more` / `data.offset` 翻页，每页间隔 ≥1 秒。另有 `x/polymer/web-space/seasons_series_list`（本站为空，UP 主没建合集）。
-   - 本站台账：`退烧药777` 共 **93 条投稿**，覆盖 2026-08-21 → 2026-10-11；其中能判出曲名的 **34 首**已全部收录。
+   - 本站台账：`退烧药777` 共 **93 条投稿**，覆盖 2026-08-21 → 2026-10-11；其中能判出曲名的 **35 首**已全部收录（第 35 首《屑屑》的曲名是 2026-10-12 晚靠另一名切片man 的同名投稿补认出来的，见第 11 节）。
    - 另一个账号是**主播本人** `冬雾_kiri`（mid `3707024510552805`）。⚠️ 2026-10-12 实测：把同一个动态流接口的 `host_mid` 换成她这个 mid，会返回 **HTTP 412**（风控），所以**她的投稿目前没法靠脚本枚举**——只能人工翻 `https://space.bilibili.com/3707024510552805/video`，再逐条 `view/detail` 核实归属与曲名。
 
    > ⚠️ **旧路已废（2026-10-12 实测）**：`https://api.bilibili.com/x/space/arc/search?mid=...&ps=50&pn=N`
@@ -404,6 +419,16 @@ Start-Process -FilePath $edge -ArgumentList $args -Wait -NoNewWindow `
 
 > ⚠️ 主播本人的投稿**目前没法用脚本枚举**（她的 mid 走动态流接口返回 412，见第 6 节），只能人工翻空间页。
 
+### 补录《屑屑》（2026-10-12 晚）
+
+2026-10-12 白天第一次全站复查时，`BV16zax6WEid`（退烧药777，标题「【冬雾kiri歌切】屑屑，但是唱一摇一哼一聊一」）因为**没有 BGM 标签**、简介为空，曲名判不出来，当时**跳过**了。
+
+当晚复查切片man 生态时发现 **夜听雨0628** 也切了同一首（`BV1xGab6zEux`，`<雾歌>屑屑「冬雾_kiri」`），那条**带** `发现《屑屑》` 标签 → 曲名坐实，随即把 `BV16zax6WEid` 补录为第 31 首（36 首口径）。
+
+- **没有引入新投稿人**，用的还是退烧药777 那一版（`ALLOWED_UPLOADERS` 未变）。
+- 歌曲是 **ChiliChill** 的《屑屑》，中文歌 → `language: 国语`、`tags: ["歌切"]`、`type: 翻唱、歌切`。
+- **教训**：一条歌切判不出曲名时，**别只盯着它自己**——同一场直播往往还有别的切片man 也在切，去搜「歌名关键词 + 主播名」，或翻其他切片man 的投稿列表，常常能借他们的 BGM 标签把曲名认出来。本站除退烧药777 外，常见的还有 **夜听雨0628**（`<雾歌>` 系列）与 **天才美少女萨特**（`【雾歌】` 系列）。
+
 ### 配色变换的两个盲区（重要）
 
 当初把主站的橄榄 / 奶油暖色系换成中性蓝灰时，用的是 `inBand(h, s) = s > 0.12 && 48 <= h <= 95`、色相改 `214`、饱和度按明度分档的规则。事后发现两处漏网：
@@ -471,7 +496,7 @@ npx wrangler@latest pages deploy --project-name song-kiri --branch main --commit
 
 `wrangler pages deploy` 是**按目录整个上传**的，**不读 `.gitignore`**，所以绝不能直接上传仓库根目录（否则 `.git/`、`AGENTS.md`、`.dsh-tmp/` 全会被公开）。`tools/stage-deploy.mjs` 用白名单生成 `deploy-stage/`：
 
-- **发布**：`index.html`、`404.html`、`styles.css`、`_headers`、`css/`、`js/`（4 个）、`assets/`（标题字体）、`data/kiri/`（5 个 JSON）、`media/`（音频 + 封面，**35 首约 162 MB**，2026-10-12 口径）。
+- **发布**：`index.html`、`404.html`、`styles.css`、`_headers`、`css/`、`js/`（4 个）、`assets/`（标题字体）、`data/kiri/`（5 个 JSON）、`media/`（音频 + 封面，**36 首约 168 MB**，2026-10-12 口径）。
 - **不发布**：`AGENTS.md`、`README.md`、`data/songs.json`、`data/SOURCES.md`、`tools/`、`.git/`、`.dsh-tmp/`、`.wrangler/`。
 - 媒体是**硬链接**（同分区零拷贝）而不是复制；跨分区时自动退回 `copyFileSync`。
 
