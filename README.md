@@ -26,6 +26,7 @@
 去掉：
 
 - 主播相关：`theme-xiaosonglu` 主题类、人物背景图、桌宠伴侣、好运歌签弹窗
+- 卡片上的**切片man标签**（原来徽章行与状态行里各有一个 `退烧药777`，现已从 `songs.json` 的 `tags` 里移除）
 - 主题符号：空态里的 🌻（换成 🔍）、动效文案里的「松绿」字样
 - 歌曲卡片左上角的**拟物黑胶微封面**（连同它的旋转 / 声波光环 / 悬停缩放动效一起删除）。播放按钮由卡片右侧的 `.song-actions` 承担，功能不受影响
 - 联网功能：歌曲评分（`/api/rating/song`）、直播状态轮询、中意清单服务器存档与自动同步（`/api/fav/`）、一起听（WebSocket）、跨页播放器交接
@@ -125,7 +126,7 @@ data/songs.json  ──(node tools/build-data.mjs)──▶  data/kiri/*.json + 
       "artist": "冬雾kiri",
       "language": "国语",
       "category": "翻唱",
-      "tags": ["退烧药777", "歌切"],
+      "tags": ["歌切"],
       "publishedAt": "2026-10-07 04:21:11",
       "duration": 211,
       "audio": "./media/BV17apN6KEu1.m4a",
@@ -139,6 +140,7 @@ data/songs.json  ──(node tools/build-data.mjs)──▶  data/kiri/*.json + 
 - `id`：B 站 BV 号，同时是媒体文件名。
 - `title`：曲名，必填；没有歌名的记录不会显示。
 - `artist` / `language` / `category` / `tags`：用于展示、筛选和搜索。
+  **`tags` 里不要写切片man（UP 主 `退烧药777`）** —— 卡片标签只展示歌曲本身的信息；投稿人信息保留在 `source.uploader` / `sourceUploader` 与 `data/SOURCES.md` 里。
 - `publishedAt` / `duration`：投稿时间与时长（秒）。
 - `audio` / `cover`：仓库内相对路径，**不能写外部直链**。
 - `source*`：采集时抄回的 B 站原始事实，用于溯源。

@@ -101,7 +101,7 @@ song-kiri/
       "artist": "冬雾kiri",
       "language": "国语",
       "category": "翻唱",
-      "tags": ["退烧药777", "歌切"],
+      "tags": ["歌切"],
       "publishedAt": "2026-10-07 04:21:11",
       "duration": 211,
       "audio": "./media/BV17apN6KEu1.m4a",
@@ -122,7 +122,7 @@ song-kiri/
 | `artist` | string | 否 | 这里固定为 `冬雾kiri` |
 | `language` | string | 否 | 用于语言筛选，`国语` / `日语`；会被 `shared.js` 归一化（`日语`→`日文`） |
 | `category` | string | 否 | 用于分类筛选，这里固定 `翻唱` |
-| `tags` | string[] | 否 | 自由标签，进标签筛选与徽章行 |
+| `tags` | string[] | 否 | 自由标签，进标签筛选与徽章行。⚠️ **不要把切片man（UP 主 `退烧药777`）写进来**——用户 2026-10-12 明确要求卡片标签里不出现切片man。投稿人信息仍然完整保留在 `source.uploader` / `sourceUploader` 与 `data/SOURCES.md` 里，溯源不受影响 |
 | `publishedAt` | string | 否 | `YYYY-MM-DD HH:mm:ss`，北京时间（UTC+8） |
 | `duration` | number | 否 | 秒 |
 | `audio` / `cover` | string | 是 | 仓库内相对路径 |

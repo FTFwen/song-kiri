@@ -13,6 +13,12 @@ desktop.ini
 .dsh-tmp/
 tmp/
 
+# 无头浏览器自检用的临时探针页（见 AGENTS.md 第 10 节，用完即删，绝不入库）
+/_probe.html
+/_verify.html
+/_test.html
+/_layout.html
+
 # 依赖（本工程不依赖构建工具，仅作兜底）
 node_modules/
 
