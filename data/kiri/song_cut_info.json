@@ -1,0 +1,45 @@
+{
+  "roomKey": "kiri",
+  "roomId": "",
+  "generatedAt": "2026-10-12T07:20:16.793Z",
+  "source": "song-cut-title-index",
+  "description": "每首歌对应的歌切切片标题（单曲歌切视频标题），供前端歌切链接显示。",
+  "count": 7,
+  "cuts": {
+    "有点甜": {
+      "title": "【冬雾kiri歌切】依旧一半麦克风交给wff的有点甜",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV17apN6KEu1/"
+    },
+    "彩色翅膀": {
+      "title": "【冬雾kiri歌切】你说得对但这是吃饱了之后的冬雾kiri，智商自动回归十年前还是小孩子的时候",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV15BpN6wEUw/"
+    },
+    "我是你的小狗": {
+      "title": "【冬雾kiri歌切】有没有喜欢犬系的？我最近活得像狗一样。",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV16MpK6rEMZ/"
+    },
+    "恋爱循环": {
+      "title": "【冬雾kiri歌切】你赢了兄弟，你的恋爱循环让我想起了多月前没肚皮的防战红裤衩小循环",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1AwpK61En5/"
+    },
+    "下个，路口，见": {
+      "title": "【冬雾kiri歌切】如果我们不顺路，那就下个路口见",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1bApA67Edv/"
+    },
+    "彩虹的微笑": {
+      "title": "【冬雾kiri歌切】首月7k粉就达成百舰了唱歌就是开心啊我说 《彩虹的微笑》",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1hFpA6JE2N/"
+    },
+    "夏天的风": {
+      "title": "【冬雾kiri歌切】温柔舒服到跺脚的秋天，你带着夏末的风笑着拍我的肩",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1hcpA6UEcC/"
+    }
+  }
+}

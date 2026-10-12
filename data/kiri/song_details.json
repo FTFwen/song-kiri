@@ -1,0 +1,176 @@
+{
+  "roomKey": "kiri",
+  "roomId": "",
+  "generatedAt": "2026-10-12T07:20:16.793Z",
+  "source": "song-kiri-bilibili-cuts",
+  "bySongKey": {
+    "有点甜": {
+      "row_key": "有点甜",
+      "song_name": "有点甜",
+      "display_song_name": "有点甜",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV17apN6KEu1/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-10-07",
+          "time": "",
+          "end_time": "",
+          "status": "退烧药777、歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV17apN6KEu1",
+          "replay_title": "【冬雾kiri歌切】依旧一半麦克风交给wff的有点甜",
+          "replay_url": "https://www.bilibili.com/video/BV17apN6KEu1/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV17apN6KEu1/"
+        }
+      ]
+    },
+    "彩色翅膀": {
+      "row_key": "彩色翅膀",
+      "song_name": "彩色翅膀",
+      "display_song_name": "彩色翅膀",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV15BpN6wEUw/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-10-07",
+          "time": "",
+          "end_time": "",
+          "status": "退烧药777、歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV15BpN6wEUw",
+          "replay_title": "【冬雾kiri歌切】你说得对但这是吃饱了之后的冬雾kiri，智商自动回归十年前还是小孩子的时候",
+          "replay_url": "https://www.bilibili.com/video/BV15BpN6wEUw/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV15BpN6wEUw/"
+        }
+      ]
+    },
+    "我是你的小狗": {
+      "row_key": "我是你的小狗",
+      "song_name": "我是你的小狗",
+      "display_song_name": "我是你的小狗",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV16MpK6rEMZ/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-10-07",
+          "time": "",
+          "end_time": "",
+          "status": "退烧药777、歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV16MpK6rEMZ",
+          "replay_title": "【冬雾kiri歌切】有没有喜欢犬系的？我最近活得像狗一样。",
+          "replay_url": "https://www.bilibili.com/video/BV16MpK6rEMZ/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV16MpK6rEMZ/"
+        }
+      ]
+    },
+    "恋爱循环": {
+      "row_key": "恋爱循环",
+      "song_name": "恋爱循环",
+      "display_song_name": "恋爱循环",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1AwpK61En5/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-10-07",
+          "time": "",
+          "end_time": "",
+          "status": "退烧药777、歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1AwpK61En5",
+          "replay_title": "【冬雾kiri歌切】你赢了兄弟，你的恋爱循环让我想起了多月前没肚皮的防战红裤衩小循环",
+          "replay_url": "https://www.bilibili.com/video/BV1AwpK61En5/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1AwpK61En5/"
+        }
+      ]
+    },
+    "下个，路口，见": {
+      "row_key": "下个，路口，见",
+      "song_name": "下个，路口，见",
+      "display_song_name": "下个，路口，见",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1bApA67Edv/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-10-07",
+          "time": "",
+          "end_time": "",
+          "status": "退烧药777、歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1bApA67Edv",
+          "replay_title": "【冬雾kiri歌切】如果我们不顺路，那就下个路口见",
+          "replay_url": "https://www.bilibili.com/video/BV1bApA67Edv/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1bApA67Edv/"
+        }
+      ]
+    },
+    "彩虹的微笑": {
+      "row_key": "彩虹的微笑",
+      "song_name": "彩虹的微笑",
+      "display_song_name": "彩虹的微笑",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1hFpA6JE2N/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-10-07",
+          "time": "",
+          "end_time": "",
+          "status": "退烧药777、歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1hFpA6JE2N",
+          "replay_title": "【冬雾kiri歌切】首月7k粉就达成百舰了唱歌就是开心啊我说 《彩虹的微笑》",
+          "replay_url": "https://www.bilibili.com/video/BV1hFpA6JE2N/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1hFpA6JE2N/"
+        }
+      ]
+    },
+    "夏天的风": {
+      "row_key": "夏天的风",
+      "song_name": "夏天的风",
+      "display_song_name": "夏天的风",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1hcpA6UEcC/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-10-07",
+          "time": "",
+          "end_time": "",
+          "status": "退烧药777、歌切、同名最新",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1hcpA6UEcC",
+          "replay_title": "【冬雾kiri歌切】温柔舒服到跺脚的秋天，你带着夏末的风笑着拍我的肩",
+          "replay_url": "https://www.bilibili.com/video/BV1hcpA6UEcC/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1hcpA6UEcC/"
+        }
+      ]
+    }
+  }
+}

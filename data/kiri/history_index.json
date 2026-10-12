@@ -1,0 +1,149 @@
+{
+  "roomKey": "kiri",
+  "roomId": "",
+  "generatedAt": "2026-10-12T07:20:16.793Z",
+  "source": "song-kiri-bilibili-cuts",
+  "latest": {
+    "year": "2026",
+    "month": "10",
+    "day": "07"
+  },
+  "dateTree": {
+    "2026": {
+      "10": {
+        "07": 7
+      }
+    }
+  },
+  "byDate": {
+    "2026-10-07": [
+      {
+        "song_name": "有点甜",
+        "sing_time": "",
+        "statuses": [
+          "退烧药777",
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV17apN6KEu1",
+        "replay_title": "【冬雾kiri歌切】依旧一半麦克风交给wff的有点甜",
+        "replay_url": "https://www.bilibili.com/video/BV17apN6KEu1/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "有点甜",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV17apN6KEu1/"
+      },
+      {
+        "song_name": "彩色翅膀",
+        "sing_time": "",
+        "statuses": [
+          "退烧药777",
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV15BpN6wEUw",
+        "replay_title": "【冬雾kiri歌切】你说得对但这是吃饱了之后的冬雾kiri，智商自动回归十年前还是小孩子的时候",
+        "replay_url": "https://www.bilibili.com/video/BV15BpN6wEUw/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "彩色翅膀",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV15BpN6wEUw/"
+      },
+      {
+        "song_name": "我是你的小狗",
+        "sing_time": "",
+        "statuses": [
+          "退烧药777",
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV16MpK6rEMZ",
+        "replay_title": "【冬雾kiri歌切】有没有喜欢犬系的？我最近活得像狗一样。",
+        "replay_url": "https://www.bilibili.com/video/BV16MpK6rEMZ/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "我是你的小狗",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV16MpK6rEMZ/"
+      },
+      {
+        "song_name": "恋爱循环",
+        "sing_time": "",
+        "statuses": [
+          "退烧药777",
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1AwpK61En5",
+        "replay_title": "【冬雾kiri歌切】你赢了兄弟，你的恋爱循环让我想起了多月前没肚皮的防战红裤衩小循环",
+        "replay_url": "https://www.bilibili.com/video/BV1AwpK61En5/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "恋爱循环",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1AwpK61En5/"
+      },
+      {
+        "song_name": "下个，路口，见",
+        "sing_time": "",
+        "statuses": [
+          "退烧药777",
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1bApA67Edv",
+        "replay_title": "【冬雾kiri歌切】如果我们不顺路，那就下个路口见",
+        "replay_url": "https://www.bilibili.com/video/BV1bApA67Edv/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "下个，路口，见",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1bApA67Edv/"
+      },
+      {
+        "song_name": "彩虹的微笑",
+        "sing_time": "",
+        "statuses": [
+          "退烧药777",
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1hFpA6JE2N",
+        "replay_title": "【冬雾kiri歌切】首月7k粉就达成百舰了唱歌就是开心啊我说 《彩虹的微笑》",
+        "replay_url": "https://www.bilibili.com/video/BV1hFpA6JE2N/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "彩虹的微笑",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1hFpA6JE2N/"
+      },
+      {
+        "song_name": "夏天的风",
+        "sing_time": "",
+        "statuses": [
+          "退烧药777",
+          "歌切",
+          "同名最新"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1hcpA6UEcC",
+        "replay_title": "【冬雾kiri歌切】温柔舒服到跺脚的秋天，你带着夏末的风笑着拍我的肩",
+        "replay_url": "https://www.bilibili.com/video/BV1hcpA6UEcC/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "夏天的风",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1hcpA6UEcC/"
+      }
+    ]
+  }
+}

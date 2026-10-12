@@ -3,7 +3,7 @@
     "uploader": "退烧药777",
     "mid": "141266664",
     "deduplicatedBy": "歌曲名；同名仅保留最新发布版本",
-    "updatedAt": "2026-10-07"
+    "updatedAt": "2026-10-12"
   },
   "songs": [
     {
@@ -12,11 +12,18 @@
       "artist": "冬雾kiri",
       "language": "国语",
       "category": "翻唱",
-      "tags": ["退烧药777", "歌切"],
+      "tags": [
+        "退烧药777",
+        "歌切"
+      ],
       "publishedAt": "2026-10-07 04:21:11",
       "duration": 211,
       "audio": "./media/BV17apN6KEu1.m4a",
-      "cover": "./media/covers/BV17apN6KEu1.jpg"
+      "cover": "./media/covers/BV17apN6KEu1.jpg",
+      "sourceTitle": "【冬雾kiri歌切】依旧一半麦克风交给wff的有点甜",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1791318071,
+      "sourceDuration": 211
     },
     {
       "id": "BV15BpN6wEUw",
@@ -24,11 +31,18 @@
       "artist": "冬雾kiri",
       "language": "国语",
       "category": "翻唱",
-      "tags": ["退烧药777", "歌切"],
+      "tags": [
+        "退烧药777",
+        "歌切"
+      ],
       "publishedAt": "2026-10-07 04:01:54",
       "duration": 129,
       "audio": "./media/BV15BpN6wEUw.m4a",
-      "cover": "./media/covers/BV15BpN6wEUw.jpg"
+      "cover": "./media/covers/BV15BpN6wEUw.jpg",
+      "sourceTitle": "【冬雾kiri歌切】你说得对但这是吃饱了之后的冬雾kiri，智商自动回归十年前还是小孩子的时候",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1791316914,
+      "sourceDuration": 129
     },
     {
       "id": "BV16MpK6rEMZ",
@@ -36,11 +50,18 @@
       "artist": "冬雾kiri",
       "language": "国语",
       "category": "翻唱",
-      "tags": ["退烧药777", "歌切"],
+      "tags": [
+        "退烧药777",
+        "歌切"
+      ],
       "publishedAt": "2026-10-07 03:41:36",
       "duration": 193,
       "audio": "./media/BV16MpK6rEMZ.m4a",
-      "cover": "./media/covers/BV16MpK6rEMZ.jpg"
+      "cover": "./media/covers/BV16MpK6rEMZ.jpg",
+      "sourceTitle": "【冬雾kiri歌切】有没有喜欢犬系的？我最近活得像狗一样。",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1791315696,
+      "sourceDuration": 193
     },
     {
       "id": "BV1AwpK61En5",
@@ -48,11 +69,18 @@
       "artist": "冬雾kiri",
       "language": "日语",
       "category": "翻唱",
-      "tags": ["退烧药777", "歌切"],
+      "tags": [
+        "退烧药777",
+        "歌切"
+      ],
       "publishedAt": "2026-10-07 02:56:20",
       "duration": 253,
       "audio": "./media/BV1AwpK61En5.m4a",
-      "cover": "./media/covers/BV1AwpK61En5.jpg"
+      "cover": "./media/covers/BV1AwpK61En5.jpg",
+      "sourceTitle": "【冬雾kiri歌切】你赢了兄弟，你的恋爱循环让我想起了多月前没肚皮的防战红裤衩小循环",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1791312980,
+      "sourceDuration": 253
     },
     {
       "id": "BV1bApA67Edv",
@@ -60,11 +88,18 @@
       "artist": "冬雾kiri",
       "language": "国语",
       "category": "翻唱",
-      "tags": ["退烧药777", "歌切"],
+      "tags": [
+        "退烧药777",
+        "歌切"
+      ],
       "publishedAt": "2026-10-07 02:08:44",
       "duration": 205,
       "audio": "./media/BV1bApA67Edv.m4a",
-      "cover": "./media/covers/BV1bApA67Edv.jpg"
+      "cover": "./media/covers/BV1bApA67Edv.jpg",
+      "sourceTitle": "【冬雾kiri歌切】如果我们不顺路，那就下个路口见",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1791310124,
+      "sourceDuration": 205
     },
     {
       "id": "BV1hFpA6JE2N",
@@ -72,11 +107,18 @@
       "artist": "冬雾kiri",
       "language": "国语",
       "category": "翻唱",
-      "tags": ["退烧药777", "歌切"],
+      "tags": [
+        "退烧药777",
+        "歌切"
+      ],
       "publishedAt": "2026-10-07 02:01:17",
       "duration": 171,
       "audio": "./media/BV1hFpA6JE2N.m4a",
-      "cover": "./media/covers/BV1hFpA6JE2N.jpg"
+      "cover": "./media/covers/BV1hFpA6JE2N.jpg",
+      "sourceTitle": "【冬雾kiri歌切】首月7k粉就达成百舰了唱歌就是开心啊我说 《彩虹的微笑》",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1791309677,
+      "sourceDuration": 171
     },
     {
       "id": "BV1hcpA6UEcC",
@@ -84,11 +126,19 @@
       "artist": "冬雾kiri",
       "language": "国语",
       "category": "翻唱",
-      "tags": ["退烧药777", "歌切", "同名最新"],
+      "tags": [
+        "退烧药777",
+        "歌切",
+        "同名最新"
+      ],
       "publishedAt": "2026-10-07 01:52:29",
       "duration": 223,
       "audio": "./media/BV1hcpA6UEcC.m4a",
-      "cover": "./media/covers/BV1hcpA6UEcC.jpg"
+      "cover": "./media/covers/BV1hcpA6UEcC.jpg",
+      "sourceTitle": "【冬雾kiri歌切】温柔舒服到跺脚的秋天，你带着夏末的风笑着拍我的肩",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1791309149,
+      "sourceDuration": 223
     }
   ]
 }

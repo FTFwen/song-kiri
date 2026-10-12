@@ -1,0 +1,18 @@
+{
+  "roomKey": "kiri",
+  "roomId": "",
+  "generatedAt": "2026-10-12T07:20:16.793Z",
+  "source": "song-cut-audio-download",
+  "description": "每首歌对应的翻唱切片音频（从 B 站歌切视频下载），供网页在线播放。",
+  "count": 7,
+  "audios": {
+    "有点甜": "media/BV17apN6KEu1.m4a",
+    "彩色翅膀": "media/BV15BpN6wEUw.m4a",
+    "我是你的小狗": "media/BV16MpK6rEMZ.m4a",
+    "恋爱循环": "media/BV1AwpK61En5.m4a",
+    "下个，路口，见": "media/BV1bApA67Edv.m4a",
+    "彩虹的微笑": "media/BV1hFpA6JE2N.m4a",
+    "夏天的风": "media/BV1hcpA6UEcC.m4a"
+  },
+  "verificationTargets": []
+}
