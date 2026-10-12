@@ -1,0 +1,794 @@
+/**
+ * motion.js - 歌单站全站动效交互引擎 · 浮动卡片与微交互
+ * 包含：
+ * 1. 卡片全向 3D 鼠标跟随浮动与光泽反射 (Interactive 3D Mouse Tilt & Sheen)
+ * 2. 指尖星光光标拖尾 (Sparkle Cursor Dust Trail)
+ * 3. 清晨极光柔光呼吸层 (Ambient Aurora Glow Layer)
+ * 4. 非触发式全站自然微生态画布 (Ambient Flora & Melody Breeze Canvas)
+ * 5. 正在播放时的旋律音符浮空 (Playing Melody Ambient Notes)
+ * 6. 星光粒子爆发 (Stamp Sparkles Burst)
+ * 7. 浮动播放舱优雅升起与降落动效管理 (Player Bar Motion Deck)
+ */
+
+(function () {
+  'use strict';
+
+  // 检查减弱动态偏好
+  const prefersReducedMotion = () =>
+    window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 检查是否具备精细指针（桌面鼠标）
+  const isFinePointer = () =>
+    window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  // 长列表页与触屏设备优先保证滚动帧率：窄屏或粗指针不启动常驻逐帧环境动效。
+  const useLiteMotion = () => window.innerWidth <= 768 || !isFinePointer();
+
+  // 桌面长列表滚动时冻结装饰层，停下来后恢复；不改变卡片样式。
+  let scrolling = false;
+  let scrollIdleTimer = null;
+  window.addEventListener('scroll', () => {
+    if (useLiteMotion()) return;
+    if (!scrolling) {
+      scrolling = true;
+      document.documentElement.classList.add('motion-scrolling');
+    }
+    clearTimeout(scrollIdleTimer);
+    scrollIdleTimer = setTimeout(() => {
+      scrolling = false;
+      document.documentElement.classList.remove('motion-scrolling');
+      document.dispatchEvent(new Event('motion-scroll-idle'));
+    }, 160);
+  }, { passive: true });
+
+  /* ==========================================================================
+     1. 清晨极光柔光呼吸背景注入 (Ambient Aurora Glow Layer)
+     ========================================================================== */
+  function initAmbientAurora() {
+    if (prefersReducedMotion() || useLiteMotion() || document.getElementById('ambientAuroraBg')) return;
+    const auroraWrap = document.createElement('div');
+    auroraWrap.id = 'ambientAuroraBg';
+    auroraWrap.innerHTML = `
+      <div class="aurora-orb aurora-orb-1"></div>
+      <div class="aurora-orb aurora-orb-2"></div>
+    `;
+    document.body.prepend(auroraWrap);
+  }
+
+  /* ==========================================================================
+     2. 卡片全向 3D 鼠标跟随倾斜与光斑流动 (Interactive 3D Tilt & Light Sheen)
+     ========================================================================== */
+  function initCard3DTilt() {
+    if (useLiteMotion() || prefersReducedMotion()) return;
+
+    let activeCard = null;
+    let cardRect = null;
+    let rafId = null;
+    let mousePos = { x: 0, y: 0 };
+
+    function cancelPendingFrame() {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    }
+
+    function updateCardTransform() {
+      rafId = null;
+      if (!activeCard || !activeCard.isConnected) {
+        activeCard = null;
+        cardRect = null;
+        return;
+      }
+      if (!cardRect || cardRect.width <= 0 || cardRect.height <= 0) return;
+
+      const rawPx = (mousePos.x - cardRect.left) / cardRect.width - 0.5; // -0.5 ~ 0.5
+      const rawPy = (mousePos.y - cardRect.top) / cardRect.height - 0.5; // -0.5 ~ 0.5
+      const px = Math.max(-0.6, Math.min(0.6, rawPx));
+      const py = Math.max(-0.6, Math.min(0.6, rawPy));
+
+      // 卡片浮动位移跟随光标方位：
+      // 精细微调幅度（原 ±9px 缩减至 ±2.8px），既保持轻盈跟手的磁吸悬浮质感，又杜绝大幅晃动失控
+      const tx = (px * 5.6).toFixed(1);
+      // 上下微浮动：原 -11px ~ -1px 优化为 -3.8px ~ -1.4px（底数 -2.6px 优雅上浮，上下微动 ±1.2px）
+      const ty = (-2.6 + py * 2.4).toFixed(1);
+
+      // 3D 倾斜角度跟随光标方位：从原 8.5 度缩减至克制优雅的 3.5 度
+      const maxTilt = 3.5;
+      const rx = (-py * maxTilt).toFixed(2);
+      const ry = (px * maxTilt).toFixed(2);
+      const glareX = ((px + 0.5) * 100).toFixed(1);
+      const glareY = ((py + 0.5) * 100).toFixed(1);
+
+      activeCard.style.setProperty('--tx', `${tx}px`);
+      activeCard.style.setProperty('--ty', `${ty}px`);
+      activeCard.style.setProperty('--tz', '4.5px');
+      activeCard.style.setProperty('--rx', `${rx}deg`);
+      activeCard.style.setProperty('--ry', `${ry}deg`);
+      activeCard.style.setProperty('--sc', '1.012');
+      activeCard.style.setProperty('--glare-opacity', '0.85');
+      activeCard.style.setProperty('--glare-x', `${glareX}%`);
+      activeCard.style.setProperty('--glare-y', `${glareY}%`);
+    }
+
+    function resetCard(card) {
+      if (!card) return;
+      card.classList.remove('motion-tilt-active');
+      card.style.setProperty('--card-trans-dur', '0.38s');
+      card.style.setProperty('--card-trans-ease', 'cubic-bezier(0.22, 1, 0.36, 1)');
+      card.style.transition = 'transform 0.38s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease';
+      card.style.setProperty('--tx', '0px');
+      card.style.setProperty('--ty', '0px');
+      card.style.setProperty('--tz', '0px');
+      card.style.setProperty('--rx', '0deg');
+      card.style.setProperty('--ry', '0deg');
+      card.style.setProperty('--sc', '1');
+      card.style.setProperty('--glare-opacity', '0');
+    }
+
+    function clearActive() {
+      if (activeCard) {
+        resetCard(activeCard);
+        activeCard = null;
+        cardRect = null;
+      }
+      cancelPendingFrame();
+    }
+
+    function updateActiveRect() {
+      if (activeCard && activeCard.isConnected) {
+        cardRect = activeCard.getBoundingClientRect();
+      }
+    }
+
+    // 滚轮经过卡片时不要同步读取布局；先清除倾斜，下一次 mousemove 再重新测量。
+    window.addEventListener('scroll', clearActive, { passive: true });
+    window.addEventListener('resize', updateActiveRect, { passive: true });
+
+    document.addEventListener('mousemove', function (e) {
+      if (scrolling) return;
+      const card = e.target.closest('.song-item, .sound-btn, .history-item, .favorite-item, .operator-btn, .action-btn, .bookmark-item');
+
+      if (!card) {
+        clearActive();
+        return;
+      }
+
+      if (activeCard !== card) {
+        if (activeCard) resetCard(activeCard);
+        cancelPendingFrame();
+        activeCard = card;
+        card.classList.add('motion-tilt-active');
+        cardRect = card.getBoundingClientRect();
+        card.style.setProperty('--card-trans-dur', '0.12s');
+        card.style.setProperty('--card-trans-ease', 'cubic-bezier(0.2, 0.8, 0.25, 1)');
+        card.style.transition = 'transform 0.12s cubic-bezier(0.2, 0.8, 0.25, 1), box-shadow 0.25s ease-out';
+      }
+
+      mousePos.x = e.clientX;
+      mousePos.y = e.clientY;
+
+      if (!rafId) {
+        rafId = requestAnimationFrame(updateCardTransform);
+      }
+    }, { passive: true });
+
+    document.addEventListener('mouseleave', clearActive, { passive: true });
+    window.addEventListener('blur', clearActive, { passive: true });
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) clearActive();
+    }, { passive: true });
+  }
+
+  /* ==========================================================================
+     3. 指尖星光光标拖尾特效 (Sparkle Cursor Dust Trail)
+     ========================================================================== */
+  function initCursorDust() {
+    if (useLiteMotion() || prefersReducedMotion()) return;
+
+    let lastTime = 0;
+    let lastX = 0;
+    let lastY = 0;
+
+    // 自然温润的林间暖阳与松绿微尘色盘（自带柔和半透明）
+    const DUST_PALETTE = [
+      'rgba(138, 168, 92, 0.65)',   // 松针清绿
+      'rgba(235, 198, 120, 0.68)',  // 晨曦暖金
+      'rgba(175, 212, 150, 0.60)',  // 嫩叶浅青
+      'rgba(245, 226, 175, 0.70)',  // 柔和光斑米金
+      'rgba(196, 170, 130, 0.55)',  // 暖木柔杏
+      'rgba(152, 195, 128, 0.62)'   // 晨露草绿
+    ];
+    // 极小比例点缀的极简微星（无大花朵/大图标）
+    const MICRO_SPARKLES = ['✦', '⋆', '·'];
+
+    document.addEventListener('mousemove', function (e) {
+      if (scrolling) return;
+      const now = performance.now();
+      if (now - lastTime < 32) return; // 约 30fps，保持连贯柔和而不产生视觉堆叠
+
+      // 距离阈值检测：仅当光标移动超过 6px 时才释放微尘，静止或原位微颤时不产生
+      const dist = Math.hypot(e.clientX - lastX, e.clientY - lastY);
+      if (dist < 6 && lastTime !== 0) return;
+
+      lastTime = now;
+      lastX = e.clientX;
+      lastY = e.clientY;
+
+      // 如果当前鼠标在输入框上，不发射微尘以免干扰打字
+      if (e.target.closest('input, textarea')) return;
+
+      const dust = document.createElement('span');
+      dust.className = 'cursor-dust';
+
+      // 85% 为极细微的光晕微粒圆点，15% 为精致纤细的微型十字星辰
+      const isSparkle = Math.random() < 0.15;
+      const color = DUST_PALETTE[Math.floor(Math.random() * DUST_PALETTE.length)];
+
+      // 自然的微量浮力漂移（左右微拂，上下轻缓沉降或微浮）
+      const dx = (Math.random() - 0.5) * 10;
+      const dy = (Math.random() - 0.35) * 8;
+      const opacity = (Math.random() * 0.2 + 0.5).toFixed(2); // 0.50 ~ 0.70 柔和半透明
+
+      dust.style.setProperty('--dx', `${dx.toFixed(1)}px`);
+      dust.style.setProperty('--dy', `${dy.toFixed(1)}px`);
+      dust.style.setProperty('--dust-op', opacity);
+
+      if (isSparkle) {
+        dust.textContent = MICRO_SPARKLES[Math.floor(Math.random() * MICRO_SPARKLES.length)];
+        dust.style.fontSize = `${Math.floor(Math.random() * 3) + 8}px`; // 8px ~ 10px 极简微星
+        dust.style.color = color;
+        dust.style.lineHeight = '1';
+        dust.style.textShadow = `0 0 5px ${color}`;
+      } else {
+        // 2.5px ~ 4px 极细微林间光斑
+        const size = (Math.random() * 1.8 + 2.4).toFixed(1);
+        dust.style.width = `${size}px`;
+        dust.style.height = `${size}px`;
+        dust.style.backgroundColor = color;
+        dust.style.boxShadow = `0 0 5px 1px ${color}`;
+      }
+
+      // 极轻微初始坐标分散
+      const offsetX = (Math.random() - 0.5) * 4;
+      const offsetY = (Math.random() - 0.5) * 4;
+
+      dust.style.left = `${e.clientX + offsetX}px`;
+      dust.style.top = `${e.clientY + offsetY}px`;
+      document.body.appendChild(dust);
+
+      setTimeout(() => dust.remove(), 620);
+    }, { passive: true });
+  }
+
+  /* ==========================================================================
+     4. 非触发式全站自然微生态背景画布 (Ambient Flora & Melody Breeze Canvas)
+     ========================================================================== */
+  function initAmbientBreezeCanvas() {
+    // 常驻 canvas 每帧运行；窄屏与触屏设备直接使用轻量模式。
+    if (prefersReducedMotion() || useLiteMotion()) return;
+
+    let canvas = document.getElementById('ambientBreezeCanvas');
+    if (!canvas) {
+      canvas = document.createElement('canvas');
+      canvas.id = 'ambientBreezeCanvas';
+      document.body.prepend(canvas);
+    }
+
+    const ctx = canvas.getContext('2d');
+    let width = 0;
+    let height = 0;
+    let isPaused = false;
+    let animId = null;
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize, { passive: true });
+    resize();
+
+    // 丰富的粒子元素：落叶、松针、音乐符号、萤火虫光斑、晨露气泡
+    const MOTIFS = [
+      { text: '🍃', color: '#5d718b', type: 'text', size: 15 },
+      { text: '🌿', color: '#54677f', type: 'text', size: 14 },
+      { text: '♪',  color: '#5d718b', type: 'text', size: 16 },
+      { text: '♫',  color: '#b57d1c', type: 'text', size: 16 },
+      { text: '♬',  color: '#4a5b70', type: 'text', size: 14 },
+      { text: '✦',  color: '#f4ce62', type: 'text', size: 12 },
+      { text: '✨', color: '#e8b890', type: 'text', size: 12 },
+      { color: '#a6b0be', type: 'dewdrop', size: 4 },
+      { color: '#f4ce62', type: 'firefly', size: 3.5 }
+    ];
+    const isMobileDevice = window.innerWidth <= 768;
+    const PARTICLE_COUNT = isMobileDevice 
+      ? 10 
+      : Math.min(30, Math.max(16, Math.floor(window.innerWidth / 50)));
+    const particles = [];
+
+    // 全局微风扰动
+    let mouseX = -1000, mouseY = -1000;
+    window.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    }, { passive: true });
+
+    class AmbientParticle {
+      constructor(isInitial = false) {
+        this.reset(isInitial);
+      }
+
+      reset(isInitial = false) {
+        this.motif = MOTIFS[Math.floor(Math.random() * MOTIFS.length)];
+        this.x = Math.random() * width;
+        this.y = isInitial ? Math.random() * height : height + 25;
+        this.vx = (Math.random() - 0.2) * 0.5;
+        this.vy = -(Math.random() * 0.6 + 0.35);
+        this.size = this.motif.size * (Math.random() * 0.45 + 0.8);
+        this.rot = Math.random() * Math.PI * 2;
+        this.rotSpeed = (Math.random() - 0.5) * 0.025;
+        this.swaySpeed = Math.random() * 0.02 + 0.012;
+        this.swayOffset = Math.random() * Math.PI * 2;
+        this.swayWidth = Math.random() * 0.7 + 0.35;
+        this.baseOpacity = Math.random() * 0.4 + 0.35;
+        this.opacity = 0;
+        this.haloPhase = Math.random() * Math.PI * 2;
+      }
+
+      update(t) {
+        // 微风摇曳
+        this.x += this.vx + Math.sin(t * this.swaySpeed + this.swayOffset) * this.swayWidth;
+        this.y += this.vy;
+        this.rot += this.rotSpeed;
+        this.haloPhase += 0.04;
+
+        // 鼠标微风气流推力（靠近光标时光滑避让，生动灵敏）
+        const dx = this.x - mouseX;
+        const dy = this.y - mouseY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 90 && dist > 0) {
+          const force = (90 - dist) / 90 * 1.5;
+          this.x += (dx / dist) * force;
+          this.y += (dy / dist) * force;
+        }
+
+        // 柔和淡入淡出
+        if (this.y > height - 60) {
+          this.opacity = Math.min(this.baseOpacity, this.opacity + 0.015);
+        } else if (this.y < 80) {
+          this.opacity = Math.max(0, this.opacity - 0.012);
+        } else {
+          this.opacity = this.baseOpacity;
+        }
+
+        if (this.y < -35 || this.x < -35 || this.x > width + 35) {
+          this.reset(false);
+        }
+      }
+
+      draw() {
+        if (this.opacity <= 0) return;
+        ctx.save();
+        ctx.globalAlpha = this.opacity;
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rot);
+
+        if (this.motif.type === 'text') {
+          ctx.font = `${this.size}px serif`;
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillStyle = this.motif.color;
+          ctx.fillText(this.motif.text, 0, 0);
+        } else if (this.motif.type === 'firefly') {
+          const pulse = Math.sin(this.haloPhase) * 0.35 + 0.95;
+          const outerR = Math.max(1, this.size * 2.2 * pulse);
+          const grad = ctx.createRadialGradient(0, 0, this.size * 0.3, 0, 0, outerR);
+          grad.addColorStop(0, '#ffffff');
+          grad.addColorStop(0.3, this.motif.color);
+          grad.addColorStop(1, 'rgba(244, 206, 98, 0)');
+          ctx.beginPath();
+          ctx.arc(0, 0, outerR, 0, Math.PI * 2);
+          ctx.fillStyle = grad;
+          ctx.fill();
+        } else if (this.motif.type === 'dewdrop') {
+          ctx.beginPath();
+          ctx.arc(0, 0, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = this.motif.color;
+          ctx.fill();
+        }
+
+        ctx.restore();
+      }
+    }
+
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      particles.push(new AmbientParticle(true));
+    }
+
+    let time = 0;
+    function render() {
+      animId = null;
+      if (isPaused || scrolling) return;
+      ctx.clearRect(0, 0, width, height);
+      time++;
+
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update(time);
+        particles[i].draw();
+      }
+
+      animId = requestAnimationFrame(render);
+    }
+
+    document.addEventListener('motion-scroll-idle', () => {
+      if (!isPaused && !document.hidden && animId === null) render();
+    });
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        isPaused = true;
+        if (animId) cancelAnimationFrame(animId);
+      } else {
+        isPaused = false;
+        render();
+      }
+    });
+
+    render();
+  }
+
+  /* ==========================================================================
+     5. 正在播放时的旋律音符浮空喷涌 (Playing Melody Ambient Notes)
+     ========================================================================== */
+  function initMelodyNotesEmitter() {
+    // 播放期间会定时查询并创建 DOM；轻量模式不启动。
+    if (prefersReducedMotion() || useLiteMotion()) return;
+
+    const NOTES = ['♪', '♫', '♬', '♩', '🍃', '✨'];
+    const COLORS = ['#5d718b', '#4a5b70', '#e8b890', '#b57d1c', '#f4ce62'];
+
+    setInterval(() => {
+      const isPlaying = document.querySelector('.song-item.now-playing, .sound-btn.playing, .song-vinyl-wrap.spinning');
+      if (!isPlaying || document.hidden) return;
+
+      const playerBar = document.getElementById('playerBar');
+      if (!playerBar || playerBar.style.display === 'none' || playerBar.classList.contains('motion-hidden')) return;
+
+      const rect = playerBar.getBoundingClientRect();
+      const note = document.createElement('span');
+      note.className = 'ambient-melody-note';
+      note.textContent = NOTES[Math.floor(Math.random() * NOTES.length)];
+      note.style.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+
+      const spawnX = rect.left + Math.random() * (rect.width - 50) + 25;
+      const spawnY = rect.top + 6;
+
+      note.style.left = `${spawnX}px`;
+      note.style.top = `${spawnY}px`;
+      document.body.appendChild(note);
+
+      setTimeout(() => note.remove(), 3200);
+    }, 1800);
+  }
+
+  /* ==========================================================================
+     6. 手账印章星光粒子喷涌 (Stamp Sparkles Burst)
+     ========================================================================== */
+  const PASTEL_COLORS = ['#5d718b', '#e8b890', '#f4ce62', '#e06c75', '#54677f', '#a6b0be'];
+  const SYMBOLS = ['★', '✦', '♥', '🌸', '✨', '🍃'];
+
+  function createStampBurst(x, y, count = 12) {
+    if (prefersReducedMotion()) return;
+
+    for (let i = 0; i < count; i++) {
+      const particle = document.createElement('span');
+      particle.className = 'motion-spark-particle';
+
+      const isText = Math.random() > 0.4;
+      if (isText) {
+        particle.textContent = SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)];
+        particle.style.fontSize = `${Math.floor(Math.random() * 8) + 11}px`;
+        particle.style.color = PASTEL_COLORS[Math.floor(Math.random() * PASTEL_COLORS.length)];
+      } else {
+        const size = Math.floor(Math.random() * 6) + 4;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.backgroundColor = PASTEL_COLORS[Math.floor(Math.random() * PASTEL_COLORS.length)];
+        particle.style.boxShadow = `0 1px 4px rgba(0,0,0,0.1)`;
+      }
+
+      particle.style.left = `${x}px`;
+      particle.style.top = `${y}px`;
+      document.body.appendChild(particle);
+
+      const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.5;
+      const velocity = Math.random() * 60 + 35;
+      const targetX = Math.cos(angle) * velocity;
+      const targetY = Math.sin(angle) * velocity - 22;
+      const rotation = (Math.random() - 0.5) * 480;
+      const duration = Math.random() * 250 + 550;
+
+      particle.animate(
+        [
+          { transform: 'translate(-50%, -50%) scale(0) rotate(0deg)', opacity: 1 },
+          { transform: `translate(calc(-50% + ${targetX * 0.5}px), calc(-50% + ${targetY * 0.5}px)) scale(1.35) rotate(${rotation * 0.5}deg)`, opacity: 0.95, offset: 0.35 },
+          { transform: `translate(calc(-50% + ${targetX}px), calc(-50% + ${targetY + 25}px)) scale(0) rotate(${rotation}deg)`, opacity: 0 }
+        ],
+        {
+          duration: duration,
+          easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+          fill: 'forwards'
+        }
+      ).onfinish = () => particle.remove();
+    }
+  }
+
+  document.addEventListener('click', function (e) {
+    const favBtn = e.target.closest('.favorite-star, [data-favorite-key], #playerFavBtn');
+    if (favBtn) {
+      const rect = favBtn.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      setTimeout(() => createStampBurst(cx, cy, 11), 60);
+    }
+  }, { passive: true });
+
+  /* ==========================================================================
+     7. 安全 View Transitions 封装 (Safe View Transitions)
+     ========================================================================== */
+  function safeViewTransition(updateCallback) {
+    if (prefersReducedMotion() || !document.startViewTransition) {
+      updateCallback();
+      return;
+    }
+    try {
+      document.startViewTransition(updateCallback);
+    } catch (e) {
+      updateCallback();
+    }
+  }
+
+  /* ==========================================================================
+     8. 悬浮播放条 (Player Bar) 平滑升起/隐藏助手
+     ========================================================================== */
+  function setupPlayerBarMotion(playerBarEl) {
+    if (!playerBarEl) return;
+
+    // 播放条「升起」：先移除 motion-hidden 再加 motion-visible，让 CSS 过渡真正跑起来。
+    // 用 rAF + setTimeout 双保险——后台标签页或降频渲染时 rAF 可能长时间不触发，
+    // 只靠 rAF 会让播放条永久停在 opacity:0。
+    function showBar() {
+      if (playerBarEl.style.display === 'none') return;
+      playerBarEl.classList.remove('motion-hidden');
+      playerBarEl.classList.add('motion-visible');
+    }
+
+    const observer = new MutationObserver(mutations => {
+      mutations.forEach(mutation => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+          const isNone = playerBarEl.style.display === 'none';
+          if (!isNone) {
+            requestAnimationFrame(showBar);
+            setTimeout(showBar, 60);
+          }
+        }
+      });
+    });
+
+    observer.observe(playerBarEl, { attributes: true });
+
+    if (playerBarEl.style.display !== 'none') {
+      playerBarEl.classList.add('motion-visible');
+      playerBarEl.classList.remove('motion-hidden');
+    } else {
+      playerBarEl.classList.add('motion-hidden');
+    }
+  }
+
+  /* ==========================================================================
+     11. 播放器麦浪音频律动频谱 (Fluid Music Spectrum in Player Bar)
+     ========================================================================== */
+  function initPlayerSpectrum() {
+    // 手机端频谱本就隐藏，避免仍每 400ms 查询播放状态。
+    if (useLiteMotion()) return;
+    const playerBar = document.getElementById('playerBar');
+    if (!playerBar) return;
+
+    let spectrum = document.getElementById('playerAudioSpectrum');
+    if (!spectrum) {
+      spectrum = document.createElement('div');
+      spectrum.className = 'player-audio-spectrum';
+      spectrum.id = 'playerAudioSpectrum';
+      spectrum.title = '音乐律动麦浪频谱';
+      for (let i = 0; i < 7; i++) {
+        const bar = document.createElement('span');
+        bar.className = 'spectrum-bar';
+        spectrum.appendChild(bar);
+      }
+
+      // 插入到 player-info 内或 player-card 的 pc-left
+      const playerInfo = playerBar.querySelector('.player-info, .pc-left');
+      if (playerInfo) {
+        playerInfo.appendChild(spectrum);
+      } else {
+        playerBar.appendChild(spectrum);
+      }
+    }
+
+    // 监听播放状态（兼容主站与按钮墙顶部播放器）
+    setInterval(() => {
+      const isPlaying = !!document.querySelector('.song-item.now-playing, .sound-btn.playing, .song-vinyl-wrap.spinning') ||
+                        !!document.querySelector('#playerToggleBtn use[href*="pause"], #pbPlayBtn use[href*="pause"]');
+      if (isPlaying) {
+        spectrum.classList.add('active');
+      } else {
+        spectrum.classList.remove('active');
+      }
+    }, 400);
+  }
+
+  /* ==========================================================================
+     12. 手账立体和纸胶带装饰 (Washi Tape Accents)
+     ========================================================================== */
+  function initWashiTapeCorners() {
+    const targets = document.querySelectorAll('.header, .tabs, .banner, .player-card');
+    targets.forEach(target => {
+      if (target.querySelector('.washi-tape')) return;
+      target.style.position = target.style.position || 'relative';
+
+      const tapeTR = document.createElement('span');
+      tapeTR.className = 'washi-tape washi-tape-top-right';
+      target.appendChild(tapeTR);
+
+      const tapeTL = document.createElement('span');
+      tapeTL.className = 'washi-tape washi-tape-top-left';
+      target.appendChild(tapeTL);
+    });
+  }
+
+  /* ==========================================================================
+     13. 全局触感晨露水波纹 (Zen Water Ripple on Click)
+     ========================================================================== */
+  function initClickRipple() {
+    // 触摸滚动也会先触发 pointerdown，轻量模式禁用全局 fixed 水波 DOM。
+    if (prefersReducedMotion() || useLiteMotion()) return;
+
+    let lastRippleTime = 0;
+    document.addEventListener('pointerdown', function (e) {
+      const now = performance.now();
+      if (now - lastRippleTime < 70) return;
+      lastRippleTime = now;
+
+      // 避免在滑块拖动条上触发
+      if (e.target.closest('input[type="range"]')) return;
+
+      const ripple = document.createElement('span');
+      ripple.className = 'click-water-ripple';
+      ripple.style.left = `${e.clientX}px`;
+      ripple.style.top = `${e.clientY}px`;
+      document.body.appendChild(ripple);
+
+      setTimeout(() => ripple.remove(), 480);
+    }, { passive: true });
+  }
+
+  /* ==========================================================================
+     14. 语音按钮墙极致互动特效系统 (Soundboard Enhanced FX System)
+     ========================================================================== */
+  function initButtonShockwaves() {
+    // 浮动拟声词与弹跳文案
+    const POPUP_TEXTS = [
+      '+1 🎵', '好耶！✨', '再来一次~ 🌰', '太魔性啦！🔥', 
+      '松绿发声！🌱', '🎶 滴！', '元气 +10 💖', '冲！⚡', 
+      '绝了！🌟', '哈哈哈哈 🍃', '又听了一遍！✨', '循环播放 🔁'
+    ];
+
+    document.addEventListener('click', function (e) {
+      // 1. 点击分类徽章盖章下压特效
+      const catBadge = e.target.closest('.cat-badge');
+      if (catBadge) {
+        const rect = catBadge.getBoundingClientRect();
+        createStampBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 8);
+        return;
+      }
+
+      // 2. 点击语音按钮墙按钮
+      const btn = e.target.closest('.sound-btn');
+      if (!btn) return;
+      // 轻量模式：跳过点击播放的下压/声浪动效，按钮播放功能不受影响。
+      if (useLiteMotion()) return;
+
+      const rect = btn.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+
+      // 机械下压回弹形变
+      btn.classList.remove('btn-punched');
+      void btn.offsetWidth;
+      btn.classList.add('btn-punched');
+
+      // 双层同心声浪光环扩散
+      const wave1 = document.createElement('span');
+      wave1.className = 'sound-shockwave-ring';
+      btn.appendChild(wave1);
+      setTimeout(() => wave1.remove(), 520);
+
+      const wave2 = document.createElement('span');
+      wave2.className = 'sound-shockwave-ring second';
+      btn.appendChild(wave2);
+      setTimeout(() => wave2.remove(), 600);
+      // （已移除：上浮文字泡泡与散落微粒，保留按钮下压+声浪光环）
+    }, { passive: true });
+
+    // 3. 随机播放老虎机/轮盘快速扫光动效 (Roulette Sweep Animation)
+    const randomBtn = document.getElementById('pbRandomBtn');
+    if (randomBtn) {
+      randomBtn.addEventListener('click', function () {
+        const allBtns = Array.from(document.querySelectorAll('.sound-btn'));
+        if (allBtns.length < 2) return;
+
+        let sweeps = 0;
+        const maxSweeps = 7;
+        const interval = setInterval(() => {
+          allBtns.forEach(b => b.classList.remove('roulette-sweep'));
+          const luckyIdx = Math.floor(Math.random() * allBtns.length);
+          const targetBtn = allBtns[luckyIdx];
+          if (targetBtn) targetBtn.classList.add('roulette-sweep');
+          sweeps++;
+
+          if (sweeps >= maxSweeps) {
+            clearInterval(interval);
+            setTimeout(() => {
+              if (targetBtn) {
+                targetBtn.classList.remove('roulette-sweep');
+                const rect = targetBtn.getBoundingClientRect();
+                createStampBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 14);
+              }
+            }, 300);
+          }
+        }, 60);
+      });
+    }
+  }
+
+  /* ==========================================================================
+     15. 斑驳林间树影滤镜层 (Dappled Sunlight Caustics)
+     ========================================================================== */
+  function initDappledSunlight() {
+    if (prefersReducedMotion() || useLiteMotion()) return;
+    if (document.getElementById('dappledSunlight')) return;
+
+    const layer = document.createElement('div');
+    layer.id = 'dappledSunlight';
+    document.body.prepend(layer);
+  }
+
+  // 页面加载完成后统一初始化
+  function initMotionSystem() {
+    initAmbientAurora();
+    initDappledSunlight();
+    initCard3DTilt();
+    initCursorDust();
+    initAmbientBreezeCanvas();
+    initMelodyNotesEmitter();
+    initPlayerSpectrum();
+    initWashiTapeCorners();
+    initClickRipple();
+    initButtonShockwaves();
+    setupPlayerBarMotion(document.getElementById('playerBar'));
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMotionSystem);
+  } else {
+    initMotionSystem();
+  }
+
+  // 暴露全局 API
+  window.XSL_MOTION = {
+    createStampBurst,
+    safeViewTransition,
+    setupPlayerBarMotion
+  };
+
+})();
