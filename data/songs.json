@@ -1,0 +1,94 @@
+{
+  "source": {
+    "uploader": "退烧药777",
+    "mid": "141266664",
+    "deduplicatedBy": "歌曲名；同名仅保留最新发布版本",
+    "updatedAt": "2026-10-07"
+  },
+  "songs": [
+    {
+      "id": "BV17apN6KEu1",
+      "title": "有点甜",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": ["退烧药777", "歌切"],
+      "publishedAt": "2026-10-07 04:21:11",
+      "duration": 211,
+      "audio": "./media/BV17apN6KEu1.m4a",
+      "cover": "./media/covers/BV17apN6KEu1.jpg"
+    },
+    {
+      "id": "BV15BpN6wEUw",
+      "title": "彩色翅膀",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": ["退烧药777", "歌切"],
+      "publishedAt": "2026-10-07 04:01:54",
+      "duration": 129,
+      "audio": "./media/BV15BpN6wEUw.m4a",
+      "cover": "./media/covers/BV15BpN6wEUw.jpg"
+    },
+    {
+      "id": "BV16MpK6rEMZ",
+      "title": "我是你的小狗",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": ["退烧药777", "歌切"],
+      "publishedAt": "2026-10-07 03:41:36",
+      "duration": 193,
+      "audio": "./media/BV16MpK6rEMZ.m4a",
+      "cover": "./media/covers/BV16MpK6rEMZ.jpg"
+    },
+    {
+      "id": "BV1AwpK61En5",
+      "title": "恋爱循环",
+      "artist": "冬雾kiri",
+      "language": "日语",
+      "category": "翻唱",
+      "tags": ["退烧药777", "歌切"],
+      "publishedAt": "2026-10-07 02:56:20",
+      "duration": 253,
+      "audio": "./media/BV1AwpK61En5.m4a",
+      "cover": "./media/covers/BV1AwpK61En5.jpg"
+    },
+    {
+      "id": "BV1bApA67Edv",
+      "title": "下个，路口，见",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": ["退烧药777", "歌切"],
+      "publishedAt": "2026-10-07 02:08:44",
+      "duration": 205,
+      "audio": "./media/BV1bApA67Edv.m4a",
+      "cover": "./media/covers/BV1bApA67Edv.jpg"
+    },
+    {
+      "id": "BV1hFpA6JE2N",
+      "title": "彩虹的微笑",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": ["退烧药777", "歌切"],
+      "publishedAt": "2026-10-07 02:01:17",
+      "duration": 171,
+      "audio": "./media/BV1hFpA6JE2N.m4a",
+      "cover": "./media/covers/BV1hFpA6JE2N.jpg"
+    },
+    {
+      "id": "BV1hcpA6UEcC",
+      "title": "夏天的风",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": ["退烧药777", "歌切", "同名最新"],
+      "publishedAt": "2026-10-07 01:52:29",
+      "duration": 223,
+      "audio": "./media/BV1hcpA6UEcC.m4a",
+      "cover": "./media/covers/BV1hcpA6UEcC.jpg"
+    }
+  ]
+}

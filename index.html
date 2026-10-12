@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="一个独立、纯静态的歌单页面">
+  <title>歌单</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div>
+        <p class="eyebrow">LOCAL SONG CUTS</p>
+        <h1>冬雾kiri 歌切</h1>
+        <p class="subtitle">退烧药777 投稿 · 同名歌曲只保留最新版本</p>
+      </div>
+      <div class="song-total" aria-live="polite">
+        <strong id="songTotal">0</strong>
+        <span>首歌曲</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="toolbar" aria-label="歌单筛选">
+      <label class="search-field">
+        <span class="sr-only">搜索歌曲或歌手</span>
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
+        <input id="searchInput" type="search" placeholder="搜索歌曲、歌手或标签" autocomplete="off">
+      </label>
+
+      <label class="select-field">
+        <span>语言</span>
+        <select id="languageFilter">
+          <option value="">全部</option>
+        </select>
+      </label>
+
+      <label class="select-field">
+        <span>分类</span>
+        <select id="categoryFilter">
+          <option value="">全部</option>
+        </select>
+      </label>
+
+      <label class="select-field">
+        <span>排序</span>
+        <select id="sortSelect">
+          <option value="default">默认顺序</option>
+          <option value="title">歌名</option>
+          <option value="artist">歌手</option>
+        </select>
+      </label>
+
+      <button id="resetButton" class="reset-button" type="button">重置</button>
+    </section>
+
+    <section class="result-summary" aria-live="polite">
+      <span id="resultText">正在读取歌单…</span>
+      <span class="local-note">音频和封面均保存在当前工程，可离线播放</span>
+    </section>
+
+    <section id="songList" class="song-list" aria-label="歌曲列表"></section>
+
+    <section id="emptyState" class="empty-state" hidden>
+      <div class="empty-icon" aria-hidden="true">♪</div>
+      <h2 id="emptyTitle">歌单还没有内容</h2>
+      <p id="emptyDescription">之后把新的歌曲数据放进来，就会显示在这里。</p>
+    </section>
+
+    <noscript>
+      <section class="empty-state">
+        <h2>需要启用 JavaScript</h2>
+        <p>这个静态页面使用 JavaScript 读取和筛选本地歌单数据。</p>
+      </section>
+    </noscript>
+  </main>
+
+  <footer class="site-footer">本地预览 · 仅收录退烧药777发布的冬雾kiri歌切</footer>
+</body>
+</html>
