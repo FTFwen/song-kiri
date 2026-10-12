@@ -1,7 +1,7 @@
 {
   "roomKey": "kiri",
   "roomId": "",
-  "generatedAt": "2026-10-12T10:12:12.958Z",
+  "generatedAt": "2026-10-12T10:26:40.838Z",
   "source": "song-kiri-bilibili-cuts",
   "latest": {
     "year": "2026",
@@ -17,7 +17,7 @@
       "09": {
         "16": 1,
         "17": 2,
-        "27": 7,
+        "27": 8,
         "09": 1
       }
     }
@@ -538,6 +538,23 @@
         "lyric_excerpt": "",
         "song_resolution_method": "song-cut-title",
         "cut_link": "https://www.bilibili.com/video/BV1Zwax6UEL7/"
+      },
+      {
+        "song_name": "屑屑",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV16zax6WEid",
+        "replay_title": "【冬雾kiri歌切】屑屑，但是唱一摇一哼一聊一",
+        "replay_url": "https://www.bilibili.com/video/BV16zax6WEid/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "屑屑",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV16zax6WEid/"
       },
       {
         "song_name": "讲真的",

@@ -1,10 +1,10 @@
 {
   "roomKey": "kiri",
   "roomId": "",
-  "generatedAt": "2026-10-12T10:12:12.958Z",
+  "generatedAt": "2026-10-12T10:26:40.838Z",
   "source": "song-cut-title-index",
   "description": "每首歌对应的歌切切片标题（单曲歌切视频标题），供前端歌切链接显示。",
-  "count": 35,
+  "count": 36,
   "cuts": {
     "好想你": {
       "title": "【冬雾kiri歌切】这首歌会不会太甜了 也许是我牙口不好吧",
@@ -155,6 +155,11 @@
       "title": "【冬雾kiri歌切】素颜，该wff当许嵩了吗",
       "kind": "single",
       "url": "https://www.bilibili.com/video/BV1Zwax6UEL7/"
+    },
+    "屑屑": {
+      "title": "【冬雾kiri歌切】屑屑，但是唱一摇一哼一聊一",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV16zax6WEid/"
     },
     "讲真的": {
       "title": "【冬雾kiri歌切】讲真的",

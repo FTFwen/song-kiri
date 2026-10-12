@@ -3,8 +3,16 @@
     "uploader": "退烧药777",
     "mid": "141266664",
     "uploaders": [
-      { "name": "退烧药777", "mid": "141266664", "role": "歌切切片man（主要来源）" },
-      { "name": "冬雾_kiri", "mid": "3707024510552805", "role": "主播本人（自己发布的翻唱投稿）" }
+      {
+        "name": "退烧药777",
+        "mid": "141266664",
+        "role": "歌切切片man（主要来源）"
+      },
+      {
+        "name": "冬雾_kiri",
+        "mid": "3707024510552805",
+        "role": "主播本人（自己发布的翻唱投稿）"
+      }
     ],
     "deduplicatedBy": "歌曲名；同名仅保留最新发布版本",
     "updatedAt": "2026-10-12"
@@ -550,6 +558,24 @@
       "sourceUploader": "退烧药777",
       "sourcePubdate": 1790448207,
       "sourceDuration": 238
+    },
+    {
+      "id": "BV16zax6WEid",
+      "title": "屑屑",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-09-27 02:12:23",
+      "duration": 256,
+      "audio": "./media/BV16zax6WEid.m4a",
+      "cover": "./media/covers/BV16zax6WEid.jpg",
+      "sourceTitle": "【冬雾kiri歌切】屑屑，但是唱一摇一哼一聊一",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1790446343,
+      "sourceDuration": 256
     },
     {
       "id": "BV1mWax6eEnZ",

@@ -1,7 +1,7 @@
 {
   "roomKey": "kiri",
   "roomId": "",
-  "generatedAt": "2026-10-12T10:12:12.958Z",
+  "generatedAt": "2026-10-12T10:26:40.838Z",
   "source": "song-kiri-bilibili-cuts",
   "songs": [
     {
@@ -636,6 +636,27 @@
     },
     {
       "song_id": 31,
+      "song_name": "屑屑",
+      "show_as_song_name": "",
+      "display_song_name": "屑屑",
+      "artist": "冬雾kiri",
+      "artist_search": "冬雾kiri",
+      "feat_artist": "",
+      "remark": "退烧药777 投稿的冬雾kiri歌切，原视频 https://www.bilibili.com/video/BV16zax6WEid/",
+      "tone": "",
+      "language": "国语",
+      "type": "翻唱、歌切",
+      "identification": "",
+      "display_version": "",
+      "search_name": "屑屑",
+      "cut_link": "https://www.bilibili.com/video/BV16zax6WEid/",
+      "sing_count": 1,
+      "status_labels": "歌切",
+      "last_sing_at": "2026-09-27",
+      "row_key": "屑屑"
+    },
+    {
+      "song_id": 32,
       "song_name": "讲真的",
       "show_as_song_name": "",
       "display_song_name": "讲真的",
@@ -656,7 +677,7 @@
       "row_key": "讲真的"
     },
     {
-      "song_id": 32,
+      "song_id": 33,
       "song_name": "チルノのパーフェクトさんすう教室",
       "show_as_song_name": "",
       "display_song_name": "チルノのパーフェクトさんすう教室",
@@ -677,7 +698,7 @@
       "row_key": "チルノのパーフェクトさんすう教室"
     },
     {
-      "song_id": 33,
+      "song_id": 34,
       "song_name": "勾指起誓",
       "show_as_song_name": "",
       "display_song_name": "勾指起誓",
@@ -698,7 +719,7 @@
       "row_key": "勾指起誓"
     },
     {
-      "song_id": 34,
+      "song_id": 35,
       "song_name": "虫儿飞",
       "show_as_song_name": "",
       "display_song_name": "虫儿飞",
@@ -719,7 +740,7 @@
       "row_key": "虫儿飞"
     },
     {
-      "song_id": 35,
+      "song_id": 36,
       "song_name": "mosi mosi?",
       "show_as_song_name": "",
       "display_song_name": "mosi mosi?",

@@ -1,7 +1,7 @@
 {
   "roomKey": "kiri",
   "roomId": "",
-  "generatedAt": "2026-10-12T10:12:12.958Z",
+  "generatedAt": "2026-10-12T10:26:40.838Z",
   "source": "song-kiri-bilibili-cuts",
   "bySongKey": {
     "好想你": {
@@ -721,6 +721,30 @@
           "lyric_excerpt": "",
           "song_resolution_method": "song-cut-title",
           "cut_link": "https://www.bilibili.com/video/BV1Zwax6UEL7/"
+        }
+      ]
+    },
+    "屑屑": {
+      "row_key": "屑屑",
+      "song_name": "屑屑",
+      "display_song_name": "屑屑",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV16zax6WEid/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-09-27",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV16zax6WEid",
+          "replay_title": "【冬雾kiri歌切】屑屑，但是唱一摇一哼一聊一",
+          "replay_url": "https://www.bilibili.com/video/BV16zax6WEid/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV16zax6WEid/"
         }
       ]
     },
