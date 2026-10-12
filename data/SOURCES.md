@@ -28,6 +28,11 @@
 > 曲名判定一律以 B 站标签里的 `发现《曲名》` 为准；标题里的 `《曲名》` 作为交叉验证。
 > 若两者都无法确定曲名，**不要猜测**，先向用户确认。
 
+上表每条的原视频标题已抄进 `data/songs.json` 的 `sourceTitle` 字段（同时记录了 `sourceUploader` /
+`sourcePubdate` / `sourceDuration`），页面上的歌切外链 `title` 就是它——所以这 7 条原始标题也能直接在页面上核对。
+
+> ⚠️ 表里的「时长」是 `songs.json` 的 `duration`；`sourceDuration` 是 B 站返回的原始时长，两者应当一致。
+
 ---
 
 ## 去重记录
@@ -55,6 +60,9 @@
 
 > 第 4、5 步已封装在 `tools/fetch-media.mjs` 里（含归属校验、重试与限速）。
 > 更新完 `songs.json` 后直接 `node tools/fetch-media.mjs` 即可，不必手写下载逻辑。
+>
+> 改完 `songs.json` 还要跑一次 **`node tools/build-data.mjs`**，重建 `data/kiri/*.json` 与 `js/data.js`；
+> 这一步也顺带把上面抄回来的 `source*` 字段映射进页面真正读取的运行时数据里。
 
 注意事项：
 

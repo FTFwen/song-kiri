@@ -1,22 +1,36 @@
 # song-kiri
 
-一个**完全独立**的纯静态歌单页面，收录 B 站 UP 主 **退烧药777** 发布的 **冬雾kiri 歌切**。
+一个**完全独立**的纯静态歌单页面，收录 B 站 UP 主 **退烧药777**（mid `141266664`）发布的 **冬雾kiri 歌切**。
 
 不依赖任何后端、构建工具或外部资源。
 
 > 🤖 **用 AI 维护本工程，请先读 [`AGENTS.md`](./AGENTS.md)。**
-> 它记录了硬性约束、数据结构、采集流程和提交前验证清单，是跨设备协作的入口。
+> 它记录了硬性约束、数据管线、采集流程、无 GUI 自检手法和提交前验证清单，是跨设备协作的入口。
 
 ---
 
 ## 当前功能
 
-- 歌曲列表：封面、曲名、投稿时间、时长
-- 本地音频播放，切换歌曲时自动暂停上一首
-- 按歌曲名、歌手、标签搜索
-- 按语言、分类筛选
-- 按歌名、歌手排序
-- 手机与桌面端自适应
+页面是 `viridis.love` 歌单页的**整页移植**，功能对齐，只去掉主播元素、主题与必须联网的部分。
+
+保留：
+
+- 三个页签：**总览 / 历史 / 中意**
+- 底部悬浮播放器：上一首 / 播放暂停 / 下一首、进度条、音量、播放模式（顺序 / 随机 / 单曲）、睡眠定时、收藏按钮
+- 播放列表面板与「我的歌单」面板（可拖动、可新建歌单、可加入歌单）
+- 高级筛选抽屉：语言筛选、标签筛选、次数预设、天数预设、重置
+- 搜索（综合 / 歌名 / 歌手三种模式）、活跃筛选条、回到顶部、手机端悬浮按钮
+- 歌曲详情弹窗、TXT 导入导出
+- 全站动效体系（环境光晕、卡片 3D 倾斜、光标尘埃、播放器麦浪频谱、点击波纹、和纸胶带角标…）
+
+去掉：
+
+- 主播相关：`theme-xiaosonglu` 主题类、人物背景图、桌宠伴侣、好运歌签弹窗
+- 联网功能：歌曲评分（`/api/rating/song`）、直播状态轮询、中意清单服务器存档与自动同步（`/api/fav/`）、一起听（WebSocket）、跨页播放器交接
+- 中秋限定皮肤
+- 跨页导航（按钮墙 / 24点 / 标本馆的入口）
+
+配色从原来的橄榄 / 奶油暖色系换成**中性蓝灰**（HSL 色相统一到 214），氛围图与人物背景全部删除，页面背景只剩渐变。
 
 ## 当前收录
 
@@ -46,42 +60,60 @@ node tools/fetch-media.mjs --check   # 只检查缺什么
 
 ## 本地运行
 
-页面通过 `fetch` 读取 JSON，所以**不要直接双击 `index.html`**，请启动任意静态服务器：
+页面通过 `fetch` 读取 JSON，所以**推荐**启动一个静态服务器而不是直接双击：
 
 ```powershell
-python -m http.server 8080
+python -m http.server 49152 --bind localhost
 ```
 
-然后访问 <http://localhost:8080/>。
+然后访问 <http://localhost:49152/>。
 
-也可以使用 Node.js：
-
-```powershell
-npx serve .
-```
+> 直接双击 `index.html`（`file://`）也能看到歌单——`js/data.js` 里内嵌了同一份数据作为回退——
+> 但 `file://` 下浏览器会拦截 `fetch`，属于降级模式，日常请用静态服务器。
 
 ## 目录结构
 
 ```text
 song-kiri/
-├── AGENTS.md            # AI 维护契约（活文档）
-├── index.html           # 页面结构
-├── styles.css           # 样式
-├── app.js               # 读取数据、筛选、排序、渲染、播放
+├── AGENTS.md              # AI 维护契约（活文档）
+├── index.html             # 页面结构
+├── styles.css             # 样式（中性配色）
+├── css/motion.css         # 动效样式
+├── js/
+│   ├── shared.js          # 单房间配置 + 数据归一化
+│   ├── data.js            # 【生成】file:// 回退数据
+│   ├── app.js             # 页面逻辑
+│   └── motion.js          # 动效脚本
+├── assets/kuaile-subset.woff2
 ├── data/
-│   ├── songs.json       # 唯一数据源
-│   └── SOURCES.md       # 采集与去重台账
+│   ├── songs.json         # 唯一手写数据源
+│   ├── SOURCES.md         # 采集与去重台账
+│   └── kiri/              # 【生成】页面实际读取的 5 个 JSON
 ├── tools/
-│   └── fetch-media.mjs  # 拉取缺失的音频与封面
-└── media/               # 【不入库】音频与封面，文件名即 BV 号
+│   ├── build-data.mjs     # songs.json -> data/kiri/* + js/data.js
+│   └── fetch-media.mjs    # 拉取缺失的音频与封面
+└── media/                 # 【不入库】音频与封面，文件名即 BV 号
 ```
 
-## 数据结构
+## 数据管线
+
+```
+data/songs.json  ──(node tools/build-data.mjs)──▶  data/kiri/*.json + js/data.js  ──▶  页面
+                 ──(node tools/fetch-media.mjs)─▶  media/<BV>.m4a + media/covers/<BV>.jpg
+```
+
+**改了 `data/songs.json` 之后必须重跑 `node tools/build-data.mjs`**，否则页面读到的还是旧数据。
 
 编辑 `data/songs.json`：
 
 ```json
 {
+  "source": {
+    "uploader": "退烧药777",
+    "mid": "141266664",
+    "deduplicatedBy": "歌曲名；同名仅保留最新发布版本",
+    "updatedAt": "2026-10-07"
+  },
   "songs": [
     {
       "id": "BV17apN6KEu1",
@@ -93,7 +125,8 @@ song-kiri/
       "publishedAt": "2026-10-07 04:21:11",
       "duration": 211,
       "audio": "./media/BV17apN6KEu1.m4a",
-      "cover": "./media/covers/BV17apN6KEu1.jpg"
+      "cover": "./media/covers/BV17apN6KEu1.jpg",
+      "sourceTitle": "【冬雾kiri歌切】依旧一半麦克风交给wff的有点甜"
     }
   ]
 }
@@ -104,9 +137,12 @@ song-kiri/
 - `artist` / `language` / `category` / `tags`：用于展示、筛选和搜索。
 - `publishedAt` / `duration`：投稿时间与时长（秒）。
 - `audio` / `cover`：仓库内相对路径，**不能写外部直链**。
+- `source*`：采集时抄回的 B 站原始事实，用于溯源。
 
 ## 独立性
 
 本工程不引用父目录资源，也不依赖 `viridis.love` / `xiaosonglu-songlist-web` 的脚本、样式、数据、接口或构建流程。复制 `song-kiri` 整个目录即可单独保存、运行和推送。
+
+（唯一的例外是 `index.html` 致谢弹窗里有一句「页面与播放器能力参照 viridis.love 歌单页实现」的版权说明，纯文字，不产生任何网络请求。）
 
 远程仓库：<https://github.com/FTFwen/song-kiri>
