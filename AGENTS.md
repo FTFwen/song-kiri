@@ -7,7 +7,7 @@
 
 ## 1. 这个工程是什么
 
-`song-kiri` 是一个**完全独立的纯静态歌单页面**，收录 B 站 UP 主 **退烧药777**（mid `141266664`）发布的 **冬雾kiri 歌切**。
+`song-kiri` 是一个**完全独立的纯静态歌单页面**，收录 B 站 UP 主 **退烧药777**（mid `141266664`）发布的 **冬雾kiri 歌切**。当前 **34 首**（2026-10-12 口径，明细见 `data/SOURCES.md`）。
 
 页面本身是 `D:\tool\webdeploy`（`viridis.love` 主站）歌单页的**整页移植**：布局、交互、底部播放器、播放列表、高级筛选、我的歌单、中意清单、历史页签全部照搬，只做三类改动——
 
@@ -33,7 +33,7 @@
 4. **同名歌曲只保留最新发布版本**：去重键是**规范化曲名**。发现同名多条时，按 `publishedAt`（即 B 站 `pubdate`）取最大者，并**删除**其余版本的音频与封面。
 5. **媒体不入库**：音频与封面**不提交到 Git**，`media/` 已被 `.gitignore` 忽略（历史里也没有）。`songs.json` 里的 `audio` / `cover` 只能指向仓库内的相对路径（`./media/...`），不得写 B 站的直链——B 站直链带签名、会过期。素材缺失时用 `tools/fetch-media.mjs` 在本机补齐。
 6. **不臆造曲名**：曲名以视频标题与 B 站标签为准（标签里 `发现《曲名》` 是可靠信号）。**无法确定曲名时不要猜**，先向用户确认。
-7. **不混入非目标内容**：只收 UP 主 `退烧药777` 的、标题含「歌切」的冬雾kiri 相关视频。
+7. **不混入非目标内容**：只收 UP 主 `退烧药777` 的冬雾kiri **唱歌**投稿。标题里带「歌切」的 21 条当然收；另有 **6 首**歌（给我一个吻 / 吵架歌 / 陶然四季 / 勾指起誓 / 虫儿飞 / チルノのパーフェクトさんすう教室）标题里没写「歌切」，但 BGM 标签明确、是完整的整首歌，**也收**。录播 / 助眠 / 煮面 / 米塔 / 杂谈 / ASMR 一律不收。
 8. **保持与主站的移植一致性**：`index.html` / `styles.css` / `js/app.js` / `js/motion.js` / `css/motion.css` 都源自主站，**不要把它们改写成另一套实现**。要改行为时优先做「最小外科手术」，并在提交信息里写清改了什么、为什么。主站已有的怪行为（例如播放器收藏按钮不即时刷新）属于「完全一样」的一部分，不要顺手"修好"。
 9. **`bindDom` 的 id 一个都不能少**：`js/app.js` 的 `bindDom()` 会**一次性收集全部 DOM id**，缺一个就会拿到 `null` 并在后续使用时抛错。要去掉某个功能时，**只隐藏元素**（加内联 `style="display:none"`），不要删元素。
 
@@ -98,7 +98,7 @@ song-kiri/
     "uploader": "退烧药777",
     "mid": "141266664",
     "deduplicatedBy": "歌曲名；同名仅保留最新发布版本",
-    "updatedAt": "2026-10-07"
+    "updatedAt": "2026-10-12"
   },
   "songs": [
     {
@@ -179,10 +179,37 @@ node --check js/data.js
 
 B 站的搜索接口和 yt-dlp 的搜索很容易返回 **412**，元数据则相对稳定。可靠的流程是：
 
-1. **拿候选 BV 号**：抓 `https://search.bilibili.com/video?keyword=冬雾kiri歌切&order=pubdate`，用正则 `BV[0-9A-Za-z]{10}` 抠出全部 BV 号。
-2. **逐个核实归属**：`https://api.bilibili.com/x/web-interface/view?bvid=<BV>`，只保留同时满足 `data.owner.mid -eq 141266664` 且标题含「歌切」的条目。
-3. **取曲名**：标签里的 `发现《曲名》` 或标题里的 `《曲名》` 是权威信号。**判不出来就问用户**。
-4. **取音频直链**：`https://api.bilibili.com/x/player/playurl?bvid=<BV>&cid=<cid>&fnval=16&qn=64`，取 `dash.audio` 中 `bandwidth` 最大的一条。
+1. **拿该 UP 主名下的全部投稿**（⚠️ 不要再用空间投稿接口，见下面的警告）：
+
+   ```
+   GET https://api.bilibili.com/x/polymer/web-dynamic/v1/feed/space?host_mid=141266664&offset=<上一页的 offset>
+   ```
+
+   - 视频投稿在 `data.items[].modules.module_dynamic.major.archive`（`bvid` / `title` / `duration_text`）。
+   - `data.items[].modules.module_author.pub_ts` 是 **UTC 秒**，写进 `publishedAt` 要 **+8 小时**。这是最容易写错的一步。
+   - 用 `data.has_more` / `data.offset` 翻页，每页间隔 ≥1 秒。另有 `x/polymer/web-space/seasons_series_list`（本站为空，UP 主没建合集）。
+   - 本站台账：该 UP 主共 **93 条投稿**，覆盖 2026-08-21 → 2026-10-11；其中能判出曲名的 **34 首**已全部收录。
+
+   > ⚠️ **旧路已废（2026-10-12 实测）**：`https://api.bilibili.com/x/space/arc/search?mid=...&ps=50&pn=N`
+   > 现在会对本机 IP 连续返回 `code=-799 请求过于频繁`，再试几次直接 `code=-412 request was banned`。
+   > 搜索页 HTML 抠 `BV[0-9A-Za-z]{10}` 的老办法还能用，但会混入大量**别人的**视频，必须逐个核 `owner.mid`，更慢。
+   > **也不要靠 `x/space/v2/archive/list`，它返回 404。**
+
+2. **核实归属 + 判定曲名**（一次请求同时拿到）：
+
+   ```
+   GET https://api.bilibili.com/x/web-interface/view/detail?bvid=<BV>
+   ```
+
+   - 归属：`data.View.owner.mid` 必须是 `141266664`；顺带拿 `data.View.title` / `pubdate` / `duration` / `pic`。
+   - 曲名：`data.Tags[]` 里 `tag_type === "bgm"` 的那条，`tag_name` 形如 `发现《曲名》`，去掉外壳即是曲名；`music_id` 形如 `MA…`。
+   - **判不出来就问用户**，不要猜。标题里的 `《曲名》` 或歌词原句只能作为交叉验证。
+
+   > ⚠️ **`x/web-interface/view` 现在不再返回 `data.tags`（恒为 `null`）**，必须改用 `view/detail`。
+   > `x/tag/archive/tags` 返回的是另一个结构，同样拿不到 `发现《》`；
+   > `x/web-interface/view/conclusion/get`（AI 总结）**需要 wbi 签名**，裸调返回 `code=-403`。
+
+3. **取音频直链**：`https://api.bilibili.com/x/player/playurl?bvid=<BV>&cid=<cid>&fnval=16&qn=64`，取 `dash.audio` 中 `bandwidth` 最大的一条。
    - 请求之间**至少间隔 1 秒**，否则容易触发 412。
    - 需要带 `User-Agent` 与 `Referer: https://www.bilibili.com/`。
 5. **下载**：音频存 `media/<BV>.m4a`，封面存 `media/covers/<BV>.jpg`（封面地址来自 view 接口的 `data.pic`）。
@@ -402,7 +429,7 @@ npx wrangler pages deploy --project-name song-kiri --branch main --commit-dirty=
 
 `wrangler pages deploy` 是**按目录整个上传**的，**不读 `.gitignore`**，所以绝不能直接上传仓库根目录（否则 `.git/`、`AGENTS.md`、`.dsh-tmp/` 全会被公开）。`tools/stage-deploy.mjs` 用白名单生成 `deploy-stage/`：
 
-- **发布**：`index.html`、`404.html`、`styles.css`、`_headers`、`css/`、`js/`（4 个）、`assets/`（标题字体）、`data/kiri/`（5 个 JSON）、`media/`（音频 + 封面，**共约 34 MB**）。
+- **发布**：`index.html`、`404.html`、`styles.css`、`_headers`、`css/`、`js/`（4 个）、`assets/`（标题字体）、`data/kiri/`（5 个 JSON）、`media/`（音频 + 封面，**34 首约 162 MB**，2026-10-12 口径）。
 - **不发布**：`AGENTS.md`、`README.md`、`data/songs.json`、`data/SOURCES.md`、`tools/`、`.git/`、`.dsh-tmp/`、`.wrangler/`。
 - 媒体是**硬链接**（同分区零拷贝）而不是复制；跨分区时自动退回 `copyFileSync`。
 
