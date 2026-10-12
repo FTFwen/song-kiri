@@ -929,57 +929,10 @@
       box-shadow: 0 10px 30px rgba(93, 113, 139, 0.22), 0 0 0 2px rgba(93, 113, 139, 0.4) !important;
     }
 
-    /* 拟物黑胶唱片微封面（唱片套 + 纹理黑胶碟） */
-    .song-vinyl-wrap {
-      width: 50px;
-      height: 50px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, #e6e8eb, #d1d5db);
-      border: 1.5px solid rgba(93, 113, 139, 0.32);
-      display: grid;
-      place-items: center;
-      position: relative;
-      flex-shrink: 0;
-      box-shadow: 0 4px 12px rgba(68, 83, 102, 0.12), inset 0 1px 2px rgba(255, 255, 255, 0.95);
-      cursor: pointer;
-      transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-    .song-vinyl-wrap:hover {
-      transform: scale(1.08) rotate(-3deg);
-    }
-    .song-vinyl-wrap:active {
-      transform: scale(0.94);
-    }
-    .song-vinyl {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #222a34 25%, #13181e 28%, #29323f 48%, #141920 68%, #252f3b 92%);
-      display: grid;
-      place-items: center;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
-      position: relative;
-    }
-    .vinyl-core {
-      width: 17px;
-      height: 17px;
-      border-radius: 50%;
-      background: #e8eaed;
-      display: grid;
-      place-items: center;
-      font-size: 11px;
-      line-height: 1;
-      border: 1.5px solid #48586c;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
-    }
-    .song-vinyl-wrap.spinning .song-vinyl {
-      animation: vinylSpin 3s linear infinite;
-      box-shadow: 0 0 14px rgba(93, 113, 139, 0.65);
-    }
-    @keyframes vinylSpin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
+    /* 歌曲卡片顶部左侧的「拟物黑胶唱片微封面」已按需求整体移除：
+       原先的 .song-vinyl-wrap / .song-vinyl / .vinyl-core / @keyframes vinylSpin，
+       以及动效文件里的唱片光环、悬停、旋转摆动、全息光泽规则，都已一并删除。
+       播放/暂停改由右侧 .song-actions 里的 .song-play-btn 承担。 */
     .song-actions {
       display: flex;
       align-items: center;
@@ -3417,21 +3370,8 @@
         will-change: auto !important;
       }
       html body .song-item.now-playing::before,
-      html body .song-item.now-playing::after,
-      html body .song-vinyl-wrap.spinning::before,
-      html body .song-vinyl-wrap.spinning::after {
+      html body .song-item.now-playing::after {
         display: none !important;
-      }
-      html body .song-vinyl-wrap,
-      html body .song-vinyl-wrap.spinning,
-      html body .song-vinyl-wrap.spinning .song-vinyl,
-      html body .song-vinyl-wrap.spinning .vinyl-core {
-        animation: none !important;
-        box-shadow: none !important;
-        filter: none !important;
-        transform: none !important;
-        transition: none !important;
-        will-change: auto !important;
       }
       html body .playing-bars {
         display: none !important;
@@ -3866,10 +3806,6 @@
         transform: none !important;
         will-change: auto !important;
       }
-      html body .song-vinyl-wrap,
-      html body .song-vinyl-wrap.spinning,
-      html body .song-vinyl-wrap.spinning .song-vinyl,
-      html body .song-vinyl-wrap.spinning .vinyl-core,
       html body .song-play-btn.playing {
         animation: none !important;
         box-shadow: none !important;
@@ -3879,8 +3815,6 @@
       }
       html body .song-item.now-playing::before,
       html body .song-item.now-playing::after,
-      html body .song-vinyl-wrap.spinning::before,
-      html body .song-vinyl-wrap.spinning::after,
       html body .playing-bars {
         display: none !important;
       }

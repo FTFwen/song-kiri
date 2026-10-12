@@ -12,9 +12,10 @@
  *
  * 已知的 4 处白名单（都在已经废弃 / 不会渲染的规则里，改不改都看不见）：
  *   styles.css  350  .header-live-status.is-live ...（直播状态条，元素已删）
- *   styles.css 1133  .badge.tone（tone 字段本站恒为空，不会渲染）
- *   styles.css 1133  .badge.tone（同上，底色）
- *   styles.css 1934  .header-fav-auto-sync（自动同步开关，已 display:none）
+ *   styles.css 1086  .badge.tone（tone 字段本站恒为空，不会渲染）
+ *   styles.css 1086  .badge.tone（同上，字色）
+ *   styles.css 1887  .header-fav-auto-sync（自动同步开关，已 display:none）
+ *   （行号会随其它改动漂移，按选择器认，别按行号认）
  */
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, extname } from 'node:path';

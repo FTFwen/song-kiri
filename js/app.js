@@ -848,11 +848,6 @@ function getSongCardHtml(song) {
   return `
     <div class="song-item${isNowPlaying ? ' now-playing' : ''}${state.selectedSong && state.selectedSong.song_id === song.song_id ? ' selected' : ''}" data-song-id="${song.song_id}"${ratingKey ? ` data-rating-key="${escHtml(ratingKey)}" data-rating-name="${escHtml(song.display_song_name || song.song_name || ratingKey)}"` : ''}>
       <div class="song-top">
-        <div class="song-vinyl-wrap${isNowPlaying ? ' spinning' : ''}" data-play-song="${song.song_id}" title="${audioUrl ? (isNowPlaying ? '暂停' : '点击播放') : '暂无试听音频'}">
-          <div class="song-vinyl">
-            <div class="vinyl-core">🌱</div>
-          </div>
-        </div>
         <div class="song-main">
           <div class="song-name-row">
             <span class="song-name-text">${escHtml(song.display_song_name || song.song_name || '')}</span>
@@ -1200,10 +1195,6 @@ function syncPlayingButton() {
     item.classList.remove('now-playing');
     const bars = item.querySelector('.playing-bars');
     if (bars) bars.remove();
-    const vinylWrap = item.querySelector('.song-vinyl-wrap');
-    if (vinylWrap) {
-      vinylWrap.classList.remove('spinning');
-    }
   });
   document.querySelectorAll('.song-item .song-play-btn.playing').forEach(b => {
     b.classList.remove('playing');
@@ -1219,10 +1210,6 @@ function syncPlayingButton() {
         const songNameEl = card.querySelector('.song-name-row') || card.querySelector('.song-name');
         if (songNameEl && !songNameEl.querySelector('.playing-bars')) {
           songNameEl.insertAdjacentHTML('beforeend', '<span class="playing-bars" aria-hidden="true"><span class="bar"></span><span class="bar"></span><span class="bar"></span></span>');
-        }
-        const vinylWrap = card.querySelector('.song-vinyl-wrap');
-        if (vinylWrap) {
-          vinylWrap.classList.add('spinning');
         }
       }
       const el = card.querySelector('.song-play-btn');

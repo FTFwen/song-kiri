@@ -448,7 +448,7 @@
     const COLORS = ['#5d718b', '#4a5b70', '#e8b890', '#b57d1c', '#f4ce62'];
 
     setInterval(() => {
-      const isPlaying = document.querySelector('.song-item.now-playing, .sound-btn.playing, .song-vinyl-wrap.spinning');
+      const isPlaying = document.querySelector('.song-item.now-playing, .sound-btn.playing');
       if (!isPlaying || document.hidden) return;
 
       const playerBar = document.getElementById('playerBar');
@@ -617,7 +617,7 @@
 
     // 监听播放状态（兼容主站与按钮墙顶部播放器）
     setInterval(() => {
-      const isPlaying = !!document.querySelector('.song-item.now-playing, .sound-btn.playing, .song-vinyl-wrap.spinning') ||
+      const isPlaying = !!document.querySelector('.song-item.now-playing, .sound-btn.playing') ||
                         !!document.querySelector('#playerToggleBtn use[href*="pause"], #pbPlayBtn use[href*="pause"]');
       if (isPlaying) {
         spectrum.classList.add('active');

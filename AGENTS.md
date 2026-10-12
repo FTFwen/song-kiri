@@ -330,7 +330,11 @@ Start-Process -FilePath $edge -ArgumentList $args -Wait -NoNewWindow `
 | `index.html` | 去功能时**只加 `style="display:none"`，不删元素** | `bindDom` 一次性收集全部 id，删了会 null 崩 |
 | `index.html` | `#playerRatingHost` **必须保留**（空着） | 它是 `.player-bar` 栅格里的 `grid-row:2 / grid-column:5/7`，删了播放器会重排 |
 | `js/motion.js` | `setupPlayerBarMotion` 的「升起」由 `requestAnimationFrame` 改为 **rAF + `setTimeout(60ms)` 双保险** | 数据是异步 fetch 来的，播放条 `display:flex` 发生在 motion.js 初始化**之后**，只能走 MutationObserver + rAF 那条路；只靠 rAF 时播放条会永久停在 `opacity:0`（无头环境必现，真机后台标签页也可能遇到） |
-| `js/app.js` | 黑胶中心的主题图标去掉：原来播放时 `🌱 → 🌻`，现在恒为 `🌱`（`vinyl-core` 模板、`updatePlaybackVisuals` 里的两处 `textContent` 赋值都删了） | 🌻 是主站「小松绿 / 向日葵」主题符号，属要去掉的主题元素；`🌱` 中性保留 |
+| `js/app.js` | 黑胶中心的主题图标去掉：原来播放时 `🌱 → 🌻`，现在恒为 `🌱`（`updatePlaybackVisuals` 里的两处 `textContent` 赋值都删了） | 🌻 是主站「小松绿 / 向日葵」主题符号，属要去掉的主题元素；`🌱` 中性保留。注：该「黑胶中心」随后连同整张唱片一起被删，见下一行 |
+| `js/app.js` | **删除歌曲卡片顶部左侧的拟物黑胶微封面**（`.song-vinyl-wrap` / `.song-vinyl` / `.vinyl-core` 整个模板块），并同步删掉 `syncPlayingButton` 里两处 `spinning` 切换 | 用户 2026-10-12 要求「把歌曲卡片左上角的唱片样式图标去掉」。这是**刻意偏离主站**的改动 |
+| `styles.css` | 删除 `.song-vinyl-wrap` / `.song-vinyl` / `.vinyl-core` / `@keyframes vinylSpin` 及两处 media query 里的相关选择器，原位置留一段说明注释 | 上一条的配套清理，避免留下指向不存在元素的死规则 |
+| `css/motion.css` | 删除唱片相关动效：`@keyframes vinyl-sound-ring` 与两道声波光环、卡片悬停缩放、`@keyframes vinyl-spin-wobble` 与旋转/脉冲、全息彩虹光泽；同步删掉两处 media query 与手机端「黑胶微封面静态」规则；第 3 节标题改为「常驻装饰特效：旋律音符」 | 同上 |
+| `js/motion.js` | `.song-vinyl-wrap.spinning` 从 `isPlaying` 的两处 `querySelector` 里去掉（保留 `.song-item.now-playing` 与 `.sound-btn.playing`） | 同上。判断依据仍成立：`syncPlayingButton` 一定会给正在播放的卡片加 `.song-item.now-playing` |
 | `js/app.js` | 「没有找到匹配歌曲」空态图标 `🌻` → `🔍` | 同上，换成与语义相符的中性图标 |
 | `js/motion.js` | `DUST_PALETTE` 六个 `'rgba(...)'` 色值中性化（3 个绿系 → 214 蓝灰，3 个暖金/奶油按规则保留） | 见下方「配色变换的两个盲区」 |
 | `js/motion.js` | `POPUP_TEXTS` 里 `'松绿发声！🌱'` → `'开唱啦！🌱'`；`DUST_PALETTE` 上方注释去掉「松绿」字样 | 这是**主题用词**残留（不在 `POPUP_TEXTS` 之外出现）。该数组只被 `initButtonShockwaves` 使用，而本站没有 `.sound-btn` / `.cat-badge` 元素，这段是死代码，改动无副作用 |
@@ -346,9 +350,11 @@ Start-Process -FilePath $edge -ArgumentList $args -Wait -NoNewWindow `
    | 位置 | 选择器 | 为什么不显示 |
    | --- | --- | --- |
    | `styles.css:350` | `.header-live-status.is-live .live-status-badge` | 直播状态条元素已在移植时删除 |
-   | `styles.css:1133` | `.badge.tone`（底色 `#eef5ea`） | `tools/build-data.mjs` 写的 `tone` 恒为空串，不会渲染 |
-   | `styles.css:1133` | `.badge.tone`（字色 `#4e733b`） | 同上 |
-   | `styles.css:1934` | `.header-fav-auto-sync` 的 `box-shadow` | 该元素在 `index.html` 里已 `display:none` |
+   | `styles.css:1086` | `.badge.tone`（底色 `#eef5ea`） | `tools/build-data.mjs` 写的 `tone` 恒为空串，不会渲染 |
+   | `styles.css:1086` | `.badge.tone`（字色 `#4e733b`） | 同上 |
+   | `styles.css:1887` | `.header-fav-auto-sync` 的 `box-shadow` | 该元素在 `index.html` 里已 `display:none` |
+
+   行号会随其它改动漂移（删唱片样式后就整体上移了 47 行），**按选择器认，别按行号认**。以 `node tools/scan-green.mjs --list` 的当前输出为准。
 
    用户 2026-10-12 明确表示**先不删这些死规则**，所以保留原样。若以后要清，记得同步更新 `tools/scan-green.mjs` 顶部的白名单注释。
    ⚠️ `.badge.tone` 是其中唯一**结构上还可能活过来**的一条：哪天给某首歌补了 `tone` 字段，蓝色的页面上就会冒出一个绿徽章。
