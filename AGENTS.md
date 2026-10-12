@@ -7,7 +7,16 @@
 
 ## 1. 这个工程是什么
 
-`song-kiri` 是一个**完全独立的纯静态歌单页面**，收录 B 站 UP 主 **退烧药777**（mid `141266664`）发布的 **冬雾kiri 歌切**。当前 **34 首**（2026-10-12 口径，明细见 `data/SOURCES.md`）。
+`song-kiri` 是一个**完全独立的纯静态歌单页面**，收录 B 站 UP 主 **冬雾kiri** 的唱歌投稿。当前 **35 首**（2026-10-12 口径，明细见 `data/SOURCES.md`）。
+
+来源是**两个账号**：
+
+| 投稿人 | mid | 内容 | 条数 |
+| --- | --- | --- | --- |
+| **退烧药777** | `141266664` | 冬雾kiri 的**歌切**（直播切片），本站主要来源 | 34 |
+| **冬雾_kiri** | `3707024510552805` | 主播**本人**发布的翻唱投稿 | 1 |
+
+只有这两个账号的投稿能进站。白名单在 `tools/fetch-media.mjs` 的 `ALLOWED_UPLOADERS` 里，视频 `owner.mid` 不命中就直接拒绝下载——见第 2 节第 7 条与第 11 节的「新增投稿人」。
 
 页面本身是 `D:\tool\webdeploy`（`viridis.love` 主站）歌单页的**整页移植**：布局、交互、底部播放器、播放列表、高级筛选、我的歌单、中意清单、历史页签全部照搬，只做三类改动——
 
@@ -33,7 +42,11 @@
 4. **同名歌曲只保留最新发布版本**：去重键是**规范化曲名**。发现同名多条时，按 `publishedAt`（即 B 站 `pubdate`）取最大者，并**删除**其余版本的音频与封面。
 5. **媒体不入库**：音频与封面**不提交到 Git**，`media/` 已被 `.gitignore` 忽略（历史里也没有）。`songs.json` 里的 `audio` / `cover` 只能指向仓库内的相对路径（`./media/...`），不得写 B 站的直链——B 站直链带签名、会过期。素材缺失时用 `tools/fetch-media.mjs` 在本机补齐。
 6. **不臆造曲名**：曲名以视频标题与 B 站标签为准（标签里 `发现《曲名》` 是可靠信号）。**无法确定曲名时不要猜**，先向用户确认。
-7. **不混入非目标内容**：只收 UP 主 `退烧药777` 的冬雾kiri **唱歌**投稿。标题里带「歌切」的 21 条当然收；另有 **6 首**歌（给我一个吻 / 吵架歌 / 陶然四季 / 勾指起誓 / 虫儿飞 / チルノのパーフェクトさんすう教室）标题里没写「歌切」，但 BGM 标签明确、是完整的整首歌，**也收**。录播 / 助眠 / 煮面 / 米塔 / 杂谈 / ASMR 一律不收。
+7. **不混入非目标内容**：只收**冬雾kiri 唱歌**的投稿，且投稿人必须在白名单里。
+   - **`退烧药777`（mid `141266664`）** —— 冬雾kiri 的**歌切**：标题里带「歌切」的 21 条当然收；另有 **6 首**（给我一个吻 / 吵架歌 / 陶然四季 / 勾指起誓 / 虫儿飞 / チルノのパーフェクトさんすう教室）标题里没写「歌切」，但 BGM 标签明确、是完整的整首歌，**也收**。
+   - **`冬雾_kiri`（mid `3707024510552805`）** —— 主播**本人**发布的翻唱投稿（2026-10-12 起收录，见第 11 节「新增投稿人」）。
+   - 录播 / 助眠 / 煮面 / 米塔 / 杂谈 / ASMR 一律不收。
+   - 每条歌曲的投稿人记在**歌曲自己**的 `sourceUploader` 上（`songs.json` 顶部的 `source.uploaders` 只是名单），`tools/build-data.mjs` 用它给每首歌生成各自的 `remark`。
 8. **保持与主站的移植一致性**：`index.html` / `styles.css` / `js/app.js` / `js/motion.js` / `css/motion.css` 都源自主站，**不要把它们改写成另一套实现**。要改行为时优先做「最小外科手术」，并在提交信息里写清改了什么、为什么。主站已有的怪行为（例如播放器收藏按钮不即时刷新）属于「完全一样」的一部分，不要顺手"修好"。
 9. **`bindDom` 的 id 一个都不能少**：`js/app.js` 的 `bindDom()` 会**一次性收集全部 DOM id**，缺一个就会拿到 `null` 并在后续使用时抛错。要去掉某个功能时，**只隐藏元素**（加内联 `style="display:none"`），不要删元素。
 
@@ -188,7 +201,8 @@ B 站的搜索接口和 yt-dlp 的搜索很容易返回 **412**，元数据则�
    - 视频投稿在 `data.items[].modules.module_dynamic.major.archive`（`bvid` / `title` / `duration_text`）。
    - `data.items[].modules.module_author.pub_ts` 是 **UTC 秒**，写进 `publishedAt` 要 **+8 小时**。这是最容易写错的一步。
    - 用 `data.has_more` / `data.offset` 翻页，每页间隔 ≥1 秒。另有 `x/polymer/web-space/seasons_series_list`（本站为空，UP 主没建合集）。
-   - 本站台账：该 UP 主共 **93 条投稿**，覆盖 2026-08-21 → 2026-10-11；其中能判出曲名的 **34 首**已全部收录。
+   - 本站台账：`退烧药777` 共 **93 条投稿**，覆盖 2026-08-21 → 2026-10-11；其中能判出曲名的 **34 首**已全部收录。
+   - 另一个账号是**主播本人** `冬雾_kiri`（mid `3707024510552805`）。⚠️ 2026-10-12 实测：把同一个动态流接口的 `host_mid` 换成她这个 mid，会返回 **HTTP 412**（风控），所以**她的投稿目前没法靠脚本枚举**——只能人工翻 `https://space.bilibili.com/3707024510552805/video`，再逐条 `view/detail` 核实归属与曲名。
 
    > ⚠️ **旧路已废（2026-10-12 实测）**：`https://api.bilibili.com/x/space/arc/search?mid=...&ps=50&pn=N`
    > 现在会对本机 IP 连续返回 `code=-799 请求过于频繁`，再试几次直接 `code=-412 request was banned`。
@@ -373,6 +387,22 @@ Start-Process -FilePath $edge -ArgumentList $args -Wait -NoNewWindow `
 | `js/motion.js` | `DUST_PALETTE` 六个 `'rgba(...)'` 色值中性化（3 个绿系 → 214 蓝灰，3 个暖金/奶油按规则保留） | 见下方「配色变换的两个盲区」 |
 | `js/motion.js` | `POPUP_TEXTS` 里 `'松绿发声！🌱'` → `'开唱啦！🌱'`；`DUST_PALETTE` 上方注释去掉「松绿」字样 | 这是**主题用词**残留（不在 `POPUP_TEXTS` 之外出现）。该数组只被 `initButtonShockwaves` 使用，而本站没有 `.sound-btn` / `.cat-badge` 元素，这段是死代码，改动无副作用 |
 | 全部 | 删掉 `js/rating.js` / `js/live-status.js` / `js/listen-together.js` / `js/midautumn-skin.js` / `css/midautumn-skin.css` / `css/listen-together.css` | 需要联网或属于主题，且 `app.js` 里都有 `null` 守卫，去掉只少功能不报错 |
+| `tools/fetch-media.mjs` | 归属校验由「硬编码 `141266664`」改成 `ALLOWED_UPLOADERS` 白名单 | 用户 2026-10-12 要求把主播本人发的 `BV1bTYx6gEqU` 也搬进来，原校验会把非切片man 的投稿判成「归属不符」拒下 |
+| `data/songs.json` + `tools/build-data.mjs` | 新增 `source.uploaders` 名单；每首歌各自带 `sourceUploader`，`remark` 按它和标签逐首生成（带「歌切」→「歌切」，否则→「翻唱」）；新标签 **`本人投稿`** | 同上，收录范围放宽为「退烧药777 的歌切 + 冬雾_kiri 本人的翻唱」 |
+
+### 新增投稿人（2026-10-12）
+
+原本只收 `退烧药777` 的**歌切**。2026-10-12 用户要求把 `BV1bTYx6gEqU`（**冬雾_kiri 本人**发布的 24 秒【新v翻唱】《mosi mosi?》）也搬进来，并同意把范围放宽为「**退烧药777 的歌切 + 冬雾_kiri 本人发布的翻唱**」。
+
+动了三处：
+
+1. `tools/fetch-media.mjs` 新增 `ALLOWED_UPLOADERS`（mid → 名字）白名单，归属校验改成查这张表，报错时会把允许的账号全列出来。
+2. `data/songs.json` 顶部新增 `source.uploaders` 名单，**每条歌曲各自带 `sourceUploader`**；`tools/build-data.mjs` 用它给每首歌生成自己的 `remark`。
+3. 标签体系多了一个 **`本人投稿`**（`type` = `翻唱、本人投稿`）。目前只有这一首。
+
+再要加新投稿人时，**三处**都得改：`ALLOWED_UPLOADERS`、本文件第 2 节第 7 条、`data/SOURCES.md`。
+
+> ⚠️ 主播本人的投稿**目前没法用脚本枚举**（她的 mid 走动态流接口返回 412，见第 6 节），只能人工翻空间页。
 
 ### 配色变换的两个盲区（重要）
 
@@ -441,7 +471,7 @@ npx wrangler@latest pages deploy --project-name song-kiri --branch main --commit
 
 `wrangler pages deploy` 是**按目录整个上传**的，**不读 `.gitignore`**，所以绝不能直接上传仓库根目录（否则 `.git/`、`AGENTS.md`、`.dsh-tmp/` 全会被公开）。`tools/stage-deploy.mjs` 用白名单生成 `deploy-stage/`：
 
-- **发布**：`index.html`、`404.html`、`styles.css`、`_headers`、`css/`、`js/`（4 个）、`assets/`（标题字体）、`data/kiri/`（5 个 JSON）、`media/`（音频 + 封面，**34 首约 162 MB**，2026-10-12 口径）。
+- **发布**：`index.html`、`404.html`、`styles.css`、`_headers`、`css/`、`js/`（4 个）、`assets/`（标题字体）、`data/kiri/`（5 个 JSON）、`media/`（音频 + 封面，**35 首约 162 MB**，2026-10-12 口径）。
 - **不发布**：`AGENTS.md`、`README.md`、`data/songs.json`、`data/SOURCES.md`、`tools/`、`.git/`、`.dsh-tmp/`、`.wrangler/`。
 - 媒体是**硬链接**（同分区零拷贝）而不是复制；跨分区时自动退回 `copyFileSync`。
 
