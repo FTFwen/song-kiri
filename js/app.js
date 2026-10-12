@@ -850,7 +850,7 @@ function getSongCardHtml(song) {
       <div class="song-top">
         <div class="song-vinyl-wrap${isNowPlaying ? ' spinning' : ''}" data-play-song="${song.song_id}" title="${audioUrl ? (isNowPlaying ? '暂停' : '点击播放') : '暂无试听音频'}">
           <div class="song-vinyl">
-            <div class="vinyl-core">${isNowPlaying ? '🌻' : '🌱'}</div>
+            <div class="vinyl-core">🌱</div>
           </div>
         </div>
         <div class="song-main">
@@ -1203,8 +1203,6 @@ function syncPlayingButton() {
     const vinylWrap = item.querySelector('.song-vinyl-wrap');
     if (vinylWrap) {
       vinylWrap.classList.remove('spinning');
-      const core = vinylWrap.querySelector('.vinyl-core');
-      if (core) core.textContent = '🌱';
     }
   });
   document.querySelectorAll('.song-item .song-play-btn.playing').forEach(b => {
@@ -1225,8 +1223,6 @@ function syncPlayingButton() {
         const vinylWrap = card.querySelector('.song-vinyl-wrap');
         if (vinylWrap) {
           vinylWrap.classList.add('spinning');
-          const core = vinylWrap.querySelector('.vinyl-core');
-          if (core) core.textContent = '🌻';
         }
       }
       const el = card.querySelector('.song-play-btn');
@@ -2219,7 +2215,7 @@ function renderSongs(errorMessage = '') {
   if (state.filteredSongs.length === 0) {
     dom.songListWrap.innerHTML = `
       <div class="card empty-card">
-        <div class="empty-icon-cute">🌻</div>
+        <div class="empty-icon-cute">🔍</div>
         <div class="empty-title" style="font-size:15px; font-weight:700; color:var(--text); margin-bottom:6px;">没有找到匹配歌曲</div>
         <div>可以试试换个关键词，或者点上方的「清空筛选」看看~</div>
       </div>
