@@ -66,7 +66,9 @@
         </div>
         <div class="header-actions">
           <button class="ghost-btn" id="refreshBtn" title="刷新歌单数据"><svg class="icon" aria-hidden="true"><use href="#icon-reload"></use></svg></button>
-          <button class="thanks-btn" id="thanksBtn">致谢名单</button>
+          <!-- 致谢名单入口：按需求隐藏。按本工程约定「去功能只隐藏、不删元素」（bindDom 会一次性收集全部 id），
+               弹窗 thanksOverlay 与其监听保持不变，详见 AGENTS.md 第 11 节 -->
+          <button class="thanks-btn" id="thanksBtn" style="display:none">致谢名单</button>
         </div>
       </div>
     </header>

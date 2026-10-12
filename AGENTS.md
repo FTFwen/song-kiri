@@ -329,6 +329,7 @@ Start-Process -FilePath $edge -ArgumentList $args -Wait -NoNewWindow `
 | `index.html` | 内联 `<style>`（3900 行）换成 `<link href="styles.css">` | 便于配色变换与维护 |
 | `index.html` | 去功能时**只加 `style="display:none"`，不删元素** | `bindDom` 一次性收集全部 id，删了会 null 崩 |
 | `index.html` | `#playerRatingHost` **必须保留**（空着） | 它是 `.player-bar` 栅格里的 `grid-row:2 / grid-column:5/7`，删了播放器会重排 |
+| `index.html` | 致谢名单入口 `#thanksBtn` 加内联 `style="display:none"` 隐藏；弹窗 `#thanksOverlay` / `#thanksCloseBtn` 与 `bindDom`、监听都**原样保留** | 用户 2026-10-12 要求去掉这个按钮。按第 2 节第 9 条「去功能只隐藏、不删元素」——`thanksBtn` 在 `bindDom`（`js/app.js:3970`），且 `dom.thanksBtn.addEventListener('click', …)`（`js/app.js:4570`）**没有 null 守卫**，删元素会直接抛错。副作用：致谢弹窗从此**不可达**，页面里唯一那句 `viridis.love` 说明也随之看不见（但仍在文件里），所以第 7 节第 6 条的 grep 口径不变 |
 | `js/motion.js` | `setupPlayerBarMotion` 的「升起」由 `requestAnimationFrame` 改为 **rAF + `setTimeout(60ms)` 双保险** | 数据是异步 fetch 来的，播放条 `display:flex` 发生在 motion.js 初始化**之后**，只能走 MutationObserver + rAF 那条路；只靠 rAF 时播放条会永久停在 `opacity:0`（无头环境必现，真机后台标签页也可能遇到） |
 | `js/app.js` | 黑胶中心的主题图标去掉：原来播放时 `🌱 → 🌻`，现在恒为 `🌱`（`updatePlaybackVisuals` 里的两处 `textContent` 赋值都删了） | 🌻 是主站「小松绿 / 向日葵」主题符号，属要去掉的主题元素；`🌱` 中性保留。注：该「黑胶中心」随后连同整张唱片一起被删，见下一行 |
 | `js/app.js` | **删除歌曲卡片顶部左侧的拟物黑胶微封面**（`.song-vinyl-wrap` / `.song-vinyl` / `.vinyl-core` 整个模板块），并同步删掉 `syncPlayingButton` 里两处 `spinning` 切换 | 用户 2026-10-12 要求「把歌曲卡片左上角的唱片样式图标去掉」。这是**刻意偏离主站**的改动 |
