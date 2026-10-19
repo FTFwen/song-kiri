@@ -7,13 +7,13 @@
 
 ## 1. 这个工程是什么
 
-`song-kiri` 是一个**完全独立的纯静态歌单页面**，收录 B 站 UP 主 **冬雾kiri** 的唱歌投稿。当前 **36 首**（2026-10-12 口径，明细见 `data/SOURCES.md`）。
+`song-kiri` 是一个**完全独立的纯静态歌单页面**，收录 B 站 UP 主 **冬雾kiri** 的唱歌投稿。当前 **44 首**（2026-10-19 口径，明细见 `data/SOURCES.md`）。
 
 来源是**两个账号**：
 
 | 投稿人 | mid | 内容 | 条数 |
 | --- | --- | --- | --- |
-| **退烧药777** | `141266664` | 冬雾kiri 的**歌切**（直播切片），本站主要来源 | 35 |
+| **退烧药777** | `141266664` | 冬雾kiri 的**歌切**（直播切片），本站主要来源 | 43 |
 | **冬雾_kiri** | `3707024510552805` | 主播**本人**发布的翻唱投稿 | 1 |
 
 只有这两个账号的投稿能进站。白名单在 `tools/fetch-media.mjs` 的 `ALLOWED_UPLOADERS` 里，视频 `owner.mid` 不命中就直接拒绝下载——见第 2 节第 7 条与第 11 节的「新增投稿人」。
@@ -208,6 +208,7 @@ B 站的搜索接口和 yt-dlp 的搜索很容易返回 **412**，元数据则�
    > - ❌ `x/web-interface/search/all/v2` 虽然也返回 `code=0`，但 `data.result[]` 里的字段全是 `undefined`，不可用。
    > - ❌ 直接抓 `search.bilibili.com` 的 HTML 也不可靠：数据被压缩成变量引用（`bvid:cG`）。
    > - 2026-10-12 晚用这套办法收集了 **474 个 BV**（13 个关键词 × 2 种排序 × 多页），逐个 `view/detail` 回源后只多出一首新歌（《屑屑》）——**绝大多数命中都是重复版本**，见第 11 节「补录《屑屑》」。
+   > - ✅ **最省事的路线其实是 UP 主的空间页**：`https://space.bilibili.com/141266664/video` 用浏览器打开一直正常，列表里直接有标题 + 时长，比搜索接口权威得多。但它的 HTML 里**没有**内嵌数据（`__INITIAL_STATE__` 不存在，直接 `Invoke-WebRequest` 抓是空的），**必须用真浏览器渲染**——本机就是用 `bsk` 驱动的，用法见第 12.7 节。
 
    ```
    GET https://api.bilibili.com/x/polymer/web-dynamic/v1/feed/space?host_mid=141266664&offset=<上一页的 offset>
@@ -216,7 +217,7 @@ B 站的搜索接口和 yt-dlp 的搜索很容易返回 **412**，元数据则�
    - 视频投稿在 `data.items[].modules.module_dynamic.major.archive`（`bvid` / `title` / `duration_text`）。
    - `data.items[].modules.module_author.pub_ts` 是 **UTC 秒**，写进 `publishedAt` 要 **+8 小时**。这是最容易写错的一步。
    - 用 `data.has_more` / `data.offset` 翻页，每页间隔 ≥1 秒。另有 `x/polymer/web-space/seasons_series_list`（本站为空，UP 主没建合集）。
-   - 本站台账：`退烧药777` 共 **93 条投稿**，覆盖 2026-08-21 → 2026-10-11；其中能判出曲名的 **35 首**已全部收录（第 35 首《屑屑》的曲名是 2026-10-12 晚靠另一名切片man 的同名投稿补认出来的，见第 11 节）。
+   - 本站台账：`退烧药777` 共 **106 条视频投稿**，覆盖 2026-08-21 → 2026-10-18；其中能判出曲名的 **43 首**已全部收录（第 35 首《屑屑》的曲名是 2026-10-12 晚靠另一名切片man 的同名投稿补认出来的，见第 11 节）。
    - 另一个账号是**主播本人** `冬雾_kiri`（mid `3707024510552805`）。⚠️ 2026-10-12 实测：把同一个动态流接口的 `host_mid` 换成她这个 mid，会返回 **HTTP 412**（风控），所以**她的投稿目前没法靠脚本枚举**——只能人工翻 `https://space.bilibili.com/3707024510552805/video`，再逐条 `view/detail` 核实归属与曲名。
 
    > ⚠️ **旧路已废（2026-10-12 实测）**：`https://api.bilibili.com/x/space/arc/search?mid=...&ps=50&pn=N`
@@ -429,6 +430,26 @@ Start-Process -FilePath $edge -ArgumentList $args -Wait -NoNewWindow `
 - 歌曲是 **ChiliChill** 的《屑屑》，中文歌 → `language: 国语`、`tags: ["歌切"]`、`type: 翻唱、歌切`。
 - **教训**：一条歌切判不出曲名时，**别只盯着它自己**——同一场直播往往还有别的切片man 也在切，去搜「歌名关键词 + 主播名」，或翻其他切片man 的投稿列表，常常能借他们的 BGM 标签把曲名认出来。本站除退烧药777 外，常见的还有 **夜听雨0628**（`<雾歌>` 系列）与 **天才美少女萨特**（`【雾歌】` 系列）。
 
+### 补录 10.17 歌切批次（2026-10-19）
+
+2026-10-19 巡检时，`退烧药777` 的空间页显示 **视频 106 条（投稿 110）**——比上次（94 / 93）多了十几条。翻「最新发布」发现 **2026-10-17 那场直播被切成了 7 首**，另有 1 首单独发的，合计 **8 首新歌**（36 → 44 首）：
+
+| 曲名 | BV | 发布（北京） | 时长 |
+| --- | --- | --- | --- |
+| 东京不太热 | `BV1T8J66CEvj` | 2026-10-18 03:11:03 | 221s |
+| 干物女 | `BV17gJ664Ej6` | 2026-10-18 03:00:30 | 210s |
+| 棠梨煎雪 | `BV13nJ66SEvw` | 2026-10-18 02:47:04 | 236s |
+| 锦鲤抄 | `BV1YeJq6VE3U` | 2026-10-18 02:35:57 | 239s |
+| 牵丝戏 | `BV1avJq6kE2A` | 2026-10-18 02:27:42 | 240s |
+| 人是猫 | `BV1D6Jq6uEcW` | 2026-10-18 02:15:39 | 136s |
+| 坏女孩 | `BV1EAJB6WEgG` | 2026-10-18 00:57:52 | 242s |
+| 我的悲伤是水做的 | `BV1HeJi6sEdr` | 2026-10-17 19:07:44 | 228s |
+
+- 全部 `国语`、`tags: ["歌切"]`、`category: 翻唱`，投稿人都是 `退烧药777`（**没有引入新投稿人**）。
+- 曲名全部来自 `view/detail` 的 BGM 标签（8 条**都有**，不像《屑屑》那样要靠别人佐证），标题里也基本直接写着曲名。
+- 同时段 `冬雾_kiri` 本人也发了一条，但是 **ASMR（2231s）**，按第 2 节第 7 条**不收**。
+- **教训**：动态流接口在这天依然全线 412，但 **UP 主的空间页 `https://space.bilibili.com/141266664/video` 用 bsk 打开是能看的**，列表里直接有标题 + 时长，比搜索接口更权威、更省事。空间页的 HTML 本身没有内嵌数据（`__INITIAL_STATE__` 不存在，直接抓是空的），**必须用浏览器渲染**。
+
 ### 配色变换的两个盲区（重要）
 
 当初把主站的橄榄 / 奶油暖色系换成中性蓝灰时，用的是 `inBand(h, s) = s > 0.12 && 48 <= h <= 95`、色相改 `214`、饱和度按明度分档的规则。事后发现两处漏网：
@@ -496,7 +517,7 @@ npx wrangler@latest pages deploy --project-name song-kiri --branch main --commit
 
 `wrangler pages deploy` 是**按目录整个上传**的，**不读 `.gitignore`**，所以绝不能直接上传仓库根目录（否则 `.git/`、`AGENTS.md`、`.dsh-tmp/` 全会被公开）。`tools/stage-deploy.mjs` 用白名单生成 `deploy-stage/`：
 
-- **发布**：`index.html`、`404.html`、`styles.css`、`_headers`、`css/`、`js/`（4 个）、`assets/`（标题字体）、`data/kiri/`（5 个 JSON）、`media/`（音频 + 封面，**36 首约 168 MB**，2026-10-12 口径）。
+- **发布**：`index.html`、`404.html`、`styles.css`、`_headers`、`css/`、`js/`（4 个）、`assets/`（标题字体）、`data/kiri/`（5 个 JSON）、`media/`（音频 + 封面，**44 首约 208 MB**，2026-10-19 口径）。
 - **不发布**：`AGENTS.md`、`README.md`、`data/songs.json`、`data/SOURCES.md`、`tools/`、`.git/`、`.dsh-tmp/`、`.wrangler/`。
 - 媒体是**硬链接**（同分区零拷贝）而不是复制；跨分区时自动退回 `copyFileSync`。
 
@@ -589,3 +610,5 @@ Invoke-RestMethod "https://api.cloudflare.com/client/v4/accounts/93dba8a5c9a9ef8
 - 会话可能中途失效（报 `requested resource does not exist`），重开一个 session 再 `navigate` 回原地址即可。
 - PowerShell **执行策略禁止直接跑 `.ps1`**（未数字签名）；本仓库用 `D:\tool\webdeploy\.dsh-tmp\bsk.ps1` 作环境变量驱动的包装脚本，靠 `Invoke-Expression (Get-Content ... -Raw)` 调。
 - 阿里云控制台的中文在 PowerShell 控制台里是 GBK 乱码，但域名、NS、URL、`@eN` ref 都是 ASCII，判断靠这些就够。
+- ⚠️ **读中文页面内容时，`observe` / `snapshot` 的输出会被重定向成 GBK 乱码**（`RootWebArea "鍩熷悕鎺у埗鍙癈"` 这种）。2026-10-19 的解法：包装脚本改用 `Start-Process -RedirectStandardOutput $file -Encoding utf8` 把输出落成 UTF-8 文件再 `Get-Content $file -Encoding UTF8` 读，中文就正常了。只在控制台里 pipe 是无论如何都会乱码的。
+- ⚠️ `bsk click` / `bsk evaluate` 的 JS 里**不要出现中文，也不要出现双引号**（PowerShell 会把参数绞碎）。中文用 `String.fromCharCode(...)` 拼，引号用单引号或 `\x22`。
