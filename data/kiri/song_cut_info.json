@@ -1,11 +1,51 @@
 {
   "roomKey": "kiri",
   "roomId": "",
-  "generatedAt": "2026-10-12T10:26:40.838Z",
+  "generatedAt": "2026-10-19T03:23:46.098Z",
   "source": "song-cut-title-index",
   "description": "每首歌对应的歌切切片标题（单曲歌切视频标题），供前端歌切链接显示。",
-  "count": 36,
+  "count": 44,
   "cuts": {
+    "东京不太热": {
+      "title": "【冬雾kiri10.17歌切】东京不太热",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1T8J66CEvj/"
+    },
+    "干物女": {
+      "title": "【冬雾kiri10.17歌切】幹物女(WeiWei）",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV17gJ664Ej6/"
+    },
+    "棠梨煎雪": {
+      "title": "【冬雾kiri10.17歌切】棠梨煎雪",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV13nJ66SEvw/"
+    },
+    "锦鲤抄": {
+      "title": "【冬雾kiri10.17歌切】锦鲤抄",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1YeJq6VE3U/"
+    },
+    "牵丝戏": {
+      "title": "【冬雾kiri10.17歌切】牵丝戏",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1avJq6kE2A/"
+    },
+    "人是猫": {
+      "title": "【冬雾kiri10.17歌切】人是猫",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1D6Jq6uEcW/"
+    },
+    "坏女孩": {
+      "title": "【冬雾kiri10.17歌切】坏女孩",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1EAJB6WEgG/"
+    },
+    "我的悲伤是水做的": {
+      "title": "【冬雾kiri歌切】我的悲伤是水做的",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1HeJi6sEdr/"
+    },
     "好想你": {
       "title": "【冬雾kiri歌切】这首歌会不会太甜了 也许是我牙口不好吧",
       "kind": "single",

@@ -15,9 +15,153 @@
       }
     ],
     "deduplicatedBy": "歌曲名；同名仅保留最新发布版本",
-    "updatedAt": "2026-10-12"
+    "updatedAt": "2026-10-19"
   },
   "songs": [
+    {
+      "id": "BV1T8J66CEvj",
+      "title": "东京不太热",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-18 03:11:03",
+      "duration": 221,
+      "audio": "./media/BV1T8J66CEvj.m4a",
+      "cover": "./media/covers/BV1T8J66CEvj.jpg",
+      "sourceTitle": "【冬雾kiri10.17歌切】东京不太热",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1792264263,
+      "sourceDuration": 221
+    },
+    {
+      "id": "BV17gJ664Ej6",
+      "title": "干物女",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-18 03:00:30",
+      "duration": 210,
+      "audio": "./media/BV17gJ664Ej6.m4a",
+      "cover": "./media/covers/BV17gJ664Ej6.jpg",
+      "sourceTitle": "【冬雾kiri10.17歌切】幹物女(WeiWei）",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1792263630,
+      "sourceDuration": 210
+    },
+    {
+      "id": "BV13nJ66SEvw",
+      "title": "棠梨煎雪",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-18 02:47:04",
+      "duration": 236,
+      "audio": "./media/BV13nJ66SEvw.m4a",
+      "cover": "./media/covers/BV13nJ66SEvw.jpg",
+      "sourceTitle": "【冬雾kiri10.17歌切】棠梨煎雪",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1792262824,
+      "sourceDuration": 236
+    },
+    {
+      "id": "BV1YeJq6VE3U",
+      "title": "锦鲤抄",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-18 02:35:57",
+      "duration": 239,
+      "audio": "./media/BV1YeJq6VE3U.m4a",
+      "cover": "./media/covers/BV1YeJq6VE3U.jpg",
+      "sourceTitle": "【冬雾kiri10.17歌切】锦鲤抄",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1792262157,
+      "sourceDuration": 239
+    },
+    {
+      "id": "BV1avJq6kE2A",
+      "title": "牵丝戏",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-18 02:27:42",
+      "duration": 240,
+      "audio": "./media/BV1avJq6kE2A.m4a",
+      "cover": "./media/covers/BV1avJq6kE2A.jpg",
+      "sourceTitle": "【冬雾kiri10.17歌切】牵丝戏",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1792261662,
+      "sourceDuration": 240
+    },
+    {
+      "id": "BV1D6Jq6uEcW",
+      "title": "人是猫",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-18 02:15:39",
+      "duration": 136,
+      "audio": "./media/BV1D6Jq6uEcW.m4a",
+      "cover": "./media/covers/BV1D6Jq6uEcW.jpg",
+      "sourceTitle": "【冬雾kiri10.17歌切】人是猫",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1792260939,
+      "sourceDuration": 136
+    },
+    {
+      "id": "BV1EAJB6WEgG",
+      "title": "坏女孩",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-18 00:57:52",
+      "duration": 242,
+      "audio": "./media/BV1EAJB6WEgG.m4a",
+      "cover": "./media/covers/BV1EAJB6WEgG.jpg",
+      "sourceTitle": "【冬雾kiri10.17歌切】坏女孩",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1792256272,
+      "sourceDuration": 242
+    },
+    {
+      "id": "BV1HeJi6sEdr",
+      "title": "我的悲伤是水做的",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-17 19:07:44",
+      "duration": 228,
+      "audio": "./media/BV1HeJi6sEdr.m4a",
+      "cover": "./media/covers/BV1HeJi6sEdr.jpg",
+      "sourceTitle": "【冬雾kiri歌切】我的悲伤是水做的",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1792235264,
+      "sourceDuration": 228
+    },
     {
       "id": "BV1k3pY6WEvQ",
       "title": "好想你",

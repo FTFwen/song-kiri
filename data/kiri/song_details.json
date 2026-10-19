@@ -1,9 +1,201 @@
 {
   "roomKey": "kiri",
   "roomId": "",
-  "generatedAt": "2026-10-12T10:26:40.838Z",
+  "generatedAt": "2026-10-19T03:23:46.098Z",
   "source": "song-kiri-bilibili-cuts",
   "bySongKey": {
+    "东京不太热": {
+      "row_key": "东京不太热",
+      "song_name": "东京不太热",
+      "display_song_name": "东京不太热",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1T8J66CEvj/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-10-18",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1T8J66CEvj",
+          "replay_title": "【冬雾kiri10.17歌切】东京不太热",
+          "replay_url": "https://www.bilibili.com/video/BV1T8J66CEvj/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1T8J66CEvj/"
+        }
+      ]
+    },
+    "干物女": {
+      "row_key": "干物女",
+      "song_name": "干物女",
+      "display_song_name": "干物女",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV17gJ664Ej6/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-10-18",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV17gJ664Ej6",
+          "replay_title": "【冬雾kiri10.17歌切】幹物女(WeiWei）",
+          "replay_url": "https://www.bilibili.com/video/BV17gJ664Ej6/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV17gJ664Ej6/"
+        }
+      ]
+    },
+    "棠梨煎雪": {
+      "row_key": "棠梨煎雪",
+      "song_name": "棠梨煎雪",
+      "display_song_name": "棠梨煎雪",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV13nJ66SEvw/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-10-18",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV13nJ66SEvw",
+          "replay_title": "【冬雾kiri10.17歌切】棠梨煎雪",
+          "replay_url": "https://www.bilibili.com/video/BV13nJ66SEvw/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV13nJ66SEvw/"
+        }
+      ]
+    },
+    "锦鲤抄": {
+      "row_key": "锦鲤抄",
+      "song_name": "锦鲤抄",
+      "display_song_name": "锦鲤抄",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1YeJq6VE3U/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-10-18",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1YeJq6VE3U",
+          "replay_title": "【冬雾kiri10.17歌切】锦鲤抄",
+          "replay_url": "https://www.bilibili.com/video/BV1YeJq6VE3U/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1YeJq6VE3U/"
+        }
+      ]
+    },
+    "牵丝戏": {
+      "row_key": "牵丝戏",
+      "song_name": "牵丝戏",
+      "display_song_name": "牵丝戏",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1avJq6kE2A/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-10-18",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1avJq6kE2A",
+          "replay_title": "【冬雾kiri10.17歌切】牵丝戏",
+          "replay_url": "https://www.bilibili.com/video/BV1avJq6kE2A/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1avJq6kE2A/"
+        }
+      ]
+    },
+    "人是猫": {
+      "row_key": "人是猫",
+      "song_name": "人是猫",
+      "display_song_name": "人是猫",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1D6Jq6uEcW/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-10-18",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1D6Jq6uEcW",
+          "replay_title": "【冬雾kiri10.17歌切】人是猫",
+          "replay_url": "https://www.bilibili.com/video/BV1D6Jq6uEcW/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1D6Jq6uEcW/"
+        }
+      ]
+    },
+    "坏女孩": {
+      "row_key": "坏女孩",
+      "song_name": "坏女孩",
+      "display_song_name": "坏女孩",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1EAJB6WEgG/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-10-18",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1EAJB6WEgG",
+          "replay_title": "【冬雾kiri10.17歌切】坏女孩",
+          "replay_url": "https://www.bilibili.com/video/BV1EAJB6WEgG/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1EAJB6WEgG/"
+        }
+      ]
+    },
+    "我的悲伤是水做的": {
+      "row_key": "我的悲伤是水做的",
+      "song_name": "我的悲伤是水做的",
+      "display_song_name": "我的悲伤是水做的",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1HeJi6sEdr/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-10-17",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1HeJi6sEdr",
+          "replay_title": "【冬雾kiri歌切】我的悲伤是水做的",
+          "replay_url": "https://www.bilibili.com/video/BV1HeJi6sEdr/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1HeJi6sEdr/"
+        }
+      ]
+    },
     "好想你": {
       "row_key": "好想你",
       "song_name": "好想你",
