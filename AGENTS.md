@@ -16,7 +16,7 @@
 | **退烧药777** | `141266664` | 冬雾kiri 的**歌切**（直播切片），本站主要来源 | 43 |
 | **冬雾_kiri** | `3707024510552805` | 主播**本人**发布的翻唱投稿 | 1 |
 
-只有这两个账号的投稿能进站。白名单在 `tools/fetch-media.mjs` 的 `ALLOWED_UPLOADERS` 里，视频 `owner.mid` 不命中就直接拒绝下载——见第 2 节第 7 条与第 11 节的「新增投稿人」。
+只有这两个账号的投稿能进站，而且 `tools/uploaders.mjs` 里还有一份**黑名单**（优先级高于白名单，命中即一律不收）。白名单 `ALLOWED_UPLOADERS` 与黑名单 `BLOCKED_UPLOADERS` 都写在 `tools/uploaders.mjs` 这一个文件里；视频 `owner.mid` 命中黑名单、或不在白名单里，都会直接拒绝下载——见第 2 节第 7 条、第 11 节的「新增投稿人」与「投稿人黑名单」。
 
 页面本身是 `D:\tool\webdeploy`（`viridis.love` 主站）歌单页的**整页移植**：布局、交互、底部播放器、播放列表、高级筛选、我的歌单、中意清单、历史页签全部照搬，只做三类改动——
 
@@ -42,9 +42,11 @@
 4. **同名歌曲只保留最新发布版本**：去重键是**规范化曲名**。发现同名多条时，按 `publishedAt`（即 B 站 `pubdate`）取最大者，并**删除**其余版本的音频与封面。
 5. **媒体不入库**：音频与封面**不提交到 Git**，`media/` 已被 `.gitignore` 忽略（历史里也没有）。`songs.json` 里的 `audio` / `cover` 只能指向仓库内的相对路径（`./media/...`），不得写 B 站的直链——B 站直链带签名、会过期。素材缺失时用 `tools/fetch-media.mjs` 在本机补齐。
 6. **不臆造曲名**：曲名以视频标题与 B 站标签为准（标签里 `发现《曲名》` 是可靠信号）。**无法确定曲名时不要猜**，先向用户确认。
-7. **不混入非目标内容**：只收**冬雾kiri 唱歌**的投稿，且投稿人必须在白名单里。
+7. **不混入非目标内容**：只收**冬雾kiri 唱歌**的投稿，且投稿人**必须在白名单里、且不在黑名单里**（黑名单优先级更高，命中即一律不收）。两份名单都在 `tools/uploaders.mjs`。
    - **`退烧药777`（mid `141266664`）** —— 冬雾kiri 的**歌切**：标题里带「歌切」的 21 条当然收；另有 **6 首**（给我一个吻 / 吵架歌 / 陶然四季 / 勾指起誓 / 虫儿飞 / チルノのパーフェクトさんすう教室）标题里没写「歌切」，但 BGM 标签明确、是完整的整首歌，**也收**。
    - **`冬雾_kiri`（mid `3707024510552805`）** —— 主播**本人**发布的翻唱投稿（2026-10-12 起收录，见第 11 节「新增投稿人」）。
+   - 🚫 **黑名单（`BLOCKED_UPLOADERS`，优先级高于白名单，命中即一律不收）**：
+     - **`天才美少女萨特`（mid `1907298543`）** —— 用户 2026-10-20 明确要求「他的歌一律不收」。哪怕他切了全网唯一的新歌（例如《老公天下第一》`BV1QenF6rE6G`），也**不收**，更**不许**把他挪进白名单。
    - 录播 / 助眠 / 煮面 / 米塔 / 杂谈 / ASMR 一律不收。
    - 每条歌曲的投稿人记在**歌曲自己**的 `sourceUploader` 上（`songs.json` 顶部的 `source.uploaders` 只是名单），`tools/build-data.mjs` 用它给每首歌生成各自的 `remark`。
 8. **保持与主站的移植一致性**：`index.html` / `styles.css` / `js/app.js` / `js/motion.js` / `css/motion.css` 都源自主站，**不要把它们改写成另一套实现**。要改行为时优先做「最小外科手术」，并在提交信息里写清改了什么、为什么。主站已有的怪行为（例如播放器收藏按钮不即时刷新）属于「完全一样」的一部分，不要顺手"修好"。
@@ -84,6 +86,7 @@ song-kiri/
 ├── tools/
 │   ├── build-data.mjs     # songs.json -> data/kiri/*.json + js/data.js
 │   ├── fetch-media.mjs    # 按 songs.json 拉取缺失的音频与封面
+│   ├── uploaders.mjs      # 投稿人白名单 + 黑名单（唯一来源，上面两个脚本都 import 它）
 │   ├── scan-green.mjs     # 体检：还有没有漏网的橄榄 / 黄绿色系色值
 │   └── stage-deploy.mjs   # 挑出该发布的文件放进 deploy-stage/，供 Cloudflare Pages 上传
 └── media/                 # 【本地生成，不入库】已被 .gitignore 忽略
@@ -403,7 +406,7 @@ Start-Process -FilePath $edge -ArgumentList $args -Wait -NoNewWindow `
 | `js/motion.js` | `DUST_PALETTE` 六个 `'rgba(...)'` 色值中性化（3 个绿系 → 214 蓝灰，3 个暖金/奶油按规则保留） | 见下方「配色变换的两个盲区」 |
 | `js/motion.js` | `POPUP_TEXTS` 里 `'松绿发声！🌱'` → `'开唱啦！🌱'`；`DUST_PALETTE` 上方注释去掉「松绿」字样 | 这是**主题用词**残留（不在 `POPUP_TEXTS` 之外出现）。该数组只被 `initButtonShockwaves` 使用，而本站没有 `.sound-btn` / `.cat-badge` 元素，这段是死代码，改动无副作用 |
 | 全部 | 删掉 `js/rating.js` / `js/live-status.js` / `js/listen-together.js` / `js/midautumn-skin.js` / `css/midautumn-skin.css` / `css/listen-together.css` | 需要联网或属于主题，且 `app.js` 里都有 `null` 守卫，去掉只少功能不报错 |
-| `tools/fetch-media.mjs` | 归属校验由「硬编码 `141266664`」改成 `ALLOWED_UPLOADERS` 白名单 | 用户 2026-10-12 要求把主播本人发的 `BV1bTYx6gEqU` 也搬进来，原校验会把非切片man 的投稿判成「归属不符」拒下 |
+| `tools/uploaders.mjs`（新文件）+ `tools/fetch-media.mjs` + `tools/build-data.mjs` | 归属校验由「硬编码 `141266664`」改成 `tools/uploaders.mjs` 里的 `ALLOWED_UPLOADERS` 白名单 + `BLOCKED_UPLOADERS` 黑名单（**黑名单优先**，下载与构建两道都拦） | 用户 2026-10-12 要求把主播本人发的 `BV1bTYx6gEqU` 也搬进来（原校验会判「归属不符」拒下）；用户 2026-10-20 又要求把天才美少女萨特拉黑，所以名单抽成单独文件、两边共用 |
 | `data/songs.json` + `tools/build-data.mjs` | 新增 `source.uploaders` 名单；每首歌各自带 `sourceUploader`，`remark` 按它和标签逐首生成（带「歌切」→「歌切」，否则→「翻唱」）；新标签 **`本人投稿`** | 同上，收录范围放宽为「退烧药777 的歌切 + 冬雾_kiri 本人的翻唱」 |
 
 ### 新增投稿人（2026-10-12）
@@ -412,13 +415,42 @@ Start-Process -FilePath $edge -ArgumentList $args -Wait -NoNewWindow `
 
 动了三处：
 
-1. `tools/fetch-media.mjs` 新增 `ALLOWED_UPLOADERS`（mid → 名字）白名单，归属校验改成查这张表，报错时会把允许的账号全列出来。
+1. 新建 `tools/uploaders.mjs`，把 `ALLOWED_UPLOADERS`（mid → 名字）白名单放在里面；`tools/fetch-media.mjs` 与 `tools/build-data.mjs` **都从它 import**，归属校验改成查这张表，报错时会把允许的账号全列出来。
 2. `data/songs.json` 顶部新增 `source.uploaders` 名单，**每条歌曲各自带 `sourceUploader`**；`tools/build-data.mjs` 用它给每首歌生成自己的 `remark`。
 3. 标签体系多了一个 **`本人投稿`**（`type` = `翻唱、本人投稿`）。目前只有这一首。
 
-再要加新投稿人时，**三处**都得改：`ALLOWED_UPLOADERS`、本文件第 2 节第 7 条、`data/SOURCES.md`。
+再要加新投稿人时，**三处**都得改：`tools/uploaders.mjs` 的 `ALLOWED_UPLOADERS`（**唯一改代码的地方**）、本文件第 2 节第 7 条、`data/SOURCES.md`。
 
 > ⚠️ 主播本人的投稿**目前没法用脚本枚举**（她的 mid 走动态流接口返回 412，见第 6 节），只能人工翻空间页。
+
+### 投稿人黑名单（2026-10-20）
+
+2026-10-20 巡检时，切片man **天才美少女萨特**（mid `1907298543`，`【雾歌】` 系列）发了一条 `BV1QenF6rE6G`——《老公天下第一》纯享版（154s，2026-10-20 10:31:33）。这是当时**全网唯一一首还没收录的新歌**（BGM 标签写的是 `发现《老婆天下第一 (男声版)》`，与标题不同名），我把它报给用户后，用户明确答复：
+
+> 「天才美少女萨特加入黑名单，他的歌一律不收」
+
+所以这次**没有收录**，歌单维持 44 首。同时把投稿人名单抽成一个独立文件 `tools/uploaders.mjs`，从此**白名单和黑名单都只在这一个地方改**：
+
+| 导出 | 内容 |
+| --- | --- |
+| `ALLOWED_UPLOADERS` | `Map<mid, 名字>`，只有 `141266664`（退烧药777）与 `3707024510552805`（冬雾_kiri） |
+| `BLOCKED_UPLOADERS` | `Map<mid, { name, reason }>`，目前只有 `1907298543`（天才美少女萨特） |
+| `blockedByMid(mid)` | 给 `fetch-media.mjs` 用（手上只有 mid）；命中返回 `{ name, reason }` |
+| `blockedByName(name)` | 给 `build-data.mjs` 用（`songs.json` 里只有名字）；命中返回 `{ mid, ...info }` |
+
+**两道拦截，缺一不可**：
+
+1. `tools/fetch-media.mjs` 的 `collectStreams()` 里，**黑名单检查在归属校验之前**，命中直接抛
+   `黑名单拒绝：天才美少女萨特(mid=1907298543) —— 用户 2026-10-20 明确要求：他的歌一律不收`，
+   一个字节都不下载。
+2. `tools/build-data.mjs` 的 `main()` 里**两处兜底**：① 扫 `source.uploaders` 名单，命中黑名单 mid 就抛错；② 逐首歌查 `song.sourceUploader`（按名字，`tools/build-data.mjs:102` 附近），命中就抛
+   `投稿人在黑名单里，不允许收录：「<曲名>」的 sourceUploader=天才美少女萨特(mid=1907298543) —— …`。
+   这样即使有人绕过下载脚本、手工把条目塞进 `songs.json`，也构建不出来。
+
+**已实测**（把 `songs.json` 临时换成只有 `BV1QenF6rE6G` 的单条版本，跑完还原并用 `Buffer.equals` 校验）：
+`fetch-media.mjs` 退出码 1 且没有产生任何文件；`build-data.mjs` 退出码 1 并抛出上面那条错误。
+
+> 🚫 **黑名单是长期政策**，不要因为「黑名单里的人切了某首全网唯一的新歌」就把他挪进白名单。真要改，先问用户。
 
 ### 补录《屑屑》（2026-10-12 晚）
 

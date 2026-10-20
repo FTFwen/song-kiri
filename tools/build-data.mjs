@@ -16,6 +16,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { blockedByMid, blockedByName } from './uploaders.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SONGS_FILE = join(ROOT, 'data', 'songs.json');
@@ -81,10 +82,27 @@ function main() {
   // 按发布时间倒序，最新的排最前
   songs.sort((a, b) => String(b.publishedAt || '').localeCompare(String(a.publishedAt || '')));
 
+  // 顶部名单里也不许混进黑名单里的 mid
+  for (const item of source.source?.uploaders ?? []) {
+    const blockedTop = blockedByMid(item?.mid);
+    if (blockedTop) {
+      throw new Error(
+        `source.uploaders 里出现了黑名单投稿人：${blockedTop.name}(mid=${item.mid}) —— ${blockedTop.reason}。见 tools/uploaders.mjs`
+      );
+    }
+  }
+
   const seen = new Set();
   for (const song of songs) {
     if (!song.title) throw new Error(`缺少 title：${JSON.stringify(song)}`);
     if (!song.id) throw new Error(`缺少 id（B 站 BV 号）：${song.title}`);
+    // 黑名单兜底：即使有人把黑名单投稿人的歌手写进了 songs.json，也不许生成到页面上
+    const blocked = blockedByName(song.sourceUploader);
+    if (blocked) {
+      throw new Error(
+        `投稿人在黑名单里，不允许收录：「${song.title}」的 sourceUploader=${blocked.name}(mid=${blocked.mid}) —— ${blocked.reason}。见 tools/uploaders.mjs`
+      );
+    }
     // 同名只保留最新：songs.json 已手工去重，这里再做一次兜底，防止手滑
     const key = String(song.title).trim();
     if (seen.has(key)) throw new Error(`曲名重复（同名应只保留最新的一个）：${key}`);

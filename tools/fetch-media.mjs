@@ -15,6 +15,7 @@
 import { readFile, mkdir, writeFile, stat } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { ALLOWED_UPLOADERS, blockedByMid } from './uploaders.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SONGS_FILE = join(ROOT, 'data', 'songs.json');
@@ -31,16 +32,9 @@ const API_DELAY_MS = 1200;
 const MAX_RETRY = 3;
 
 /**
- * 允许的投稿人白名单（B 站 mid → 名字）。
- * 视频的 owner.mid 必须命中其中之一，否则视为「混进了别人的视频」并拒绝下载。
- *   - 退烧药777：冬雾kiri 的歌切切片man（本站的主要来源）
- *   - 冬雾_kiri：主播本人（她自己也发翻唱投稿）
- * 新增投稿人时**必须**同时更新这里和 AGENTS.md 第 2 节第 7 条。
+ * 投稿人名单（白名单 + 黑名单）统一放在 tools/uploaders.mjs，本文件只负责调用。
+ * 黑名单优先：命中就直接拒绝，连白名单都不看。
  */
-const ALLOWED_UPLOADERS = new Map([
-  ['141266664', '退烧药777'],
-  ['3707024510552805', '冬雾_kiri']
-]);
 
 const args = new Set(process.argv.slice(2));
 const FORCE = args.has('--force');
@@ -100,9 +94,17 @@ function formatSize(bytes) {
 async function collectStreams(bvid) {
   const view = await apiJson(`https://api.bilibili.com/x/web-interface/view?bvid=${bvid}`);
   const owner = String(view.owner?.mid ?? '');
+  const ownerName = view.owner?.name ?? '未知';
+
+  // 黑名单优先：命中即无条件拒绝，不给任何「先下下来再说」的口子
+  const blocked = blockedByMid(owner);
+  if (blocked) {
+    throw new Error(`黑名单拒绝：${blocked.name}(mid=${owner}) —— ${blocked.reason}`);
+  }
+
   if (!ALLOWED_UPLOADERS.has(owner)) {
     const allowed = [...ALLOWED_UPLOADERS].map(([mid, name]) => `${name}(${mid})`).join('、');
-    throw new Error(`归属不符：owner=${view.owner?.name ?? '未知'}(mid=${owner})，只接受 ${allowed}`);
+    throw new Error(`归属不符：owner=${ownerName}(mid=${owner})，只接受 ${allowed}`);
   }
   await sleep(API_DELAY_MS);
 
