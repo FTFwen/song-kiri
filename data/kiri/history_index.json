@@ -1,12 +1,12 @@
 {
   "roomKey": "kiri",
   "roomId": "",
-  "generatedAt": "2026-10-19T03:23:46.098Z",
+  "generatedAt": "2026-10-26T02:14:16.687Z",
   "source": "song-kiri-bilibili-cuts",
   "latest": {
     "year": "2026",
     "month": "10",
-    "day": "18"
+    "day": "22"
   },
   "dateTree": {
     "2026": {
@@ -14,6 +14,7 @@
         "10": 17,
         "17": 1,
         "18": 7,
+        "22": 6,
         "07": 7
       },
       "09": {
@@ -25,6 +26,110 @@
     }
   },
   "byDate": {
+    "2026-10-22": [
+      {
+        "song_name": "One Last Kiss",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1DEnH6wEqv",
+        "replay_title": "新世纪蝠音战士来喽 你，终究不是我的绫波丽啊😭完成度太低只能绝望的和声的冬雾kiri跟碇真嗣到底有什么区别【冬雾kiri】",
+        "replay_url": "https://www.bilibili.com/video/BV1DEnH6wEqv/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "One Last Kiss",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1DEnH6wEqv/"
+      },
+      {
+        "song_name": "我的一个道姑朋友",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1TxnH6tEzk",
+        "replay_title": "老飞雾66你到底多大了又唱这么又年代感的歌还唱不上去，我该喊你阿姨还是奶奶【冬雾kiri歌切？】",
+        "replay_url": "https://www.bilibili.com/video/BV1TxnH6tEzk/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "我的一个道姑朋友",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1TxnH6tEzk/"
+      },
+      {
+        "song_name": "小手拉大手",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1nJnp6nEom",
+        "replay_title": "【冬雾kiri歌切】小手拉大手",
+        "replay_url": "https://www.bilibili.com/video/BV1nJnp6nEom/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "小手拉大手",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1nJnp6nEom/"
+      },
+      {
+        "song_name": "客官不可以",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1k7np6QETd",
+        "replay_title": "【冬雾kiri歌切】客官不可以",
+        "replay_url": "https://www.bilibili.com/video/BV1k7np6QETd/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "客官不可以",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1k7np6QETd/"
+      },
+      {
+        "song_name": "那么骄傲",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1wrn26WEhT",
+        "replay_title": "【冬雾kiri歌切】那么骄傲",
+        "replay_url": "https://www.bilibili.com/video/BV1wrn26WEhT/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "那么骄傲",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1wrn26WEhT/"
+      },
+      {
+        "song_name": "虚拟",
+        "sing_time": "",
+        "statuses": [
+          "歌切"
+        ],
+        "artist": "冬雾kiri",
+        "replay_id": "BV1Mtn26AECp",
+        "replay_title": "【冬雾kiri歌切】虚拟",
+        "replay_url": "https://www.bilibili.com/video/BV1Mtn26AECp/",
+        "start_time": "",
+        "end_time": "",
+        "row_key": "虚拟",
+        "lyric_excerpt": "",
+        "song_resolution_method": "song-cut-title",
+        "cut_link": "https://www.bilibili.com/video/BV1Mtn26AECp/"
+      }
+    ],
     "2026-10-18": [
       {
         "song_name": "东京不太热",

@@ -1,11 +1,41 @@
 {
   "roomKey": "kiri",
   "roomId": "",
-  "generatedAt": "2026-10-19T03:23:46.098Z",
+  "generatedAt": "2026-10-26T02:14:16.687Z",
   "source": "song-cut-title-index",
   "description": "每首歌对应的歌切切片标题（单曲歌切视频标题），供前端歌切链接显示。",
-  "count": 44,
+  "count": 50,
   "cuts": {
+    "One Last Kiss": {
+      "title": "新世纪蝠音战士来喽 你，终究不是我的绫波丽啊😭完成度太低只能绝望的和声的冬雾kiri跟碇真嗣到底有什么区别【冬雾kiri】",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1DEnH6wEqv/"
+    },
+    "我的一个道姑朋友": {
+      "title": "老飞雾66你到底多大了又唱这么又年代感的歌还唱不上去，我该喊你阿姨还是奶奶【冬雾kiri歌切？】",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1TxnH6tEzk/"
+    },
+    "小手拉大手": {
+      "title": "【冬雾kiri歌切】小手拉大手",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1nJnp6nEom/"
+    },
+    "客官不可以": {
+      "title": "【冬雾kiri歌切】客官不可以",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1k7np6QETd/"
+    },
+    "那么骄傲": {
+      "title": "【冬雾kiri歌切】那么骄傲",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1wrn26WEhT/"
+    },
+    "虚拟": {
+      "title": "【冬雾kiri歌切】虚拟",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1Mtn26AECp/"
+    },
     "东京不太热": {
       "title": "【冬雾kiri10.17歌切】东京不太热",
       "kind": "single",

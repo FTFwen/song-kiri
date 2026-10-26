@@ -15,9 +15,117 @@
       }
     ],
     "deduplicatedBy": "歌曲名；同名仅保留最新发布版本",
-    "updatedAt": "2026-10-19"
+    "updatedAt": "2026-10-26"
   },
   "songs": [
+    {
+      "id": "BV1DEnH6wEqv",
+      "title": "One Last Kiss",
+      "artist": "冬雾kiri",
+      "language": "日语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-22 23:15:36",
+      "duration": 245,
+      "audio": "./media/BV1DEnH6wEqv.m4a",
+      "cover": "./media/covers/BV1DEnH6wEqv.jpg",
+      "sourceTitle": "新世纪蝠音战士来喽 你，终究不是我的绫波丽啊😭完成度太低只能绝望的和声的冬雾kiri跟碇真嗣到底有什么区别【冬雾kiri】",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1792682136,
+      "sourceDuration": 245
+    },
+    {
+      "id": "BV1TxnH6tEzk",
+      "title": "我的一个道姑朋友",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-22 22:57:22",
+      "duration": 270,
+      "audio": "./media/BV1TxnH6tEzk.m4a",
+      "cover": "./media/covers/BV1TxnH6tEzk.jpg",
+      "sourceTitle": "老飞雾66你到底多大了又唱这么又年代感的歌还唱不上去，我该喊你阿姨还是奶奶【冬雾kiri歌切？】",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1792681042,
+      "sourceDuration": 270
+    },
+    {
+      "id": "BV1nJnp6nEom",
+      "title": "小手拉大手",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-22 21:31:38",
+      "duration": 253,
+      "audio": "./media/BV1nJnp6nEom.m4a",
+      "cover": "./media/covers/BV1nJnp6nEom.jpg",
+      "sourceTitle": "【冬雾kiri歌切】小手拉大手",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1792675898,
+      "sourceDuration": 253
+    },
+    {
+      "id": "BV1k7np6QETd",
+      "title": "客官不可以",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-22 21:16:28",
+      "duration": 262,
+      "audio": "./media/BV1k7np6QETd.m4a",
+      "cover": "./media/covers/BV1k7np6QETd.jpg",
+      "sourceTitle": "【冬雾kiri歌切】客官不可以",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1792674988,
+      "sourceDuration": 262
+    },
+    {
+      "id": "BV1wrn26WEhT",
+      "title": "那么骄傲",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-22 19:54:21",
+      "duration": 240,
+      "audio": "./media/BV1wrn26WEhT.m4a",
+      "cover": "./media/covers/BV1wrn26WEhT.jpg",
+      "sourceTitle": "【冬雾kiri歌切】那么骄傲",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1792670061,
+      "sourceDuration": 240
+    },
+    {
+      "id": "BV1Mtn26AECp",
+      "title": "虚拟",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-22 19:42:08",
+      "duration": 237,
+      "audio": "./media/BV1Mtn26AECp.m4a",
+      "cover": "./media/covers/BV1Mtn26AECp.jpg",
+      "sourceTitle": "【冬雾kiri歌切】虚拟",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1792669328,
+      "sourceDuration": 237
+    },
     {
       "id": "BV1T8J66CEvj",
       "title": "东京不太热",
