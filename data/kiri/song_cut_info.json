@@ -1,11 +1,106 @@
 {
   "roomKey": "kiri",
   "roomId": "",
-  "generatedAt": "2026-10-26T02:14:16.687Z",
+  "generatedAt": "2026-11-03T08:10:12.503Z",
   "source": "song-cut-title-index",
   "description": "每首歌对应的歌切切片标题（单曲歌切视频标题），供前端歌切链接显示。",
-  "count": 50,
+  "count": 67,
   "cuts": {
+    "爱人呢": {
+      "title": "【冬雾_kiri】歌切 爱人呢",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1sV4u6zEBL/"
+    },
+    "繁花": {
+      "title": "【冬雾_kiri】歌切 繁花",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1PL4u6ME9Q/"
+    },
+    "Love Love Love": {
+      "title": "【冬雾_kiri】歌切 Love Love Love",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1cp4u6YEzT/"
+    },
+    "青花瓷": {
+      "title": "【冬雾_kiri】歌切 青花瓷",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1kJ4u6vEyF/"
+    },
+    "第一次爱的人": {
+      "title": "【冬雾_kiri】歌切 第一次爱的人（未完成版）",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1gP4u61EE6/"
+    },
+    "公主殿下": {
+      "title": "【冬雾_kiri】歌切 公主殿下",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1uK4u65EaY/"
+    },
+    "半壶纱": {
+      "title": "【冬雾_kiri】歌切 半壶纱",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV13c4u6mEbL/"
+    },
+    "光": {
+      "title": "【冬雾_kiri】歌切 光—陈粒",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1Tg4u6rEhA/"
+    },
+    "グルグル": {
+      "title": "【冬雾_kiri】这个kiri真是顶美啊，初夜给我顶美了......",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV12C4A69Equ/"
+    },
+    "虚拟": {
+      "title": "没人觉得戴上头花唱虚拟的冬雾kiri有一点像我在失亡彼岸的一个老婆吗【冬雾kiri万圣特别歌切】",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1jWxJ6UEkK/"
+    },
+    "多幸运": {
+      "title": "【冬雾kiri万圣特别回切片】多幸运",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV15bxJ6LEs5/"
+    },
+    "下个，路口，见": {
+      "title": "【冬雾kiri万圣节特别歌切】我决定在这个路口不吸你的血，所以你快跑吧，我们《下个路口见》",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1V8xJ6yESM/"
+    },
+    "恋爱频率": {
+      "title": "【冬雾kiri10.28歌切】恋爱频率",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1aZxF69EDX/"
+    },
+    "现在那边是几点": {
+      "title": "【冬雾kiri10.28歌切】现在那边是几点",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1MTxc6mEaz/"
+    },
+    "眉间雪": {
+      "title": "【冬雾kiri10.28歌切】眉间雪",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV18Pxc6SEph/"
+    },
+    "帅的人": {
+      "title": "【冬雾kiri10.28歌切】帅的人",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV17mxF6hExY/"
+    },
+    "Happy Halloween": {
+      "title": "【冬雾kiri10.28歌切 】Happy Halloween",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV15RxF6dEgZ/"
+    },
+    "宝贝": {
+      "title": "【冬雾kiri10.28歌切】宝贝",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV159xF64EpV/"
+    },
+    "童话镇": {
+      "title": "【冬雾kiri10.28歌切】童话镇",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1fxxc6eEtu/"
+    },
     "One Last Kiss": {
       "title": "新世纪蝠音战士来喽 你，终究不是我的绫波丽啊😭完成度太低只能绝望的和声的冬雾kiri跟碇真嗣到底有什么区别【冬雾kiri】",
       "kind": "single",
@@ -30,11 +125,6 @@
       "title": "【冬雾kiri歌切】那么骄傲",
       "kind": "single",
       "url": "https://www.bilibili.com/video/BV1wrn26WEhT/"
-    },
-    "虚拟": {
-      "title": "【冬雾kiri歌切】虚拟",
-      "kind": "single",
-      "url": "https://www.bilibili.com/video/BV1Mtn26AECp/"
     },
     "东京不太热": {
       "title": "【冬雾kiri10.17歌切】东京不太热",
@@ -180,11 +270,6 @@
       "title": "【冬雾kiri歌切】你赢了兄弟，你的恋爱循环让我想起了多月前没肚皮的防战红裤衩小循环",
       "kind": "single",
       "url": "https://www.bilibili.com/video/BV1AwpK61En5/"
-    },
-    "下个，路口，见": {
-      "title": "【冬雾kiri歌切】如果我们不顺路，那就下个路口见",
-      "kind": "single",
-      "url": "https://www.bilibili.com/video/BV1bApA67Edv/"
     },
     "彩虹的微笑": {
       "title": "【冬雾kiri歌切】首月7k粉就达成百舰了唱歌就是开心啊我说 《彩虹的微笑》",

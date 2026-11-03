@@ -1,9 +1,465 @@
 {
   "roomKey": "kiri",
   "roomId": "",
-  "generatedAt": "2026-10-26T02:14:16.687Z",
+  "generatedAt": "2026-11-03T08:10:12.503Z",
   "source": "song-kiri-bilibili-cuts",
   "bySongKey": {
+    "爱人呢": {
+      "row_key": "爱人呢",
+      "song_name": "爱人呢",
+      "display_song_name": "爱人呢",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1sV4u6zEBL/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-11-03",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1sV4u6zEBL",
+          "replay_title": "【冬雾_kiri】歌切 爱人呢",
+          "replay_url": "https://www.bilibili.com/video/BV1sV4u6zEBL/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1sV4u6zEBL/"
+        }
+      ]
+    },
+    "繁花": {
+      "row_key": "繁花",
+      "song_name": "繁花",
+      "display_song_name": "繁花",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1PL4u6ME9Q/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-11-03",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1PL4u6ME9Q",
+          "replay_title": "【冬雾_kiri】歌切 繁花",
+          "replay_url": "https://www.bilibili.com/video/BV1PL4u6ME9Q/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1PL4u6ME9Q/"
+        }
+      ]
+    },
+    "Love Love Love": {
+      "row_key": "Love Love Love",
+      "song_name": "Love Love Love",
+      "display_song_name": "Love Love Love",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1cp4u6YEzT/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-11-03",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1cp4u6YEzT",
+          "replay_title": "【冬雾_kiri】歌切 Love Love Love",
+          "replay_url": "https://www.bilibili.com/video/BV1cp4u6YEzT/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1cp4u6YEzT/"
+        }
+      ]
+    },
+    "青花瓷": {
+      "row_key": "青花瓷",
+      "song_name": "青花瓷",
+      "display_song_name": "青花瓷",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1kJ4u6vEyF/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-11-03",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1kJ4u6vEyF",
+          "replay_title": "【冬雾_kiri】歌切 青花瓷",
+          "replay_url": "https://www.bilibili.com/video/BV1kJ4u6vEyF/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1kJ4u6vEyF/"
+        }
+      ]
+    },
+    "第一次爱的人": {
+      "row_key": "第一次爱的人",
+      "song_name": "第一次爱的人",
+      "display_song_name": "第一次爱的人",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1gP4u61EE6/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-11-03",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1gP4u61EE6",
+          "replay_title": "【冬雾_kiri】歌切 第一次爱的人（未完成版）",
+          "replay_url": "https://www.bilibili.com/video/BV1gP4u61EE6/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1gP4u61EE6/"
+        }
+      ]
+    },
+    "公主殿下": {
+      "row_key": "公主殿下",
+      "song_name": "公主殿下",
+      "display_song_name": "公主殿下",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1uK4u65EaY/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-11-03",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1uK4u65EaY",
+          "replay_title": "【冬雾_kiri】歌切 公主殿下",
+          "replay_url": "https://www.bilibili.com/video/BV1uK4u65EaY/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1uK4u65EaY/"
+        }
+      ]
+    },
+    "半壶纱": {
+      "row_key": "半壶纱",
+      "song_name": "半壶纱",
+      "display_song_name": "半壶纱",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV13c4u6mEbL/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-11-03",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV13c4u6mEbL",
+          "replay_title": "【冬雾_kiri】歌切 半壶纱",
+          "replay_url": "https://www.bilibili.com/video/BV13c4u6mEbL/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV13c4u6mEbL/"
+        }
+      ]
+    },
+    "光": {
+      "row_key": "光",
+      "song_name": "光",
+      "display_song_name": "光",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1Tg4u6rEhA/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-11-03",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1Tg4u6rEhA",
+          "replay_title": "【冬雾_kiri】歌切 光—陈粒",
+          "replay_url": "https://www.bilibili.com/video/BV1Tg4u6rEhA/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1Tg4u6rEhA/"
+        }
+      ]
+    },
+    "グルグル": {
+      "row_key": "グルグル",
+      "song_name": "グルグル",
+      "display_song_name": "グルグル",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV12C4A69Equ/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-11-02",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV12C4A69Equ",
+          "replay_title": "【冬雾_kiri】这个kiri真是顶美啊，初夜给我顶美了......",
+          "replay_url": "https://www.bilibili.com/video/BV12C4A69Equ/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV12C4A69Equ/"
+        }
+      ]
+    },
+    "虚拟": {
+      "row_key": "虚拟",
+      "song_name": "虚拟",
+      "display_song_name": "虚拟",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1jWxJ6UEkK/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-11-01",
+          "time": "",
+          "end_time": "",
+          "status": "歌切、同名最新",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1jWxJ6UEkK",
+          "replay_title": "没人觉得戴上头花唱虚拟的冬雾kiri有一点像我在失亡彼岸的一个老婆吗【冬雾kiri万圣特别歌切】",
+          "replay_url": "https://www.bilibili.com/video/BV1jWxJ6UEkK/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1jWxJ6UEkK/"
+        }
+      ]
+    },
+    "多幸运": {
+      "row_key": "多幸运",
+      "song_name": "多幸运",
+      "display_song_name": "多幸运",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV15bxJ6LEs5/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-11-01",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV15bxJ6LEs5",
+          "replay_title": "【冬雾kiri万圣特别回切片】多幸运",
+          "replay_url": "https://www.bilibili.com/video/BV15bxJ6LEs5/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV15bxJ6LEs5/"
+        }
+      ]
+    },
+    "下个，路口，见": {
+      "row_key": "下个，路口，见",
+      "song_name": "下个，路口，见",
+      "display_song_name": "下个，路口，见",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1V8xJ6yESM/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-11-01",
+          "time": "",
+          "end_time": "",
+          "status": "歌切、同名最新",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1V8xJ6yESM",
+          "replay_title": "【冬雾kiri万圣节特别歌切】我决定在这个路口不吸你的血，所以你快跑吧，我们《下个路口见》",
+          "replay_url": "https://www.bilibili.com/video/BV1V8xJ6yESM/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1V8xJ6yESM/"
+        }
+      ]
+    },
+    "恋爱频率": {
+      "row_key": "恋爱频率",
+      "song_name": "恋爱频率",
+      "display_song_name": "恋爱频率",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1aZxF69EDX/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-10-30",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1aZxF69EDX",
+          "replay_title": "【冬雾kiri10.28歌切】恋爱频率",
+          "replay_url": "https://www.bilibili.com/video/BV1aZxF69EDX/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1aZxF69EDX/"
+        }
+      ]
+    },
+    "现在那边是几点": {
+      "row_key": "现在那边是几点",
+      "song_name": "现在那边是几点",
+      "display_song_name": "现在那边是几点",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1MTxc6mEaz/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-10-30",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1MTxc6mEaz",
+          "replay_title": "【冬雾kiri10.28歌切】现在那边是几点",
+          "replay_url": "https://www.bilibili.com/video/BV1MTxc6mEaz/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1MTxc6mEaz/"
+        }
+      ]
+    },
+    "眉间雪": {
+      "row_key": "眉间雪",
+      "song_name": "眉间雪",
+      "display_song_name": "眉间雪",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV18Pxc6SEph/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-10-30",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV18Pxc6SEph",
+          "replay_title": "【冬雾kiri10.28歌切】眉间雪",
+          "replay_url": "https://www.bilibili.com/video/BV18Pxc6SEph/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV18Pxc6SEph/"
+        }
+      ]
+    },
+    "帅的人": {
+      "row_key": "帅的人",
+      "song_name": "帅的人",
+      "display_song_name": "帅的人",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV17mxF6hExY/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-10-30",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV17mxF6hExY",
+          "replay_title": "【冬雾kiri10.28歌切】帅的人",
+          "replay_url": "https://www.bilibili.com/video/BV17mxF6hExY/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV17mxF6hExY/"
+        }
+      ]
+    },
+    "Happy Halloween": {
+      "row_key": "Happy Halloween",
+      "song_name": "Happy Halloween",
+      "display_song_name": "Happy Halloween",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV15RxF6dEgZ/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-10-30",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV15RxF6dEgZ",
+          "replay_title": "【冬雾kiri10.28歌切 】Happy Halloween",
+          "replay_url": "https://www.bilibili.com/video/BV15RxF6dEgZ/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV15RxF6dEgZ/"
+        }
+      ]
+    },
+    "宝贝": {
+      "row_key": "宝贝",
+      "song_name": "宝贝",
+      "display_song_name": "宝贝",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV159xF64EpV/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-10-30",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV159xF64EpV",
+          "replay_title": "【冬雾kiri10.28歌切】宝贝",
+          "replay_url": "https://www.bilibili.com/video/BV159xF64EpV/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV159xF64EpV/"
+        }
+      ]
+    },
+    "童话镇": {
+      "row_key": "童话镇",
+      "song_name": "童话镇",
+      "display_song_name": "童话镇",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1fxxc6eEtu/",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-10-30",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1fxxc6eEtu",
+          "replay_title": "【冬雾kiri10.28歌切】童话镇",
+          "replay_url": "https://www.bilibili.com/video/BV1fxxc6eEtu/",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1fxxc6eEtu/"
+        }
+      ]
+    },
     "One Last Kiss": {
       "row_key": "One Last Kiss",
       "song_name": "One Last Kiss",
@@ -121,30 +577,6 @@
           "lyric_excerpt": "",
           "song_resolution_method": "song-cut-title",
           "cut_link": "https://www.bilibili.com/video/BV1wrn26WEhT/"
-        }
-      ]
-    },
-    "虚拟": {
-      "row_key": "虚拟",
-      "song_name": "虚拟",
-      "display_song_name": "虚拟",
-      "artist": "冬雾kiri",
-      "cut_link": "https://www.bilibili.com/video/BV1Mtn26AECp/",
-      "total_count": 1,
-      "entries": [
-        {
-          "date": "2026-10-22",
-          "time": "",
-          "end_time": "",
-          "status": "歌切",
-          "artist": "冬雾kiri",
-          "replay_id": "BV1Mtn26AECp",
-          "replay_title": "【冬雾kiri歌切】虚拟",
-          "replay_url": "https://www.bilibili.com/video/BV1Mtn26AECp/",
-          "remark": "",
-          "lyric_excerpt": "",
-          "song_resolution_method": "song-cut-title",
-          "cut_link": "https://www.bilibili.com/video/BV1Mtn26AECp/"
         }
       ]
     },
@@ -841,30 +1273,6 @@
           "lyric_excerpt": "",
           "song_resolution_method": "song-cut-title",
           "cut_link": "https://www.bilibili.com/video/BV1AwpK61En5/"
-        }
-      ]
-    },
-    "下个，路口，见": {
-      "row_key": "下个，路口，见",
-      "song_name": "下个，路口，见",
-      "display_song_name": "下个，路口，见",
-      "artist": "冬雾kiri",
-      "cut_link": "https://www.bilibili.com/video/BV1bApA67Edv/",
-      "total_count": 1,
-      "entries": [
-        {
-          "date": "2026-10-07",
-          "time": "",
-          "end_time": "",
-          "status": "歌切",
-          "artist": "冬雾kiri",
-          "replay_id": "BV1bApA67Edv",
-          "replay_title": "【冬雾kiri歌切】如果我们不顺路，那就下个路口见",
-          "replay_url": "https://www.bilibili.com/video/BV1bApA67Edv/",
-          "remark": "",
-          "lyric_excerpt": "",
-          "song_resolution_method": "song-cut-title",
-          "cut_link": "https://www.bilibili.com/video/BV1bApA67Edv/"
         }
       ]
     },

@@ -12,12 +12,366 @@
         "name": "冬雾_kiri",
         "mid": "3707024510552805",
         "role": "主播本人（自己发布的翻唱投稿）"
+      },
+      {
+        "name": "奥小姐拜托了",
+        "mid": "17458321",
+        "role": "歌切切片man（2026-11-03 用户点头加入白名单）"
+      },
+      {
+        "name": "冬雾kiri单推蝠",
+        "mid": "3546666873391261",
+        "role": "歌切切片man（仅《グルグル》1 首，用户单首点头）"
       }
     ],
     "deduplicatedBy": "歌曲名；同名仅保留最新发布版本",
-    "updatedAt": "2026-10-26"
+    "updatedAt": "2026-11-03"
   },
   "songs": [
+    {
+      "id": "BV1sV4u6zEBL",
+      "title": "爱人呢",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-11-03 12:07:24",
+      "duration": 220,
+      "audio": "./media/BV1sV4u6zEBL.m4a",
+      "cover": "./media/covers/BV1sV4u6zEBL.jpg",
+      "sourceTitle": "【冬雾_kiri】歌切 爱人呢",
+      "sourceUploader": "奥小姐拜托了",
+      "sourcePubdate": 1793678844,
+      "sourceDuration": 220
+    },
+    {
+      "id": "BV1PL4u6ME9Q",
+      "title": "繁花",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-11-03 12:01:47",
+      "duration": 207,
+      "audio": "./media/BV1PL4u6ME9Q.m4a",
+      "cover": "./media/covers/BV1PL4u6ME9Q.jpg",
+      "sourceTitle": "【冬雾_kiri】歌切 繁花",
+      "sourceUploader": "奥小姐拜托了",
+      "sourcePubdate": 1793678507,
+      "sourceDuration": 207
+    },
+    {
+      "id": "BV1cp4u6YEzT",
+      "title": "Love Love Love",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-11-03 11:55:51",
+      "duration": 234,
+      "audio": "./media/BV1cp4u6YEzT.m4a",
+      "cover": "./media/covers/BV1cp4u6YEzT.jpg",
+      "sourceTitle": "【冬雾_kiri】歌切 Love Love Love",
+      "sourceUploader": "奥小姐拜托了",
+      "sourcePubdate": 1793678151,
+      "sourceDuration": 234
+    },
+    {
+      "id": "BV1kJ4u6vEyF",
+      "title": "青花瓷",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-11-03 11:48:24",
+      "duration": 217,
+      "audio": "./media/BV1kJ4u6vEyF.m4a",
+      "cover": "./media/covers/BV1kJ4u6vEyF.jpg",
+      "sourceTitle": "【冬雾_kiri】歌切 青花瓷",
+      "sourceUploader": "奥小姐拜托了",
+      "sourcePubdate": 1793677704,
+      "sourceDuration": 217
+    },
+    {
+      "id": "BV1gP4u61EE6",
+      "title": "第一次爱的人",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-11-03 11:40:54",
+      "duration": 171,
+      "audio": "./media/BV1gP4u61EE6.m4a",
+      "cover": "./media/covers/BV1gP4u61EE6.jpg",
+      "sourceTitle": "【冬雾_kiri】歌切 第一次爱的人（未完成版）",
+      "sourceUploader": "奥小姐拜托了",
+      "sourcePubdate": 1793677254,
+      "sourceDuration": 171
+    },
+    {
+      "id": "BV1uK4u65EaY",
+      "title": "公主殿下",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-11-03 11:35:18",
+      "duration": 273,
+      "audio": "./media/BV1uK4u65EaY.m4a",
+      "cover": "./media/covers/BV1uK4u65EaY.jpg",
+      "sourceTitle": "【冬雾_kiri】歌切 公主殿下",
+      "sourceUploader": "奥小姐拜托了",
+      "sourcePubdate": 1793676918,
+      "sourceDuration": 273
+    },
+    {
+      "id": "BV13c4u6mEbL",
+      "title": "半壶纱",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-11-03 11:29:30",
+      "duration": 206,
+      "audio": "./media/BV13c4u6mEbL.m4a",
+      "cover": "./media/covers/BV13c4u6mEbL.jpg",
+      "sourceTitle": "【冬雾_kiri】歌切 半壶纱",
+      "sourceUploader": "奥小姐拜托了",
+      "sourcePubdate": 1793676570,
+      "sourceDuration": 206
+    },
+    {
+      "id": "BV1Tg4u6rEhA",
+      "title": "光",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-11-03 11:23:17",
+      "duration": 110,
+      "audio": "./media/BV1Tg4u6rEhA.m4a",
+      "cover": "./media/covers/BV1Tg4u6rEhA.jpg",
+      "sourceTitle": "【冬雾_kiri】歌切 光—陈粒",
+      "sourceUploader": "奥小姐拜托了",
+      "sourcePubdate": 1793676197,
+      "sourceDuration": 110
+    },
+    {
+      "id": "BV12C4A69Equ",
+      "title": "グルグル",
+      "artist": "冬雾kiri",
+      "language": "日语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-11-02 22:58:20",
+      "duration": 142,
+      "audio": "./media/BV12C4A69Equ.m4a",
+      "cover": "./media/covers/BV12C4A69Equ.jpg",
+      "sourceTitle": "【冬雾_kiri】这个kiri真是顶美啊，初夜给我顶美了......",
+      "sourceUploader": "冬雾kiri单推蝠",
+      "sourcePubdate": 1793631500,
+      "sourceDuration": 142
+    },
+    {
+      "id": "BV1jWxJ6UEkK",
+      "title": "虚拟",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切",
+        "同名最新"
+      ],
+      "publishedAt": "2026-11-01 01:58:31",
+      "duration": 214,
+      "audio": "./media/BV1jWxJ6UEkK.m4a",
+      "cover": "./media/covers/BV1jWxJ6UEkK.jpg",
+      "sourceTitle": "没人觉得戴上头花唱虚拟的冬雾kiri有一点像我在失亡彼岸的一个老婆吗【冬雾kiri万圣特别歌切】",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1793469511,
+      "sourceDuration": 214
+    },
+    {
+      "id": "BV15bxJ6LEs5",
+      "title": "多幸运",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-11-01 01:50:14",
+      "duration": 248,
+      "audio": "./media/BV15bxJ6LEs5.m4a",
+      "cover": "./media/covers/BV15bxJ6LEs5.jpg",
+      "sourceTitle": "【冬雾kiri万圣特别回切片】多幸运",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1793469014,
+      "sourceDuration": 248
+    },
+    {
+      "id": "BV1V8xJ6yESM",
+      "title": "下个，路口，见",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切",
+        "同名最新"
+      ],
+      "publishedAt": "2026-11-01 01:41:59",
+      "duration": 200,
+      "audio": "./media/BV1V8xJ6yESM.m4a",
+      "cover": "./media/covers/BV1V8xJ6yESM.jpg",
+      "sourceTitle": "【冬雾kiri万圣节特别歌切】我决定在这个路口不吸你的血，所以你快跑吧，我们《下个路口见》",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1793468519,
+      "sourceDuration": 200
+    },
+    {
+      "id": "BV1aZxF69EDX",
+      "title": "恋爱频率",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-30 01:10:22",
+      "duration": 193,
+      "audio": "./media/BV1aZxF69EDX.m4a",
+      "cover": "./media/covers/BV1aZxF69EDX.jpg",
+      "sourceTitle": "【冬雾kiri10.28歌切】恋爱频率",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1793293822,
+      "sourceDuration": 193
+    },
+    {
+      "id": "BV1MTxc6mEaz",
+      "title": "现在那边是几点",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-30 01:01:21",
+      "duration": 265,
+      "audio": "./media/BV1MTxc6mEaz.m4a",
+      "cover": "./media/covers/BV1MTxc6mEaz.jpg",
+      "sourceTitle": "【冬雾kiri10.28歌切】现在那边是几点",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1793293281,
+      "sourceDuration": 265
+    },
+    {
+      "id": "BV18Pxc6SEph",
+      "title": "眉间雪",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-30 00:51:50",
+      "duration": 254,
+      "audio": "./media/BV18Pxc6SEph.m4a",
+      "cover": "./media/covers/BV18Pxc6SEph.jpg",
+      "sourceTitle": "【冬雾kiri10.28歌切】眉间雪",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1793292710,
+      "sourceDuration": 254
+    },
+    {
+      "id": "BV17mxF6hExY",
+      "title": "帅的人",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-30 00:31:45",
+      "duration": 185,
+      "audio": "./media/BV17mxF6hExY.m4a",
+      "cover": "./media/covers/BV17mxF6hExY.jpg",
+      "sourceTitle": "【冬雾kiri10.28歌切】帅的人",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1793291505,
+      "sourceDuration": 185
+    },
+    {
+      "id": "BV15RxF6dEgZ",
+      "title": "Happy Halloween",
+      "artist": "冬雾kiri",
+      "language": "日语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-30 00:25:39",
+      "duration": 254,
+      "audio": "./media/BV15RxF6dEgZ.m4a",
+      "cover": "./media/covers/BV15RxF6dEgZ.jpg",
+      "sourceTitle": "【冬雾kiri10.28歌切 】Happy Halloween",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1793291139,
+      "sourceDuration": 254
+    },
+    {
+      "id": "BV159xF64EpV",
+      "title": "宝贝",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-30 00:15:12",
+      "duration": 142,
+      "audio": "./media/BV159xF64EpV.m4a",
+      "cover": "./media/covers/BV159xF64EpV.jpg",
+      "sourceTitle": "【冬雾kiri10.28歌切】宝贝",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1793290512,
+      "sourceDuration": 142
+    },
+    {
+      "id": "BV1fxxc6eEtu",
+      "title": "童话镇",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-10-30 00:10:13",
+      "duration": 229,
+      "audio": "./media/BV1fxxc6eEtu.m4a",
+      "cover": "./media/covers/BV1fxxc6eEtu.jpg",
+      "sourceTitle": "【冬雾kiri10.28歌切】童话镇",
+      "sourceUploader": "退烧药777",
+      "sourcePubdate": 1793290213,
+      "sourceDuration": 229
+    },
     {
       "id": "BV1DEnH6wEqv",
       "title": "One Last Kiss",
@@ -107,24 +461,6 @@
       "sourceUploader": "退烧药777",
       "sourcePubdate": 1792670061,
       "sourceDuration": 240
-    },
-    {
-      "id": "BV1Mtn26AECp",
-      "title": "虚拟",
-      "artist": "冬雾kiri",
-      "language": "国语",
-      "category": "翻唱",
-      "tags": [
-        "歌切"
-      ],
-      "publishedAt": "2026-10-22 19:42:08",
-      "duration": 237,
-      "audio": "./media/BV1Mtn26AECp.m4a",
-      "cover": "./media/covers/BV1Mtn26AECp.jpg",
-      "sourceTitle": "【冬雾kiri歌切】虚拟",
-      "sourceUploader": "退烧药777",
-      "sourcePubdate": 1792669328,
-      "sourceDuration": 237
     },
     {
       "id": "BV1T8J66CEvj",
@@ -647,24 +983,6 @@
       "sourceUploader": "退烧药777",
       "sourcePubdate": 1791312980,
       "sourceDuration": 253
-    },
-    {
-      "id": "BV1bApA67Edv",
-      "title": "下个，路口，见",
-      "artist": "冬雾kiri",
-      "language": "国语",
-      "category": "翻唱",
-      "tags": [
-        "歌切"
-      ],
-      "publishedAt": "2026-10-07 02:08:44",
-      "duration": 205,
-      "audio": "./media/BV1bApA67Edv.m4a",
-      "cover": "./media/covers/BV1bApA67Edv.jpg",
-      "sourceTitle": "【冬雾kiri歌切】如果我们不顺路，那就下个路口见",
-      "sourceUploader": "退烧药777",
-      "sourcePubdate": 1791310124,
-      "sourceDuration": 205
     },
     {
       "id": "BV1hFpA6JE2N",
