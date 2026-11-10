@@ -91,7 +91,19 @@ function formatSize(bytes) {
   return `${(bytes / 1024 / 1024).toFixed(2)} MB`;
 }
 
-async function collectStreams(bvid) {
+/**
+ * 解析 songs.json 里的 id。
+ * 单 P 视频就是 BV 号本身（历史惯例，id === bvid）；
+ * 多分P 视频用「BV 号_p分P序号」（如 BV1ow4s6wETd_p3），
+ * 每个分P是独立的 cid，能拿到各自独立的音轨。
+ */
+function parseSongId(id) {
+  const match = /^(BV[0-9A-Za-z]{10})(?:_p(\d+))?$/.exec(String(id ?? ''));
+  if (!match) throw new Error(`无法解析的 id：${id}（应为 BV 号，多分P 用 BV号_p序号）`);
+  return { bvid: match[1], page: match[2] ? Number(match[2]) : 0 };
+}
+
+async function collectStreams(bvid, page = 0) {
   const view = await apiJson(`https://api.bilibili.com/x/web-interface/view?bvid=${bvid}`);
   const owner = String(view.owner?.mid ?? '');
   const ownerName = view.owner?.name ?? '未知';
@@ -108,8 +120,18 @@ async function collectStreams(bvid) {
   }
   await sleep(API_DELAY_MS);
 
+  // 多分P视频：每个分P 有独立 cid，从 view.pages 里取对应分P 的那一个
+  let cid = view.cid;
+  if (page > 0) {
+    const part = (view.pages ?? []).find(item => item.page === page);
+    if (!part) {
+      throw new Error(`分P 不存在：${bvid} 只有 ${view.pages?.length ?? 0} 个分P，找不到第 ${page} 个`);
+    }
+    cid = part.cid;
+  }
+
   const play = await apiJson(
-    `https://api.bilibili.com/x/player/playurl?bvid=${bvid}&cid=${view.cid}&fnval=16&qn=64`
+    `https://api.bilibili.com/x/player/playurl?bvid=${bvid}&cid=${cid}&fnval=16&qn=64`
   );
   const audio = (play.dash?.audio ?? [])
     .slice()
@@ -152,10 +174,11 @@ async function main() {
       continue;
     }
 
-    // songs.json 里没有 cid，只能回源查询
+    // songs.json 里没有 cid，只能回源查询；多分P 的 id（BV号_p序号）在 collectStreams 里拆
     try {
       console.log(`查询  ${label} …`);
-      const streams = await collectStreams(song.id);
+      const { bvid, page } = parseSongId(song.id);
+      const streams = await collectStreams(bvid, page);
 
       if (FORCE || !hasAudio) {
         const size = await download(streams.audioUrl, audioPath);

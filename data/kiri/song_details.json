@@ -1,9 +1,153 @@
 {
   "roomKey": "kiri",
   "roomId": "",
-  "generatedAt": "2026-11-03T08:10:12.503Z",
+  "generatedAt": "2026-11-10T08:25:20.765Z",
   "source": "song-kiri-bilibili-cuts",
   "bySongKey": {
+    "月亮代表我的心": {
+      "row_key": "月亮代表我的心",
+      "song_name": "月亮代表我的心",
+      "display_song_name": "月亮代表我的心",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=1",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-11-08",
+          "time": "",
+          "end_time": "",
+          "status": "歌切、同名最新",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1ow4s6wETd_p1",
+          "replay_title": "【冬雾kiri】歌切 11/7晚场",
+          "replay_url": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=1",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=1"
+        }
+      ]
+    },
+    "遇见": {
+      "row_key": "遇见",
+      "song_name": "遇见",
+      "display_song_name": "遇见",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=2",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-11-08",
+          "time": "",
+          "end_time": "",
+          "status": "歌切、同名最新",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1ow4s6wETd_p2",
+          "replay_title": "【冬雾kiri】歌切 11/7晚场",
+          "replay_url": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=2",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=2"
+        }
+      ]
+    },
+    "罐装啤酒": {
+      "row_key": "罐装啤酒",
+      "song_name": "罐装啤酒",
+      "display_song_name": "罐装啤酒",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=3",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-11-08",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1ow4s6wETd_p3",
+          "replay_title": "【冬雾kiri】歌切 11/7晚场",
+          "replay_url": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=3",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=3"
+        }
+      ]
+    },
+    "Letting Go": {
+      "row_key": "Letting Go",
+      "song_name": "Letting Go",
+      "display_song_name": "Letting Go",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=4",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-11-08",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1ow4s6wETd_p4",
+          "replay_title": "【冬雾kiri】歌切 11/7晚场",
+          "replay_url": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=4",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=4"
+        }
+      ]
+    },
+    "我是你的小狗": {
+      "row_key": "我是你的小狗",
+      "song_name": "我是你的小狗",
+      "display_song_name": "我是你的小狗",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=5",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-11-08",
+          "time": "",
+          "end_time": "",
+          "status": "歌切、同名最新",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1ow4s6wETd_p5",
+          "replay_title": "【冬雾kiri】歌切 11/7晚场",
+          "replay_url": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=5",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=5"
+        }
+      ]
+    },
+    "蠢货": {
+      "row_key": "蠢货",
+      "song_name": "蠢货",
+      "display_song_name": "蠢货",
+      "artist": "冬雾kiri",
+      "cut_link": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=6",
+      "total_count": 1,
+      "entries": [
+        {
+          "date": "2026-11-08",
+          "time": "",
+          "end_time": "",
+          "status": "歌切",
+          "artist": "冬雾kiri",
+          "replay_id": "BV1ow4s6wETd_p6",
+          "replay_title": "【冬雾kiri】歌切 11/7晚场",
+          "replay_url": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=6",
+          "remark": "",
+          "lyric_excerpt": "",
+          "song_resolution_method": "song-cut-title",
+          "cut_link": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=6"
+        }
+      ]
+    },
     "爱人呢": {
       "row_key": "爱人呢",
       "song_name": "爱人呢",
@@ -844,30 +988,6 @@
         }
       ]
     },
-    "月亮代表我的心": {
-      "row_key": "月亮代表我的心",
-      "song_name": "月亮代表我的心",
-      "display_song_name": "月亮代表我的心",
-      "artist": "冬雾kiri",
-      "cut_link": "https://www.bilibili.com/video/BV1Cxp86jEHh/",
-      "total_count": 1,
-      "entries": [
-        {
-          "date": "2026-10-10",
-          "time": "",
-          "end_time": "",
-          "status": "歌切",
-          "artist": "冬雾kiri",
-          "replay_id": "BV1Cxp86jEHh",
-          "replay_title": "【冬雾kiri歌切】我就说当时邓丽君偷偷把功力传了一缕下来了吧",
-          "replay_url": "https://www.bilibili.com/video/BV1Cxp86jEHh/",
-          "remark": "",
-          "lyric_excerpt": "",
-          "song_resolution_method": "song-cut-title",
-          "cut_link": "https://www.bilibili.com/video/BV1Cxp86jEHh/"
-        }
-      ]
-    },
     "风月": {
       "row_key": "风月",
       "song_name": "风月",
@@ -1156,30 +1276,6 @@
         }
       ]
     },
-    "遇见": {
-      "row_key": "遇见",
-      "song_name": "遇见",
-      "display_song_name": "遇见",
-      "artist": "冬雾kiri",
-      "cut_link": "https://www.bilibili.com/video/BV1Bip86zEcE/",
-      "total_count": 1,
-      "entries": [
-        {
-          "date": "2026-10-10",
-          "time": "",
-          "end_time": "",
-          "status": "歌切",
-          "artist": "冬雾kiri",
-          "replay_id": "BV1Bip86zEcE",
-          "replay_title": "【冬雾kiri歌切】我等的人她在多远的未来",
-          "replay_url": "https://www.bilibili.com/video/BV1Bip86zEcE/",
-          "remark": "",
-          "lyric_excerpt": "",
-          "song_resolution_method": "song-cut-title",
-          "cut_link": "https://www.bilibili.com/video/BV1Bip86zEcE/"
-        }
-      ]
-    },
     "有点甜": {
       "row_key": "有点甜",
       "song_name": "有点甜",
@@ -1225,30 +1321,6 @@
           "lyric_excerpt": "",
           "song_resolution_method": "song-cut-title",
           "cut_link": "https://www.bilibili.com/video/BV15BpN6wEUw/"
-        }
-      ]
-    },
-    "我是你的小狗": {
-      "row_key": "我是你的小狗",
-      "song_name": "我是你的小狗",
-      "display_song_name": "我是你的小狗",
-      "artist": "冬雾kiri",
-      "cut_link": "https://www.bilibili.com/video/BV16MpK6rEMZ/",
-      "total_count": 1,
-      "entries": [
-        {
-          "date": "2026-10-07",
-          "time": "",
-          "end_time": "",
-          "status": "歌切",
-          "artist": "冬雾kiri",
-          "replay_id": "BV16MpK6rEMZ",
-          "replay_title": "【冬雾kiri歌切】有没有喜欢犬系的？我最近活得像狗一样。",
-          "replay_url": "https://www.bilibili.com/video/BV16MpK6rEMZ/",
-          "remark": "",
-          "lyric_excerpt": "",
-          "song_resolution_method": "song-cut-title",
-          "cut_link": "https://www.bilibili.com/video/BV16MpK6rEMZ/"
         }
       ]
     },

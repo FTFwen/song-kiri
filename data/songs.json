@@ -22,12 +22,128 @@
         "name": "冬雾kiri单推蝠",
         "mid": "3546666873391261",
         "role": "歌切切片man（仅《グルグル》1 首，用户单首点头）"
+      },
+      {
+        "name": "训练木偶",
+        "mid": "449428560",
+        "role": "歌切切片man（2026-11-10 用户点头加入白名单）"
       }
     ],
     "deduplicatedBy": "歌曲名；同名仅保留最新发布版本",
-    "updatedAt": "2026-11-03"
+    "updatedAt": "2026-11-10"
   },
   "songs": [
+    {
+      "id": "BV1ow4s6wETd_p1",
+      "title": "月亮代表我的心",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切",
+        "同名最新"
+      ],
+      "publishedAt": "2026-11-08 05:54:59",
+      "duration": 195,
+      "audio": "./media/BV1ow4s6wETd_p1.m4a",
+      "cover": "./media/covers/BV1ow4s6wETd.jpg",
+      "sourceTitle": "【冬雾kiri】歌切 11/7晚场",
+      "sourceUploader": "训练木偶",
+      "sourcePubdate": 1794088499,
+      "sourceDuration": 195
+    },
+    {
+      "id": "BV1ow4s6wETd_p2",
+      "title": "遇见",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切",
+        "同名最新"
+      ],
+      "publishedAt": "2026-11-08 05:54:59",
+      "duration": 169,
+      "audio": "./media/BV1ow4s6wETd_p2.m4a",
+      "cover": "./media/covers/BV1ow4s6wETd.jpg",
+      "sourceTitle": "【冬雾kiri】歌切 11/7晚场",
+      "sourceUploader": "训练木偶",
+      "sourcePubdate": 1794088499,
+      "sourceDuration": 169
+    },
+    {
+      "id": "BV1ow4s6wETd_p3",
+      "title": "罐装啤酒",
+      "artist": "冬雾kiri",
+      "language": "日语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-11-08 05:54:59",
+      "duration": 147,
+      "audio": "./media/BV1ow4s6wETd_p3.m4a",
+      "cover": "./media/covers/BV1ow4s6wETd.jpg",
+      "sourceTitle": "【冬雾kiri】歌切 11/7晚场",
+      "sourceUploader": "训练木偶",
+      "sourcePubdate": 1794088499,
+      "sourceDuration": 147
+    },
+    {
+      "id": "BV1ow4s6wETd_p4",
+      "title": "Letting Go",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-11-08 05:54:59",
+      "duration": 223,
+      "audio": "./media/BV1ow4s6wETd_p4.m4a",
+      "cover": "./media/covers/BV1ow4s6wETd.jpg",
+      "sourceTitle": "【冬雾kiri】歌切 11/7晚场",
+      "sourceUploader": "训练木偶",
+      "sourcePubdate": 1794088499,
+      "sourceDuration": 223
+    },
+    {
+      "id": "BV1ow4s6wETd_p5",
+      "title": "我是你的小狗",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切",
+        "同名最新"
+      ],
+      "publishedAt": "2026-11-08 05:54:59",
+      "duration": 102,
+      "audio": "./media/BV1ow4s6wETd_p5.m4a",
+      "cover": "./media/covers/BV1ow4s6wETd.jpg",
+      "sourceTitle": "【冬雾kiri】歌切 11/7晚场",
+      "sourceUploader": "训练木偶",
+      "sourcePubdate": 1794088499,
+      "sourceDuration": 102
+    },
+    {
+      "id": "BV1ow4s6wETd_p6",
+      "title": "蠢货",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-11-08 05:54:59",
+      "duration": 192,
+      "audio": "./media/BV1ow4s6wETd_p6.m4a",
+      "cover": "./media/covers/BV1ow4s6wETd.jpg",
+      "sourceTitle": "【冬雾kiri】歌切 11/7晚场",
+      "sourceUploader": "训练木偶",
+      "sourcePubdate": 1794088499,
+      "sourceDuration": 192
+    },
     {
       "id": "BV1sV4u6zEBL",
       "title": "爱人呢",
@@ -661,24 +777,6 @@
       "sourceDuration": 253
     },
     {
-      "id": "BV1Cxp86jEHh",
-      "title": "月亮代表我的心",
-      "artist": "冬雾kiri",
-      "language": "国语",
-      "category": "翻唱",
-      "tags": [
-        "歌切"
-      ],
-      "publishedAt": "2026-10-10 03:31:04",
-      "duration": 216,
-      "audio": "./media/BV1Cxp86jEHh.m4a",
-      "cover": "./media/covers/BV1Cxp86jEHh.jpg",
-      "sourceTitle": "【冬雾kiri歌切】我就说当时邓丽君偷偷把功力传了一缕下来了吧",
-      "sourceUploader": "退烧药777",
-      "sourcePubdate": 1791574264,
-      "sourceDuration": 216
-    },
-    {
       "id": "BV1ypp86EEWK",
       "title": "风月",
       "artist": "冬雾kiri",
@@ -895,24 +993,6 @@
       "sourceDuration": 252
     },
     {
-      "id": "BV1Bip86zEcE",
-      "title": "遇见",
-      "artist": "冬雾kiri",
-      "language": "国语",
-      "category": "翻唱",
-      "tags": [
-        "歌切"
-      ],
-      "publishedAt": "2026-10-10 01:38:08",
-      "duration": 199,
-      "audio": "./media/BV1Bip86zEcE.m4a",
-      "cover": "./media/covers/BV1Bip86zEcE.jpg",
-      "sourceTitle": "【冬雾kiri歌切】我等的人她在多远的未来",
-      "sourceUploader": "退烧药777",
-      "sourcePubdate": 1791567488,
-      "sourceDuration": 199
-    },
-    {
       "id": "BV17apN6KEu1",
       "title": "有点甜",
       "artist": "冬雾kiri",
@@ -947,24 +1027,6 @@
       "sourceUploader": "退烧药777",
       "sourcePubdate": 1791316914,
       "sourceDuration": 129
-    },
-    {
-      "id": "BV16MpK6rEMZ",
-      "title": "我是你的小狗",
-      "artist": "冬雾kiri",
-      "language": "国语",
-      "category": "翻唱",
-      "tags": [
-        "歌切"
-      ],
-      "publishedAt": "2026-10-07 03:41:36",
-      "duration": 193,
-      "audio": "./media/BV16MpK6rEMZ.m4a",
-      "cover": "./media/covers/BV16MpK6rEMZ.jpg",
-      "sourceTitle": "【冬雾kiri歌切】有没有喜欢犬系的？我最近活得像狗一样。",
-      "sourceUploader": "退烧药777",
-      "sourcePubdate": 1791315696,
-      "sourceDuration": 193
     },
     {
       "id": "BV1AwpK61En5",

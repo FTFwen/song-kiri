@@ -1,11 +1,137 @@
 {
   "roomKey": "kiri",
   "roomId": "",
-  "generatedAt": "2026-11-03T08:10:12.503Z",
+  "generatedAt": "2026-11-10T08:25:20.765Z",
   "source": "song-kiri-bilibili-cuts",
   "songs": [
     {
       "song_id": 1,
+      "song_name": "月亮代表我的心",
+      "show_as_song_name": "",
+      "display_song_name": "月亮代表我的心",
+      "artist": "冬雾kiri",
+      "artist_search": "冬雾kiri",
+      "feat_artist": "",
+      "remark": "训练木偶 投稿的冬雾kiri歌切，原视频 https://www.bilibili.com/video/BV1ow4s6wETd/?p=1",
+      "tone": "",
+      "language": "国语",
+      "type": "翻唱、歌切、同名最新",
+      "identification": "",
+      "display_version": "",
+      "search_name": "月亮代表我的心",
+      "cut_link": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=1",
+      "sing_count": 1,
+      "status_labels": "歌切、同名最新",
+      "last_sing_at": "2026-11-08",
+      "row_key": "月亮代表我的心"
+    },
+    {
+      "song_id": 2,
+      "song_name": "遇见",
+      "show_as_song_name": "",
+      "display_song_name": "遇见",
+      "artist": "冬雾kiri",
+      "artist_search": "冬雾kiri",
+      "feat_artist": "",
+      "remark": "训练木偶 投稿的冬雾kiri歌切，原视频 https://www.bilibili.com/video/BV1ow4s6wETd/?p=2",
+      "tone": "",
+      "language": "国语",
+      "type": "翻唱、歌切、同名最新",
+      "identification": "",
+      "display_version": "",
+      "search_name": "遇见",
+      "cut_link": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=2",
+      "sing_count": 1,
+      "status_labels": "歌切、同名最新",
+      "last_sing_at": "2026-11-08",
+      "row_key": "遇见"
+    },
+    {
+      "song_id": 3,
+      "song_name": "罐装啤酒",
+      "show_as_song_name": "",
+      "display_song_name": "罐装啤酒",
+      "artist": "冬雾kiri",
+      "artist_search": "冬雾kiri",
+      "feat_artist": "",
+      "remark": "训练木偶 投稿的冬雾kiri歌切，原视频 https://www.bilibili.com/video/BV1ow4s6wETd/?p=3",
+      "tone": "",
+      "language": "日语",
+      "type": "翻唱、歌切",
+      "identification": "",
+      "display_version": "",
+      "search_name": "罐装啤酒",
+      "cut_link": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=3",
+      "sing_count": 1,
+      "status_labels": "歌切",
+      "last_sing_at": "2026-11-08",
+      "row_key": "罐装啤酒"
+    },
+    {
+      "song_id": 4,
+      "song_name": "Letting Go",
+      "show_as_song_name": "",
+      "display_song_name": "Letting Go",
+      "artist": "冬雾kiri",
+      "artist_search": "冬雾kiri",
+      "feat_artist": "",
+      "remark": "训练木偶 投稿的冬雾kiri歌切，原视频 https://www.bilibili.com/video/BV1ow4s6wETd/?p=4",
+      "tone": "",
+      "language": "国语",
+      "type": "翻唱、歌切",
+      "identification": "",
+      "display_version": "",
+      "search_name": "Letting Go",
+      "cut_link": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=4",
+      "sing_count": 1,
+      "status_labels": "歌切",
+      "last_sing_at": "2026-11-08",
+      "row_key": "Letting Go"
+    },
+    {
+      "song_id": 5,
+      "song_name": "我是你的小狗",
+      "show_as_song_name": "",
+      "display_song_name": "我是你的小狗",
+      "artist": "冬雾kiri",
+      "artist_search": "冬雾kiri",
+      "feat_artist": "",
+      "remark": "训练木偶 投稿的冬雾kiri歌切，原视频 https://www.bilibili.com/video/BV1ow4s6wETd/?p=5",
+      "tone": "",
+      "language": "国语",
+      "type": "翻唱、歌切、同名最新",
+      "identification": "",
+      "display_version": "",
+      "search_name": "我是你的小狗",
+      "cut_link": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=5",
+      "sing_count": 1,
+      "status_labels": "歌切、同名最新",
+      "last_sing_at": "2026-11-08",
+      "row_key": "我是你的小狗"
+    },
+    {
+      "song_id": 6,
+      "song_name": "蠢货",
+      "show_as_song_name": "",
+      "display_song_name": "蠢货",
+      "artist": "冬雾kiri",
+      "artist_search": "冬雾kiri",
+      "feat_artist": "",
+      "remark": "训练木偶 投稿的冬雾kiri歌切，原视频 https://www.bilibili.com/video/BV1ow4s6wETd/?p=6",
+      "tone": "",
+      "language": "国语",
+      "type": "翻唱、歌切",
+      "identification": "",
+      "display_version": "",
+      "search_name": "蠢货",
+      "cut_link": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=6",
+      "sing_count": 1,
+      "status_labels": "歌切",
+      "last_sing_at": "2026-11-08",
+      "row_key": "蠢货"
+    },
+    {
+      "song_id": 7,
       "song_name": "爱人呢",
       "show_as_song_name": "",
       "display_song_name": "爱人呢",
@@ -26,7 +152,7 @@
       "row_key": "爱人呢"
     },
     {
-      "song_id": 2,
+      "song_id": 8,
       "song_name": "繁花",
       "show_as_song_name": "",
       "display_song_name": "繁花",
@@ -47,7 +173,7 @@
       "row_key": "繁花"
     },
     {
-      "song_id": 3,
+      "song_id": 9,
       "song_name": "Love Love Love",
       "show_as_song_name": "",
       "display_song_name": "Love Love Love",
@@ -68,7 +194,7 @@
       "row_key": "Love Love Love"
     },
     {
-      "song_id": 4,
+      "song_id": 10,
       "song_name": "青花瓷",
       "show_as_song_name": "",
       "display_song_name": "青花瓷",
@@ -89,7 +215,7 @@
       "row_key": "青花瓷"
     },
     {
-      "song_id": 5,
+      "song_id": 11,
       "song_name": "第一次爱的人",
       "show_as_song_name": "",
       "display_song_name": "第一次爱的人",
@@ -110,7 +236,7 @@
       "row_key": "第一次爱的人"
     },
     {
-      "song_id": 6,
+      "song_id": 12,
       "song_name": "公主殿下",
       "show_as_song_name": "",
       "display_song_name": "公主殿下",
@@ -131,7 +257,7 @@
       "row_key": "公主殿下"
     },
     {
-      "song_id": 7,
+      "song_id": 13,
       "song_name": "半壶纱",
       "show_as_song_name": "",
       "display_song_name": "半壶纱",
@@ -152,7 +278,7 @@
       "row_key": "半壶纱"
     },
     {
-      "song_id": 8,
+      "song_id": 14,
       "song_name": "光",
       "show_as_song_name": "",
       "display_song_name": "光",
@@ -173,7 +299,7 @@
       "row_key": "光"
     },
     {
-      "song_id": 9,
+      "song_id": 15,
       "song_name": "グルグル",
       "show_as_song_name": "",
       "display_song_name": "グルグル",
@@ -194,7 +320,7 @@
       "row_key": "グルグル"
     },
     {
-      "song_id": 10,
+      "song_id": 16,
       "song_name": "虚拟",
       "show_as_song_name": "",
       "display_song_name": "虚拟",
@@ -215,7 +341,7 @@
       "row_key": "虚拟"
     },
     {
-      "song_id": 11,
+      "song_id": 17,
       "song_name": "多幸运",
       "show_as_song_name": "",
       "display_song_name": "多幸运",
@@ -236,7 +362,7 @@
       "row_key": "多幸运"
     },
     {
-      "song_id": 12,
+      "song_id": 18,
       "song_name": "下个，路口，见",
       "show_as_song_name": "",
       "display_song_name": "下个，路口，见",
@@ -257,7 +383,7 @@
       "row_key": "下个，路口，见"
     },
     {
-      "song_id": 13,
+      "song_id": 19,
       "song_name": "恋爱频率",
       "show_as_song_name": "",
       "display_song_name": "恋爱频率",
@@ -278,7 +404,7 @@
       "row_key": "恋爱频率"
     },
     {
-      "song_id": 14,
+      "song_id": 20,
       "song_name": "现在那边是几点",
       "show_as_song_name": "",
       "display_song_name": "现在那边是几点",
@@ -299,7 +425,7 @@
       "row_key": "现在那边是几点"
     },
     {
-      "song_id": 15,
+      "song_id": 21,
       "song_name": "眉间雪",
       "show_as_song_name": "",
       "display_song_name": "眉间雪",
@@ -320,7 +446,7 @@
       "row_key": "眉间雪"
     },
     {
-      "song_id": 16,
+      "song_id": 22,
       "song_name": "帅的人",
       "show_as_song_name": "",
       "display_song_name": "帅的人",
@@ -341,7 +467,7 @@
       "row_key": "帅的人"
     },
     {
-      "song_id": 17,
+      "song_id": 23,
       "song_name": "Happy Halloween",
       "show_as_song_name": "",
       "display_song_name": "Happy Halloween",
@@ -362,7 +488,7 @@
       "row_key": "Happy Halloween"
     },
     {
-      "song_id": 18,
+      "song_id": 24,
       "song_name": "宝贝",
       "show_as_song_name": "",
       "display_song_name": "宝贝",
@@ -383,7 +509,7 @@
       "row_key": "宝贝"
     },
     {
-      "song_id": 19,
+      "song_id": 25,
       "song_name": "童话镇",
       "show_as_song_name": "",
       "display_song_name": "童话镇",
@@ -404,7 +530,7 @@
       "row_key": "童话镇"
     },
     {
-      "song_id": 20,
+      "song_id": 26,
       "song_name": "One Last Kiss",
       "show_as_song_name": "",
       "display_song_name": "One Last Kiss",
@@ -425,7 +551,7 @@
       "row_key": "One Last Kiss"
     },
     {
-      "song_id": 21,
+      "song_id": 27,
       "song_name": "我的一个道姑朋友",
       "show_as_song_name": "",
       "display_song_name": "我的一个道姑朋友",
@@ -446,7 +572,7 @@
       "row_key": "我的一个道姑朋友"
     },
     {
-      "song_id": 22,
+      "song_id": 28,
       "song_name": "小手拉大手",
       "show_as_song_name": "",
       "display_song_name": "小手拉大手",
@@ -467,7 +593,7 @@
       "row_key": "小手拉大手"
     },
     {
-      "song_id": 23,
+      "song_id": 29,
       "song_name": "客官不可以",
       "show_as_song_name": "",
       "display_song_name": "客官不可以",
@@ -488,7 +614,7 @@
       "row_key": "客官不可以"
     },
     {
-      "song_id": 24,
+      "song_id": 30,
       "song_name": "那么骄傲",
       "show_as_song_name": "",
       "display_song_name": "那么骄傲",
@@ -509,7 +635,7 @@
       "row_key": "那么骄傲"
     },
     {
-      "song_id": 25,
+      "song_id": 31,
       "song_name": "东京不太热",
       "show_as_song_name": "",
       "display_song_name": "东京不太热",
@@ -530,7 +656,7 @@
       "row_key": "东京不太热"
     },
     {
-      "song_id": 26,
+      "song_id": 32,
       "song_name": "干物女",
       "show_as_song_name": "",
       "display_song_name": "干物女",
@@ -551,7 +677,7 @@
       "row_key": "干物女"
     },
     {
-      "song_id": 27,
+      "song_id": 33,
       "song_name": "棠梨煎雪",
       "show_as_song_name": "",
       "display_song_name": "棠梨煎雪",
@@ -572,7 +698,7 @@
       "row_key": "棠梨煎雪"
     },
     {
-      "song_id": 28,
+      "song_id": 34,
       "song_name": "锦鲤抄",
       "show_as_song_name": "",
       "display_song_name": "锦鲤抄",
@@ -593,7 +719,7 @@
       "row_key": "锦鲤抄"
     },
     {
-      "song_id": 29,
+      "song_id": 35,
       "song_name": "牵丝戏",
       "show_as_song_name": "",
       "display_song_name": "牵丝戏",
@@ -614,7 +740,7 @@
       "row_key": "牵丝戏"
     },
     {
-      "song_id": 30,
+      "song_id": 36,
       "song_name": "人是猫",
       "show_as_song_name": "",
       "display_song_name": "人是猫",
@@ -635,7 +761,7 @@
       "row_key": "人是猫"
     },
     {
-      "song_id": 31,
+      "song_id": 37,
       "song_name": "坏女孩",
       "show_as_song_name": "",
       "display_song_name": "坏女孩",
@@ -656,7 +782,7 @@
       "row_key": "坏女孩"
     },
     {
-      "song_id": 32,
+      "song_id": 38,
       "song_name": "我的悲伤是水做的",
       "show_as_song_name": "",
       "display_song_name": "我的悲伤是水做的",
@@ -677,7 +803,7 @@
       "row_key": "我的悲伤是水做的"
     },
     {
-      "song_id": 33,
+      "song_id": 39,
       "song_name": "好想你",
       "show_as_song_name": "",
       "display_song_name": "好想你",
@@ -698,7 +824,7 @@
       "row_key": "好想你"
     },
     {
-      "song_id": 34,
+      "song_id": 40,
       "song_name": "普通朋友",
       "show_as_song_name": "",
       "display_song_name": "普通朋友",
@@ -719,7 +845,7 @@
       "row_key": "普通朋友"
     },
     {
-      "song_id": 35,
+      "song_id": 41,
       "song_name": "我只在乎你",
       "show_as_song_name": "",
       "display_song_name": "我只在乎你",
@@ -740,28 +866,7 @@
       "row_key": "我只在乎你"
     },
     {
-      "song_id": 36,
-      "song_name": "月亮代表我的心",
-      "show_as_song_name": "",
-      "display_song_name": "月亮代表我的心",
-      "artist": "冬雾kiri",
-      "artist_search": "冬雾kiri",
-      "feat_artist": "",
-      "remark": "退烧药777 投稿的冬雾kiri歌切，原视频 https://www.bilibili.com/video/BV1Cxp86jEHh/",
-      "tone": "",
-      "language": "国语",
-      "type": "翻唱、歌切",
-      "identification": "",
-      "display_version": "",
-      "search_name": "月亮代表我的心",
-      "cut_link": "https://www.bilibili.com/video/BV1Cxp86jEHh/",
-      "sing_count": 1,
-      "status_labels": "歌切",
-      "last_sing_at": "2026-10-10",
-      "row_key": "月亮代表我的心"
-    },
-    {
-      "song_id": 37,
+      "song_id": 42,
       "song_name": "风月",
       "show_as_song_name": "",
       "display_song_name": "风月",
@@ -782,7 +887,7 @@
       "row_key": "风月"
     },
     {
-      "song_id": 38,
+      "song_id": 43,
       "song_name": "欧若拉",
       "show_as_song_name": "",
       "display_song_name": "欧若拉",
@@ -803,7 +908,7 @@
       "row_key": "欧若拉"
     },
     {
-      "song_id": 39,
+      "song_id": 44,
       "song_name": "晚安喵",
       "show_as_song_name": "",
       "display_song_name": "晚安喵",
@@ -824,7 +929,7 @@
       "row_key": "晚安喵"
     },
     {
-      "song_id": 40,
+      "song_id": 45,
       "song_name": "だんご大家族 (团子大家族)",
       "show_as_song_name": "",
       "display_song_name": "だんご大家族 (团子大家族)",
@@ -845,7 +950,7 @@
       "row_key": "だんご大家族 (团子大家族)"
     },
     {
-      "song_id": 41,
+      "song_id": 46,
       "song_name": "要抱抱",
       "show_as_song_name": "",
       "display_song_name": "要抱抱",
@@ -866,7 +971,7 @@
       "row_key": "要抱抱"
     },
     {
-      "song_id": 42,
+      "song_id": 47,
       "song_name": "心跳叮叮咚",
       "show_as_song_name": "",
       "display_song_name": "心跳叮叮咚",
@@ -887,7 +992,7 @@
       "row_key": "心跳叮叮咚"
     },
     {
-      "song_id": 43,
+      "song_id": 48,
       "song_name": "寄り酔い",
       "show_as_song_name": "",
       "display_song_name": "寄り酔い",
@@ -908,7 +1013,7 @@
       "row_key": "寄り酔い"
     },
     {
-      "song_id": 44,
+      "song_id": 49,
       "song_name": "拼图爱",
       "show_as_song_name": "",
       "display_song_name": "拼图爱",
@@ -929,7 +1034,7 @@
       "row_key": "拼图爱"
     },
     {
-      "song_id": 45,
+      "song_id": 50,
       "song_name": "爱的魔法",
       "show_as_song_name": "",
       "display_song_name": "爱的魔法",
@@ -950,7 +1055,7 @@
       "row_key": "爱的魔法"
     },
     {
-      "song_id": 46,
+      "song_id": 51,
       "song_name": "写给我第一个喜欢的女孩的歌",
       "show_as_song_name": "",
       "display_song_name": "写给我第一个喜欢的女孩的歌",
@@ -971,7 +1076,7 @@
       "row_key": "写给我第一个喜欢的女孩的歌"
     },
     {
-      "song_id": 47,
+      "song_id": 52,
       "song_name": "只对你有感觉",
       "show_as_song_name": "",
       "display_song_name": "只对你有感觉",
@@ -992,7 +1097,7 @@
       "row_key": "只对你有感觉"
     },
     {
-      "song_id": 48,
+      "song_id": 53,
       "song_name": "美人鱼",
       "show_as_song_name": "",
       "display_song_name": "美人鱼",
@@ -1013,28 +1118,7 @@
       "row_key": "美人鱼"
     },
     {
-      "song_id": 49,
-      "song_name": "遇见",
-      "show_as_song_name": "",
-      "display_song_name": "遇见",
-      "artist": "冬雾kiri",
-      "artist_search": "冬雾kiri",
-      "feat_artist": "",
-      "remark": "退烧药777 投稿的冬雾kiri歌切，原视频 https://www.bilibili.com/video/BV1Bip86zEcE/",
-      "tone": "",
-      "language": "国语",
-      "type": "翻唱、歌切",
-      "identification": "",
-      "display_version": "",
-      "search_name": "遇见",
-      "cut_link": "https://www.bilibili.com/video/BV1Bip86zEcE/",
-      "sing_count": 1,
-      "status_labels": "歌切",
-      "last_sing_at": "2026-10-10",
-      "row_key": "遇见"
-    },
-    {
-      "song_id": 50,
+      "song_id": 54,
       "song_name": "有点甜",
       "show_as_song_name": "",
       "display_song_name": "有点甜",
@@ -1055,7 +1139,7 @@
       "row_key": "有点甜"
     },
     {
-      "song_id": 51,
+      "song_id": 55,
       "song_name": "彩色翅膀",
       "show_as_song_name": "",
       "display_song_name": "彩色翅膀",
@@ -1076,28 +1160,7 @@
       "row_key": "彩色翅膀"
     },
     {
-      "song_id": 52,
-      "song_name": "我是你的小狗",
-      "show_as_song_name": "",
-      "display_song_name": "我是你的小狗",
-      "artist": "冬雾kiri",
-      "artist_search": "冬雾kiri",
-      "feat_artist": "",
-      "remark": "退烧药777 投稿的冬雾kiri歌切，原视频 https://www.bilibili.com/video/BV16MpK6rEMZ/",
-      "tone": "",
-      "language": "国语",
-      "type": "翻唱、歌切",
-      "identification": "",
-      "display_version": "",
-      "search_name": "我是你的小狗",
-      "cut_link": "https://www.bilibili.com/video/BV16MpK6rEMZ/",
-      "sing_count": 1,
-      "status_labels": "歌切",
-      "last_sing_at": "2026-10-07",
-      "row_key": "我是你的小狗"
-    },
-    {
-      "song_id": 53,
+      "song_id": 56,
       "song_name": "恋爱循环",
       "show_as_song_name": "",
       "display_song_name": "恋爱循环",
@@ -1118,7 +1181,7 @@
       "row_key": "恋爱循环"
     },
     {
-      "song_id": 54,
+      "song_id": 57,
       "song_name": "彩虹的微笑",
       "show_as_song_name": "",
       "display_song_name": "彩虹的微笑",
@@ -1139,7 +1202,7 @@
       "row_key": "彩虹的微笑"
     },
     {
-      "song_id": 55,
+      "song_id": 58,
       "song_name": "夏天的风",
       "show_as_song_name": "",
       "display_song_name": "夏天的风",
@@ -1160,7 +1223,7 @@
       "row_key": "夏天的风"
     },
     {
-      "song_id": 56,
+      "song_id": 59,
       "song_name": "月が綺麗ねと言われたい！",
       "show_as_song_name": "",
       "display_song_name": "月が綺麗ねと言われたい！",
@@ -1181,7 +1244,7 @@
       "row_key": "月が綺麗ねと言われたい！"
     },
     {
-      "song_id": 57,
+      "song_id": 60,
       "song_name": "太聪明",
       "show_as_song_name": "",
       "display_song_name": "太聪明",
@@ -1202,7 +1265,7 @@
       "row_key": "太聪明"
     },
     {
-      "song_id": 58,
+      "song_id": 61,
       "song_name": "给我一个吻",
       "show_as_song_name": "",
       "display_song_name": "给我一个吻",
@@ -1223,7 +1286,7 @@
       "row_key": "给我一个吻"
     },
     {
-      "song_id": 59,
+      "song_id": 62,
       "song_name": "吵架歌",
       "show_as_song_name": "",
       "display_song_name": "吵架歌",
@@ -1244,7 +1307,7 @@
       "row_key": "吵架歌"
     },
     {
-      "song_id": 60,
+      "song_id": 63,
       "song_name": "陶然四季",
       "show_as_song_name": "",
       "display_song_name": "陶然四季",
@@ -1265,7 +1328,7 @@
       "row_key": "陶然四季"
     },
     {
-      "song_id": 61,
+      "song_id": 64,
       "song_name": "素颜",
       "show_as_song_name": "",
       "display_song_name": "素颜",
@@ -1286,7 +1349,7 @@
       "row_key": "素颜"
     },
     {
-      "song_id": 62,
+      "song_id": 65,
       "song_name": "屑屑",
       "show_as_song_name": "",
       "display_song_name": "屑屑",
@@ -1307,7 +1370,7 @@
       "row_key": "屑屑"
     },
     {
-      "song_id": 63,
+      "song_id": 66,
       "song_name": "讲真的",
       "show_as_song_name": "",
       "display_song_name": "讲真的",
@@ -1328,7 +1391,7 @@
       "row_key": "讲真的"
     },
     {
-      "song_id": 64,
+      "song_id": 67,
       "song_name": "チルノのパーフェクトさんすう教室",
       "show_as_song_name": "",
       "display_song_name": "チルノのパーフェクトさんすう教室",
@@ -1349,7 +1412,7 @@
       "row_key": "チルノのパーフェクトさんすう教室"
     },
     {
-      "song_id": 65,
+      "song_id": 68,
       "song_name": "勾指起誓",
       "show_as_song_name": "",
       "display_song_name": "勾指起誓",
@@ -1370,7 +1433,7 @@
       "row_key": "勾指起誓"
     },
     {
-      "song_id": 66,
+      "song_id": 69,
       "song_name": "虫儿飞",
       "show_as_song_name": "",
       "display_song_name": "虫儿飞",
@@ -1391,7 +1454,7 @@
       "row_key": "虫儿飞"
     },
     {
-      "song_id": 67,
+      "song_id": 70,
       "song_name": "mosi mosi?",
       "show_as_song_name": "",
       "display_song_name": "mosi mosi?",

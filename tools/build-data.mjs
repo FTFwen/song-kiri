@@ -71,7 +71,15 @@ function splitPublishedAt(value) {
   return { date: `${m[1]}-${m[2]}-${m[3]}`, year: m[1], month: m[2], day: m[3] };
 }
 
-const cutUrl = (id) => `https://www.bilibili.com/video/${id}/`;
+/**
+ * 单 P 视频的 id 就是 BV 号；多分P 视频的 id 形如「BV号_p序号」（见 AGENTS.md 4.1），
+ * 对应的 B 站播放页要用 `?p=序号` 才能定位到具体分P。
+ */
+const cutUrl = (id) => {
+  const m = /^(BV[0-9A-Za-z]{10})(?:_p(\d+))?$/.exec(String(id ?? ''));
+  if (!m) return `https://www.bilibili.com/video/${id}/`;
+  return m[2] ? `https://www.bilibili.com/video/${m[1]}/?p=${m[2]}` : `https://www.bilibili.com/video/${m[1]}/`;
+};
 
 function main() {
   const source = readJson(SONGS_FILE);
