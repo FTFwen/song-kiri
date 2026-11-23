@@ -1,40 +1,70 @@
 {
   "roomKey": "kiri",
   "roomId": "",
-  "generatedAt": "2026-11-10T08:25:20.765Z",
+  "generatedAt": "2026-11-23T06:01:49.755Z",
   "source": "song-cut-title-index",
   "description": "每首歌对应的歌切切片标题（单曲歌切视频标题），供前端歌切链接显示。",
-  "count": 70,
+  "count": 74,
   "cuts": {
+    "甜蜜蜜": {
+      "title": "“在梦里见过你”《甜蜜蜜》【冬雾kiri】",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1tny7zZEkB/"
+    },
     "月亮代表我的心": {
-      "title": "【冬雾kiri】歌切 11/7晚场",
+      "title": "“我的情也真，我的爱也真”【冬雾kiri】",
       "kind": "single",
-      "url": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=1"
+      "url": "https://www.bilibili.com/video/BV17Ay7zgEPk/"
     },
-    "遇见": {
-      "title": "【冬雾kiri】歌切 11/7晚场",
+    "棠梨煎雪": {
+      "title": "“ 一生心事 一人来解 ”《棠梨煎雪》【冬雾kiri】",
       "kind": "single",
-      "url": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=2"
+      "url": "https://www.bilibili.com/video/BV1RdsD6PEg8/"
     },
-    "罐装啤酒": {
+    "东京不太热": {
+      "title": "越唱越梁木的《东京不太热》【冬雾kiri】",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1T9sJ6NEzX/"
+    },
+    "我是你的小狗": {
+      "title": "冷脸萌的唱了《我是你的小狗》【冬雾_kiri】",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1i1W66TEhd/"
+    },
+    "恶作剧": {
+      "title": "本音唱了《恶作剧》【冬雾_kiri】",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1qkW66uEhQ/"
+    },
+    "荷塘月色": {
+      "title": "等你宛在水中央《荷塘月色》【冬雾_kiri】",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1v2W66iEbB/"
+    },
+    "日不落": {
+      "title": "不落的想念 飞在你身边《日不落》【冬雾_kiri】",
+      "kind": "single",
+      "url": "https://www.bilibili.com/video/BV1CtW66UE1Y/"
+    },
+    "蠢货": {
       "title": "【冬雾kiri】歌切 11/7晚场",
       "kind": "single",
-      "url": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=3"
+      "url": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=6"
     },
     "Letting Go": {
       "title": "【冬雾kiri】歌切 11/7晚场",
       "kind": "single",
       "url": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=4"
     },
-    "我是你的小狗": {
+    "罐装啤酒": {
       "title": "【冬雾kiri】歌切 11/7晚场",
       "kind": "single",
-      "url": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=5"
+      "url": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=3"
     },
-    "蠢货": {
+    "遇见": {
       "title": "【冬雾kiri】歌切 11/7晚场",
       "kind": "single",
-      "url": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=6"
+      "url": "https://www.bilibili.com/video/BV1ow4s6wETd/?p=2"
     },
     "爱人呢": {
       "title": "【冬雾_kiri】歌切 爱人呢",
@@ -156,20 +186,10 @@
       "kind": "single",
       "url": "https://www.bilibili.com/video/BV1wrn26WEhT/"
     },
-    "东京不太热": {
-      "title": "【冬雾kiri10.17歌切】东京不太热",
-      "kind": "single",
-      "url": "https://www.bilibili.com/video/BV1T8J66CEvj/"
-    },
     "干物女": {
       "title": "【冬雾kiri10.17歌切】幹物女(WeiWei）",
       "kind": "single",
       "url": "https://www.bilibili.com/video/BV17gJ664Ej6/"
-    },
-    "棠梨煎雪": {
-      "title": "【冬雾kiri10.17歌切】棠梨煎雪",
-      "kind": "single",
-      "url": "https://www.bilibili.com/video/BV13nJ66SEvw/"
     },
     "锦鲤抄": {
       "title": "【冬雾kiri10.17歌切】锦鲤抄",

@@ -1,12 +1,12 @@
 {
   "source": {
-    "uploader": "退烧药777",
+    "uploader": "退烧药778",
     "mid": "141266664",
     "uploaders": [
       {
-        "name": "退烧药777",
+        "name": "退烧药778",
         "mid": "141266664",
-        "role": "歌切切片man（主要来源）"
+        "role": "歌切切片man（主要来源；原名退烧药777，2026-11 改名，mid 不变）"
       },
       {
         "name": "冬雾_kiri",
@@ -19,9 +19,9 @@
         "role": "歌切切片man（2026-11-03 用户点头加入白名单）"
       },
       {
-        "name": "冬雾kiri单推蝠",
+        "name": "冬雾家的Melu7ne",
         "mid": "3546666873391261",
-        "role": "歌切切片man（仅《グルグル》1 首，用户单首点头）"
+        "role": "歌切切片man（原名冬雾kiri单推蝠，2026-11 改名，mid 不变；仅《グルグル》1 首，用户单首点头）"
       },
       {
         "name": "训练木偶",
@@ -30,11 +30,29 @@
       }
     ],
     "deduplicatedBy": "歌曲名；同名仅保留最新发布版本",
-    "updatedAt": "2026-11-10"
+    "updatedAt": "2026-11-23"
   },
   "songs": [
     {
-      "id": "BV1ow4s6wETd_p1",
+      "id": "BV1tny7zZEkB",
+      "title": "甜蜜蜜",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-11-22 23:36:20",
+      "duration": 209,
+      "audio": "./media/BV1tny7zZEkB.m4a",
+      "cover": "./media/covers/BV1tny7zZEkB.jpg",
+      "sourceTitle": "“在梦里见过你”《甜蜜蜜》【冬雾kiri】",
+      "sourceUploader": "奥小姐拜托了",
+      "sourcePubdate": 1795361780,
+      "sourceDuration": 209
+    },
+    {
+      "id": "BV17Ay7zgEPk",
       "title": "月亮代表我的心",
       "artist": "冬雾kiri",
       "language": "国语",
@@ -43,18 +61,18 @@
         "歌切",
         "同名最新"
       ],
-      "publishedAt": "2026-11-08 05:54:59",
+      "publishedAt": "2026-11-22 23:21:30",
       "duration": 195,
-      "audio": "./media/BV1ow4s6wETd_p1.m4a",
-      "cover": "./media/covers/BV1ow4s6wETd.jpg",
-      "sourceTitle": "【冬雾kiri】歌切 11/7晚场",
-      "sourceUploader": "训练木偶",
-      "sourcePubdate": 1794088499,
+      "audio": "./media/BV17Ay7zgEPk.m4a",
+      "cover": "./media/covers/BV17Ay7zgEPk.jpg",
+      "sourceTitle": "“我的情也真，我的爱也真”【冬雾kiri】",
+      "sourceUploader": "奥小姐拜托了",
+      "sourcePubdate": 1795360890,
       "sourceDuration": 195
     },
     {
-      "id": "BV1ow4s6wETd_p2",
-      "title": "遇见",
+      "id": "BV1RdsD6PEg8",
+      "title": "棠梨煎雪",
       "artist": "冬雾kiri",
       "language": "国语",
       "category": "翻唱",
@@ -62,32 +80,124 @@
         "歌切",
         "同名最新"
       ],
-      "publishedAt": "2026-11-08 05:54:59",
-      "duration": 169,
-      "audio": "./media/BV1ow4s6wETd_p2.m4a",
-      "cover": "./media/covers/BV1ow4s6wETd.jpg",
-      "sourceTitle": "【冬雾kiri】歌切 11/7晚场",
-      "sourceUploader": "训练木偶",
-      "sourcePubdate": 1794088499,
-      "sourceDuration": 169
+      "publishedAt": "2026-11-19 00:35:17",
+      "duration": 209,
+      "audio": "./media/BV1RdsD6PEg8.m4a",
+      "cover": "./media/covers/BV1RdsD6PEg8.jpg",
+      "sourceTitle": "“ 一生心事 一人来解 ”《棠梨煎雪》【冬雾kiri】",
+      "sourceUploader": "奥小姐拜托了",
+      "sourcePubdate": 1795019717,
+      "sourceDuration": 209
     },
     {
-      "id": "BV1ow4s6wETd_p3",
-      "title": "罐装啤酒",
+      "id": "BV1T9sJ6NEzX",
+      "title": "东京不太热",
       "artist": "冬雾kiri",
-      "language": "日语",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切",
+        "同名最新"
+      ],
+      "publishedAt": "2026-11-15 17:28:23",
+      "duration": 208,
+      "audio": "./media/BV1T9sJ6NEzX.m4a",
+      "cover": "./media/covers/BV1T9sJ6NEzX.jpg",
+      "sourceTitle": "越唱越梁木的《东京不太热》【冬雾kiri】",
+      "sourceUploader": "奥小姐拜托了",
+      "sourcePubdate": 1794734903,
+      "sourceDuration": 208
+    },
+    {
+      "id": "BV1i1W66TEhd",
+      "title": "我是你的小狗",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切",
+        "同名最新"
+      ],
+      "publishedAt": "2026-11-14 01:54:44",
+      "duration": 194,
+      "audio": "./media/BV1i1W66TEhd.m4a",
+      "cover": "./media/covers/BV1i1W66TEhd.jpg",
+      "sourceTitle": "冷脸萌的唱了《我是你的小狗》【冬雾_kiri】",
+      "sourceUploader": "奥小姐拜托了",
+      "sourcePubdate": 1794592484,
+      "sourceDuration": 194
+    },
+    {
+      "id": "BV1qkW66uEhQ",
+      "title": "恶作剧",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-11-14 01:45:38",
+      "duration": 191,
+      "audio": "./media/BV1qkW66uEhQ.m4a",
+      "cover": "./media/covers/BV1qkW66uEhQ.jpg",
+      "sourceTitle": "本音唱了《恶作剧》【冬雾_kiri】",
+      "sourceUploader": "奥小姐拜托了",
+      "sourcePubdate": 1794591938,
+      "sourceDuration": 191
+    },
+    {
+      "id": "BV1v2W66iEbB",
+      "title": "荷塘月色",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-11-14 01:35:08",
+      "duration": 259,
+      "audio": "./media/BV1v2W66iEbB.m4a",
+      "cover": "./media/covers/BV1v2W66iEbB.jpg",
+      "sourceTitle": "等你宛在水中央《荷塘月色》【冬雾_kiri】",
+      "sourceUploader": "奥小姐拜托了",
+      "sourcePubdate": 1794591308,
+      "sourceDuration": 259
+    },
+    {
+      "id": "BV1CtW66UE1Y",
+      "title": "日不落",
+      "artist": "冬雾kiri",
+      "language": "国语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-11-14 01:14:41",
+      "duration": 208,
+      "audio": "./media/BV1CtW66UE1Y.m4a",
+      "cover": "./media/covers/BV1CtW66UE1Y.jpg",
+      "sourceTitle": "不落的想念 飞在你身边《日不落》【冬雾_kiri】",
+      "sourceUploader": "奥小姐拜托了",
+      "sourcePubdate": 1794590081,
+      "sourceDuration": 208
+    },
+    {
+      "id": "BV1ow4s6wETd_p6",
+      "title": "蠢货",
+      "artist": "冬雾kiri",
+      "language": "国语",
       "category": "翻唱",
       "tags": [
         "歌切"
       ],
       "publishedAt": "2026-11-08 05:54:59",
-      "duration": 147,
-      "audio": "./media/BV1ow4s6wETd_p3.m4a",
+      "duration": 192,
+      "audio": "./media/BV1ow4s6wETd_p6.m4a",
       "cover": "./media/covers/BV1ow4s6wETd.jpg",
       "sourceTitle": "【冬雾kiri】歌切 11/7晚场",
       "sourceUploader": "训练木偶",
       "sourcePubdate": 1794088499,
-      "sourceDuration": 147
+      "sourceDuration": 192
     },
     {
       "id": "BV1ow4s6wETd_p4",
@@ -108,8 +218,26 @@
       "sourceDuration": 223
     },
     {
-      "id": "BV1ow4s6wETd_p5",
-      "title": "我是你的小狗",
+      "id": "BV1ow4s6wETd_p3",
+      "title": "罐装啤酒",
+      "artist": "冬雾kiri",
+      "language": "日语",
+      "category": "翻唱",
+      "tags": [
+        "歌切"
+      ],
+      "publishedAt": "2026-11-08 05:54:59",
+      "duration": 147,
+      "audio": "./media/BV1ow4s6wETd_p3.m4a",
+      "cover": "./media/covers/BV1ow4s6wETd.jpg",
+      "sourceTitle": "【冬雾kiri】歌切 11/7晚场",
+      "sourceUploader": "训练木偶",
+      "sourcePubdate": 1794088499,
+      "sourceDuration": 147
+    },
+    {
+      "id": "BV1ow4s6wETd_p2",
+      "title": "遇见",
       "artist": "冬雾kiri",
       "language": "国语",
       "category": "翻唱",
@@ -118,31 +246,13 @@
         "同名最新"
       ],
       "publishedAt": "2026-11-08 05:54:59",
-      "duration": 102,
-      "audio": "./media/BV1ow4s6wETd_p5.m4a",
+      "duration": 169,
+      "audio": "./media/BV1ow4s6wETd_p2.m4a",
       "cover": "./media/covers/BV1ow4s6wETd.jpg",
       "sourceTitle": "【冬雾kiri】歌切 11/7晚场",
       "sourceUploader": "训练木偶",
       "sourcePubdate": 1794088499,
-      "sourceDuration": 102
-    },
-    {
-      "id": "BV1ow4s6wETd_p6",
-      "title": "蠢货",
-      "artist": "冬雾kiri",
-      "language": "国语",
-      "category": "翻唱",
-      "tags": [
-        "歌切"
-      ],
-      "publishedAt": "2026-11-08 05:54:59",
-      "duration": 192,
-      "audio": "./media/BV1ow4s6wETd_p6.m4a",
-      "cover": "./media/covers/BV1ow4s6wETd.jpg",
-      "sourceTitle": "【冬雾kiri】歌切 11/7晚场",
-      "sourceUploader": "训练木偶",
-      "sourcePubdate": 1794088499,
-      "sourceDuration": 192
+      "sourceDuration": 169
     },
     {
       "id": "BV1sV4u6zEBL",
@@ -579,24 +689,6 @@
       "sourceDuration": 240
     },
     {
-      "id": "BV1T8J66CEvj",
-      "title": "东京不太热",
-      "artist": "冬雾kiri",
-      "language": "国语",
-      "category": "翻唱",
-      "tags": [
-        "歌切"
-      ],
-      "publishedAt": "2026-10-18 03:11:03",
-      "duration": 221,
-      "audio": "./media/BV1T8J66CEvj.m4a",
-      "cover": "./media/covers/BV1T8J66CEvj.jpg",
-      "sourceTitle": "【冬雾kiri10.17歌切】东京不太热",
-      "sourceUploader": "退烧药777",
-      "sourcePubdate": 1792264263,
-      "sourceDuration": 221
-    },
-    {
       "id": "BV17gJ664Ej6",
       "title": "干物女",
       "artist": "冬雾kiri",
@@ -613,24 +705,6 @@
       "sourceUploader": "退烧药777",
       "sourcePubdate": 1792263630,
       "sourceDuration": 210
-    },
-    {
-      "id": "BV13nJ66SEvw",
-      "title": "棠梨煎雪",
-      "artist": "冬雾kiri",
-      "language": "国语",
-      "category": "翻唱",
-      "tags": [
-        "歌切"
-      ],
-      "publishedAt": "2026-10-18 02:47:04",
-      "duration": 236,
-      "audio": "./media/BV13nJ66SEvw.m4a",
-      "cover": "./media/covers/BV13nJ66SEvw.jpg",
-      "sourceTitle": "【冬雾kiri10.17歌切】棠梨煎雪",
-      "sourceUploader": "退烧药777",
-      "sourcePubdate": 1792262824,
-      "sourceDuration": 236
     },
     {
       "id": "BV1YeJq6VE3U",
